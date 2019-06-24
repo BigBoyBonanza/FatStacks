@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Box : MonoBehaviour
 {
-    public BoxMaterials _BoxMaterials;
+    public BoxData boxData;
 
     [HideInInspector]
     public Grid _Grid;
@@ -39,13 +40,14 @@ public class Box : MonoBehaviour
     [HideInInspector]
     public Vector3Int[] prev_coord;
 
-    public match3_group_id_names match3_group_id;
-    public enum match3_group_id_names
+    public GroupIdNames groupId;
+    
+    public enum GroupIdNames
     {
-        blue,
-        red,
-        green,
-        yellow
+        Blue,
+        Red,
+        Green,
+        Yellow
     }
 
     void Awake()
@@ -122,7 +124,7 @@ public class Box : MonoBehaviour
                     {
                         //Neighbor exists
                         Box neighbor = neighbor_game_objects[k].GetComponent<Box>();
-                        if (!neighbor.is_being_checked && neighbor.match3_group_id == match3_group_id)
+                        if (!neighbor.is_being_checked && neighbor.groupId == groupId)
                         {
                             //Neighbor is of the same group
                             //Check if neighbor is close enough
@@ -170,7 +172,7 @@ public class Box : MonoBehaviour
                     {
                         //Neighbor exists
                         Box neighbor = neighbor_game_objects[k].GetComponent<Box>();
-                        if (!neighbor.is_being_checked && neighbor.match3_group_id == match3_group_id)
+                        if (!neighbor.is_being_checked && neighbor.groupId == groupId)
                         {
                             //Neighbor is of the same group
                             //Check if neighbor is close enough
@@ -233,15 +235,51 @@ public class Box : MonoBehaviour
     }
 
     [ContextMenu("Snap To Whole Coordinate")]
-    public void snap_to_whole_coordinate()
+    public void SnapToWholeCoordinate()
     {
         Grid _grid = GetComponentInParent<Grid>();
         transform.position = _grid.CellToWorld(_grid.WorldToCell(transform.position));
     }
 
-    public virtual void apply_color()
+    [ContextMenu("Apply Color")]
+    public virtual void ApplyColor()
     {
+        Debug.Log("Fired");
+        //Get object
+        GameObject obj = (GameObject)Resources.Load(boxData.colorPrefabs[(int)groupId]);
+        if (obj != null)
+        {
+            
+            Box box = obj.GetComponent<Box>();
 
+            //Check if group is overridden property
+            PropertyModification[] propertyModifications = PrefabUtility.GetPropertyModifications(box);
+            //Debug.Log(propertyModifications[propertyModifications.Length-1].propertyPath);
+            //if (propertyModifications[propertyModifications.Length-1].propertyPath)
+            //{
+                //Instantiate object
+                GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(obj);
+
+                //Copy transform
+                instance.transform.position = transform.position;
+                instance.transform.parent = transform.parent;
+
+            Selection.activeGameObject = instance;
+
+                //Destroy old object
+                DestroyImmediate(gameObject);
+            //}
+            //else
+            //{
+            //    Debug.Log("ApplyColor not necessary.");
+            //}
+
+        }
+        else
+        {
+            Debug.Log("'" + boxData.colorPrefabs[(int)groupId] + "' could not be found.");
+        }
+        
     }
     /*
     MatchThreeMaterialAtlas atlas = GetComponentInParent<MatchThreeMaterialAtlas>();

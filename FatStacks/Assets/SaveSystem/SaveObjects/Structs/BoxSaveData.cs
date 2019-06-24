@@ -19,7 +19,7 @@ public class BoxSaveData : SaveData {
 
         //Set group and type
         resourcePath = box.resourcePath;
-        group = (int)box.match3_group_id;
+        group = (int)box.groupId;
 
         //Set position
         position = box.transform.position;
@@ -33,7 +33,7 @@ public class BoxSaveData : SaveData {
         Box box = UnityEngine.GameObject.Instantiate(Resources.Load<GameObject>(resourcePath), GameObject.Find(room).transform).GetComponent<Box>();
         box.name = name;
         box.transform.position = position;
-        box.match3_group_id = (Box.match3_group_id_names)group;
-        box.apply_color();
+        box.groupId = (Box.GroupIdNames)group;
+        box.ApplyColor();
     }
 }
