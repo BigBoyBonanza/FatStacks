@@ -406,7 +406,7 @@ MonoBehaviour:
     type: 3}
   HealthText: {fileID: 114698340281689162}
   _Camera: {fileID: 20520460240586000}
-  my_pickup: {fileID: 114501318658791774}
+  myPickup: {fileID: 114501318658791774}
 --- !u!114 &114073965793209844
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     Rigidbody _Rigidbody;
     CapsuleCollider _Collider;
     public Camera _Camera;
-    public Pickup my_pickup;
+    public Pickup myPickup;
     private bool JumpPressed = false;
     private bool IsFeatherFalling;
     private Vector3 MoveVector;
@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "BoxGrid")
         {
-            my_pickup.placement_grid = other.GetComponent<Grid>();
+            myPickup.placement_grid = other.GetComponent<Grid>();
         }
     }
     // Update is called once per frame
@@ -299,17 +299,24 @@ public class Player : MonoBehaviour
                 SolidLayerMask))
         {
             //If normal has a significant y component, break the while loop
-            if (hit_info.normal.normalized.y > 0.5f)
+            if (hit_info.normal.y > 0.5f)
             {
-                //Debug.Log("Y: " + hit_info.normal.normalized.y);
-                //Debug.DrawRay(transform.position, hit_info.normal.normalized, Color.green, 5);
                 break;
             }
             Vector3 hit_normal_perpendicular = Quaternion.AngleAxis(90f, Vector3.up) * hit_info.normal;
             hit_normal_perpendicular *= (Vector3.Angle(hit_normal_perpendicular, MoveVector.normalized) > 90f) ? (-1) : (1);
-            float clamp = Vector3.Dot(MoveVector.normalized, hit_info.normal);
+            
+
+            //Calculate clamp
+            Vector3 hitDirection = (hit_info.point - transform.position);
+            hitDirection.y = 0;
+            hitDirection = hitDirection.normalized;
+            //Debug.DrawRay(transform.position, hitDirection, Color.magenta, 5f);
+            //float clamp = Vector3.Dot(MoveVector.normalized, hit_info.normal);
+            float clamp = Vector3.Dot(MoveVector.normalized, hitDirection);
             clamp = (1f - Mathf.Abs(clamp)) * Mathf.Sign(clamp);
-            MoveVector = (hit_normal_perpendicular * Mathf.Sign(clamp)) * (MoveVector.magnitude * clamp);
+
+            MoveVector = hit_normal_perpendicular * Mathf.Sign(clamp) * (MoveVector.magnitude * clamp);
             MoveVector.y = 0;
 
             //Debug.Log(move_vector);

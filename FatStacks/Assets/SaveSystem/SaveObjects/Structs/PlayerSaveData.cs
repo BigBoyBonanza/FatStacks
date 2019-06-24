@@ -58,7 +58,7 @@ public class PlayerSaveData : SaveData
         player.Health = health;
 
         //Set arsenal
-        ArsenalSystem gunController = player.my_pickup.gunController;
+        ArsenalSystem gunController = player.myPickup.gunController;
         for (int i = 0; i < ammo.Length; ++i)
         {
             gunController.arsenal[i]._gun.ammo = ammo[i];
