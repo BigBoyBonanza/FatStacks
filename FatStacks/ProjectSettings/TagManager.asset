@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SaveSystem
+  - Interactable
+  - BoxGrid
   layers:
   - Default
   - TransparentFX
@@ -13,13 +16,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 8
+  - Player
+  - InteractSolid
+  - InteractSoft
+  - BoxGrid
+  - 13
+  - 14
   - 
   - 
   - 
