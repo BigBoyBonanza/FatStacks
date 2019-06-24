@@ -64,7 +64,7 @@ public class PlayerSaveData : SaveData
             gunController.arsenal[i]._gun.ammo = ammo[i];
             gunController.arsenal[i].isInArsenal = inArse[i];
         }
-        gunController.equip_gun((ArsenalSystem.gun_type)equip);
+        gunController.equip_gun((ArsenalSystem.GunType)equip);
     }
 }
 

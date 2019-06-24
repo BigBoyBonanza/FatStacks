@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e64b73c1dcccd498191f8ca3afbf5f, type: 3}
+  m_Name: MatchGun
+  m_EditorClassIdentifier: 
+  name: Match Gun
+  ammoCapacity: 45
+  gun_sprite: {fileID: 21300000, guid: 6e2e91d0a45f0034f8b8cd9e0a5f087d, type: 3}
+  shootSound:
+  - {fileID: 8300000, guid: a1319ece7dd61b54caa72f11f57b0407, type: 3}
+  - {fileID: 8300000, guid: 1d13807e528501d4fb1e33ab26c8932f, type: 3}
+  emptySound:
+  - {fileID: 8300000, guid: 69448b22e17e8b44eb0b2271ac0be7bb, type: 3}
+  errorSound:
+  - {fileID: 8300000, guid: 14d240ab8a0bbcf4ebac090b9c8a3278, type: 3}

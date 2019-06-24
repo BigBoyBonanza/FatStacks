@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4634948767532358}
   - component: {fileID: 2569400267179187816}
   - component: {fileID: 65009291689129720}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BoxGrid
   m_TagString: BoxGrid
   m_Icon: {fileID: 0}

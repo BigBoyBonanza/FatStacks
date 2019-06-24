@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class ArsenalSystem : MonoBehaviour
 {
-    public Pickup _pickup;
+    public Pickup pickup;
     public Image ammoBar;
     public Text ammo;
-    public enum gun_type
+    public enum GunType
     {
+        match,
+        freeze,
+        launch,
+        slapstick,
+        bazooka,
         debug,
         none
     }
@@ -24,7 +29,7 @@ public class ArsenalSystem : MonoBehaviour
 
     public ArsenalItem[] arsenal = new ArsenalItem[2];
     [SerializeField]
-    private gun_type starting_gun;
+    private GunType starting_gun;
     [HideInInspector]
     public int equipped_gun_index;
     [HideInInspector]
@@ -33,7 +38,7 @@ public class ArsenalSystem : MonoBehaviour
     public Image ui_gun_icon;
     private void Awake()
     {
-        _pickup = GetComponentInParent<Pickup>();
+        pickup = GetComponentInParent<Pickup>();
     }
     void Start()
     {
@@ -45,7 +50,7 @@ public class ArsenalSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        can_fire = (_pickup.state != Pickup.pickup_state.carrying_object && equipped_gun_index != (int)gun_type.none && equipped_gun.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
+        can_fire = (pickup.state != Pickup.pickup_state.carrying_object && equipped_gun_index != (int)GunType.none && equipped_gun.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
         if (can_fire)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -95,7 +100,7 @@ public class ArsenalSystem : MonoBehaviour
                     }
                     else
                     {
-                        equip_gun((gun_type)equipped_gun_index);
+                        equip_gun((GunType)equipped_gun_index);
                         if (equipped_gun.canFire())
                         {
                             break;
@@ -109,7 +114,7 @@ public class ArsenalSystem : MonoBehaviour
             }
         }
     }
-    public void add_gun_to_arsenal(gun_type gun)
+    public void add_gun_to_arsenal(GunType gun)
     {
         if (arsenal[(int)gun].isInArsenal == false)
         {
@@ -117,11 +122,11 @@ public class ArsenalSystem : MonoBehaviour
             arsenal_size += 1;
         }
     }
-    public void equip_gun(gun_type gun)
+    public void equip_gun(GunType gun)
     {
 
         equipped_gun_index = (int)gun;
-        if (gun != gun_type.none)
+        if (gun != GunType.none)
         {
             showAmmoInfo();
             ArsenalItem new_item = arsenal[(int)gun];
@@ -140,7 +145,7 @@ public class ArsenalSystem : MonoBehaviour
             else
             {
                 Debug.Log(gun.ToString() + " was not in arsenal.");
-                equip_gun(gun_type.none);
+                equip_gun(GunType.none);
             }
         }
         else
@@ -162,12 +167,12 @@ public class ArsenalSystem : MonoBehaviour
         }
         return size;
     }
-    public void addGunToArsenalAndEquip(gun_type gun)
+    public void addGunToArsenalAndEquip(GunType gun)
     {
         add_gun_to_arsenal(gun);
         equip_gun(gun);
     }
-    public int addAmmoToGun(gun_type gun, int amount)
+    public int addAmmoToGun(GunType gun, int amount)
     {
         return arsenal[(int)gun]._gun.addAmmo(amount);
     }
