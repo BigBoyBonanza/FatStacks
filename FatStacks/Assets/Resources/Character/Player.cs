@@ -312,10 +312,11 @@ public class Player : MonoBehaviour
             hitDirection.y = 0;
             hitDirection = hitDirection.normalized;
             //Debug.DrawRay(transform.position, hitDirection, Color.magenta, 5f);
-            float clamp = Vector3.Dot(MoveVector.normalized, hitDirection);
-            clamp = (1f - Mathf.Abs(clamp)) * Mathf.Sign(clamp);
+            //float clamp = Vector3.Dot(MoveVector.normalized, hit_info.normal);
+            float clamp = Vector3.Dot(hitDirection, MoveVector.normalized);
+            clamp = (1f - Mathf.Abs(clamp)) * Mathf.Sign(clamp) * 1.2f;
 
-            MoveVector = hit_normal_perpendicular * Mathf.Sign(clamp) * (MoveVector.magnitude * clamp);
+            MoveVector = hit_normal_perpendicular * Mathf.Sign(clamp) * MoveVector.magnitude * clamp;
             MoveVector.y = 0;
 
             //Debug.Log(move_vector);
