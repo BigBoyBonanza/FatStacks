@@ -69,14 +69,14 @@ public class Box : MonoBehaviour
     }
     public virtual void FixedUpdate()
     {
-        update_coords();
+        UpdateCoords();
     }
 
     private void OnDestroy()
     {
         RemoveMyself();
     }
-    void update_coords()
+    void UpdateCoords()
     {
         AddMyself();
         for (int j = 0; j < prev_coord.Length; ++j)
@@ -190,11 +190,12 @@ public class Box : MonoBehaviour
         }
         matching_neigbors.Add(this);
     }
+
     public int GetStackWeight()
     {
         //Box neighbor = _BoxCoordDictionary?.Get(coord[0] + Vector3Int.up)?[0]?.GetComponent<Box>(); up-to-date C#
         GameObject[] neighborGameObjects = _BoxCoordDictionary.Get(coord[0] + Vector3Int.up);
-        Box neighbor = (neighborGameObjects == null) ? null : neighborGameObjects[0].GetComponent<Box>();
+        Box neighbor = neighborGameObjects?[0].GetComponent<Box>();
         if (neighbor != null)
         {
             return weight + neighbor.GetStackWeight();
@@ -204,6 +205,20 @@ public class Box : MonoBehaviour
             return weight;
         }
 
+    }
+
+    public Box GetBoxOnTopOfMyStack()
+    {
+        GameObject[] neighbors = _BoxCoordDictionary.Get(coord[0] + Vector3Int.up);
+        if (neighbors == null)
+        {
+            return this;
+        }
+        else
+        {
+            return neighbors[0].GetComponent<Box>().GetBoxOnTopOfMyStack();
+        }
+        
     }
     public void ResetChecked()
     {
@@ -281,51 +296,4 @@ public class Box : MonoBehaviour
         }
         
     }
-    /*
-    MatchThreeMaterialAtlas atlas = GetComponentInParent<MatchThreeMaterialAtlas>();
-    MeshRenderer mesh_renderer = GetComponent<MeshRenderer>();
-    Material[] new_materials = mesh_renderer.sharedMaterials;
-    string tail = get_tail();
-    if (!atlas.materials.ContainsKey(i_am + tail))
-    {
-        //Create a new material and store it. Then set it.
-        switch (match3_group_id)
-        {
-            case match3_group_id_names.blue:
-                new_materials[1] = create_material_color_variant(new_materials[1], Color.blue, atlas);
-                break;
-            case match3_group_id_names.red:
-                new_materials[1] = create_material_color_variant(new_materials[1], Color.red, atlas);
-                break;
-            case match3_group_id_names.yellow:
-                new_materials[1] = create_material_color_variant(new_materials[1], Color.yellow, atlas);
-                break;
-            case match3_group_id_names.green:
-                new_materials[1] = create_material_color_variant(new_materials[1], Color.green, atlas);
-                break;
-        }
-        atlas.materials[i_am + tail] = new_materials[1];
-    }
-    else
-    {
-        //Set new material
-        new_materials[1] = atlas.materials[i_am + tail];
-    }
-    mesh_renderer.sharedMaterials = new_materials;
-
-}
-
-private string get_tail()
-{
-    return match3_group_id.ToString();
-}
-
-private Material create_material_color_variant(Material base_material, Color color, MatchThreeMaterialAtlas atlas)
-{
-    Material new_color_material = new Material(base_material);
-    new_color_material.SetColor("_Color", color);
-    return new_color_material;
-
-}
-*/
 }

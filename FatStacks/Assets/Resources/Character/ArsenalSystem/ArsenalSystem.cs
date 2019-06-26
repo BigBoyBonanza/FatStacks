@@ -66,8 +66,8 @@ public class ArsenalSystem : MonoBehaviour
             ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equipped_gun.getAmmoFill(), 0.1f);
             ammo.text = equipped_gun.ammo.ToString();
         }
-        //Only allow weapon scrolling/ number selecting if arsenal is greater than 1
-        if (arsenal_size > 0)
+        //Only allow weapon scrolling/ number selecting if arsenal is greater than 1 and currently not carrying an object
+        if (arsenal_size > 0 && pickup.state != Pickup.pickup_state.carrying_object)
         {
             float scroll_delta = Input.GetAxis("Mouse ScrollWheel");
             if (scroll_delta != 0)

@@ -17,14 +17,21 @@ public class Pickup : MonoBehaviour
     }
     [HideInInspector]
     public pickup_state state = pickup_state.no_object_targeted;
-    public float distance = 1;
+    public float distance = 3;
+    public float distanceMin = 2;
+    public float distanceMax = 5;
+
+    Vector3Int[] dropCoords = new Vector3Int[2];
+    Vector3[] dropLocations = new Vector3[2];
+    bool[] canDropAtCoords = new bool[] { true, true };
+
     [HideInInspector]
     public GameObject targeted_item = null;
     private Interaction targeted_item_interaction;
     [HideInInspector]
     public GameObject carried_item = null;
-    private bool was_pickup_pressed;
-    private Vector3 finalDropLocation;
+    private bool wasPickupPressed;
+    private bool wasDropOnStackPressed;
     private Rigidbody item_rigidbody;
     [HideInInspector]
     public Grid placement_grid;
@@ -33,14 +40,14 @@ public class Pickup : MonoBehaviour
     public Fade exception;
     private Mesh carried_item_mesh;
     private Material carried_item_material;
-    private int layer_mask_pickup;
-    private int layer_mask_obstructed;
+    private int layerMaskPickup;
+    private int layerMaskObstructed;
     private int layer_mask_hide;
 
     void Awake()
     {
-        layer_mask_pickup = LayerMask.GetMask("InteractSolid", "InteractSoft", "Default");
-        layer_mask_obstructed = LayerMask.GetMask("Player");
+        layerMaskPickup = LayerMask.GetMask("InteractSolid", "InteractSoft", "Default");
+        layerMaskObstructed = LayerMask.GetMask("Player");
         layer_mask_hide = LayerMask.GetMask("InteractSolid", "Default");
 
         //character = transform.parent.gameObject;
@@ -50,23 +57,22 @@ public class Pickup : MonoBehaviour
     void Update()
     {
         //Check for collision with liftable objects
-        RaycastHit hit_info;
+        RaycastHit hitInfo = new RaycastHit();
         Ray ray = new Ray(transform.position, transform.rotation * Vector3.forward);
-        //Debug.DrawRay(ray.origin, ray.direction, Color.green);
-        bool object_found = Physics.Raycast(ray, out hit_info, distance, layer_mask_pickup);
+        bool objectFound = Physics.Raycast(ray, out hitInfo, distance, layerMaskPickup);
         switch (state)
         {
             case pickup_state.no_object_targeted:
 
-                if (object_found && hit_info.transform.tag == "Interactable")
+                if (objectFound && hitInfo.transform.tag == "Interactable")
                 {
                     //Check the availability of the targeted object
-                    targeted_item = hit_info.transform.gameObject;
+                    targeted_item = hitInfo.transform.gameObject;
                     targeted_item_interaction = targeted_item.GetComponent<Interaction>();
                     if (targeted_item_interaction.isBusy == false)
                     {
                         state = pickup_state.target_available;
-                        refresh_text();
+                        RefreshText();
                     }
                     //Debug.Log("Target found.");
                     //Debug.Log("Targeted item: " + targeted_item.name);
@@ -74,7 +80,7 @@ public class Pickup : MonoBehaviour
                 }
                 break;
             case pickup_state.target_available:
-                if (!object_found || hit_info.transform.gameObject != targeted_item || targeted_item_interaction.isBusy == true)
+                if (!objectFound || hitInfo.transform.gameObject != targeted_item || targeted_item_interaction.isBusy == true)
                 {
                     //Object not targeted anymore
                     //Debug.Log("Target lost.");
@@ -101,46 +107,67 @@ public class Pickup : MonoBehaviour
                 }
                 break;
             case pickup_state.carrying_object:
-                //Set initial drop location
-                Vector3 initDropLocation = new Vector3();
-                if (object_found)
+                //Check scroll
+                float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+                if (scrollDelta != 0)
                 {
-                    initDropLocation = hit_info.point + (hit_info.normal * 0.5f);
+                    distance = Mathf.Clamp(distance + Mathf.Sign(scrollDelta), distanceMin, distanceMax);
+                }
+
+                //Set initial drop location
+                dropCoords = new Vector3Int[] { Vector3Int.zero, Vector3Int.zero };
+                dropLocations = new Vector3[] { Vector3.zero, Vector3.zero };
+                canDropAtCoords = new bool[] { true, true };
+
+                
+                if (objectFound)
+                {
+                    dropCoords[0] = placement_grid.WorldToCell(hitInfo.point + (hitInfo.normal * 0.5f));
+                    Box box = hitInfo.transform.gameObject.GetComponent<Box>();
+                    if (box != null)
+                    {
+                        dropCoords[1] = box.GetBoxOnTopOfMyStack().coord[0] + Vector3Int.up;
+                        canDropAtCoords[1] = Vector3.Distance(transform.position, placement_grid.CellToWorld(dropCoords[1])) < distanceMax;
+                    }
                 }
                 else
                 {
-                    initDropLocation = transform.position + (transform.rotation * (Vector3.forward * distance));
+                    dropCoords[0] = placement_grid.WorldToCell(transform.position + (transform.rotation * (Vector3.forward * distance)));
+                    canDropAtCoords[1] = false;
                 }
-                Vector3Int dropCoords = placement_grid.WorldToCell(initDropLocation);
+                
                 //Convert back to world space
-                finalDropLocation = placement_grid.CellToWorld(dropCoords);
-                bool can_drop = !Physics.CheckBox(finalDropLocation + new Vector3(0.5f, 0.55f, 0.5f), new Vector3(0.51f, 0.475f, 0.51f), Quaternion.identity, layer_mask_obstructed);
-                bool show = !Physics.CheckBox(finalDropLocation + new Vector3(0.5f, 0.55f, 0.5f), new Vector3(0.51f, 0.475f, 0.51f), Quaternion.identity, layer_mask_hide);
-                can_drop = can_drop && show;
-                MaterialPropertyBlock properties = new MaterialPropertyBlock();
-                if (show)
+                for(int i = 0; i < dropCoords.Length; ++i)
                 {
-                    if (can_drop)
+                    dropLocations[i] = placement_grid.CellToWorld(dropCoords[i]);
+                    bool obstructionNotDetected = !Physics.CheckBox(dropLocations[i] + new Vector3(0.5f, 0.55f, 0.5f), new Vector3(0.51f, 0.475f, 0.51f), Quaternion.identity, layerMaskObstructed);
+                    bool clippingNotDetected = !Physics.CheckBox(dropLocations[i] + new Vector3(0.5f, 0.55f, 0.5f), new Vector3(0.51f, 0.475f, 0.51f), Quaternion.identity, layer_mask_hide);
+                    canDropAtCoords[i] = canDropAtCoords[i] && obstructionNotDetected && clippingNotDetected;
+                    MaterialPropertyBlock properties = new MaterialPropertyBlock();
+                    if (clippingNotDetected)
                     {
-                        prompt.FadeInText("PLACE");
-                        properties.SetColor("_Color", new Color(0.7f, 0.89f, 1f, 0.75f));
+                        if (canDropAtCoords[i])
+                        {
+                            prompt.FadeInText("PLACE");
+                            properties.SetColor("_Color", new Color(0.7f, 0.89f, 1f, 0.75f));
+                        }
+                        else
+                        {
+                            prompt.fade_out_text();
+                            properties.SetColor("_Color", new Color(1f, 0.89f, 0.7f, 0.75f));
+                        }
+                        Graphics.DrawMesh(carried_item_mesh, dropLocations[i], Quaternion.identity, carried_item_material, 0, GetComponent<Camera>(), 0, properties, false);
                     }
-                    else
-                    {
-                        prompt.fade_out_text();
-                        properties.SetColor("_Color", new Color(1f, 0.89f, 0.7f, 0.75f));
-                    }
-                    Graphics.DrawMesh(carried_item_mesh, finalDropLocation, Quaternion.identity, carried_item_material, 0, GetComponent<Camera>(), 0, properties, false);
                 }
-                if (Input.GetButtonDown("Pickup") && can_drop)
+                if (Input.GetButtonDown("Pickup") && canDropAtCoords[0])
                 {
-                    //Set carried item down
-                    // Debug.Log(drop_coords);
-                    //Debug.Log("Object dropped: " + carried_item.name);
-                    //Debug.Log("Location: " + drop_location);
-                    //
-                    was_pickup_pressed = true;
 
+                    wasPickupPressed = true;
+                }
+                if (Input.GetButtonDown("Drop On Stack") && canDropAtCoords[1])
+                {
+
+                    wasDropOnStackPressed = true;
                 }
                 break;
         }
@@ -158,9 +185,15 @@ public class Pickup : MonoBehaviour
 
 
             case pickup_state.carrying_object:
-                if (was_pickup_pressed)
+                if (wasPickupPressed)
                 {
-                    drop_object();
+                    DropObject(dropLocations[0]);
+                    wasPickupPressed = false;
+                }
+                if (wasDropOnStackPressed)
+                {
+                    DropObject(dropLocations[1]);
+                    wasDropOnStackPressed = false;
                 }
                 break;
             case pickup_state.constraining_object:
@@ -183,29 +216,29 @@ public class Pickup : MonoBehaviour
 
     }
 
-    public void pickup_object(GameObject obj)
+    public void PickupObject(GameObject obj)
     {
         state = pickup_state.carrying_object;
         carried_item = obj;
         carried_item_mesh = carried_item.GetComponent<MeshFilter>().mesh;
-        carried_item_material = carried_item.GetComponent<MeshRenderer>().sharedMaterials[1];
+        carried_item_material = carried_item.GetComponent<MeshRenderer>().sharedMaterials[0];
         item_rigidbody = carried_item.GetComponent<Rigidbody>();
         // Debug.Log("Object carried: " + carried_item.name);
         carried_item.SetActive(false);
-
+        distance = Vector3.Distance(transform.position,obj.transform.position);
 
     }
-    private void drop_object()
+    private void DropObject(Vector3 location)
     {
         carried_item.SetActive(true);
         //Remove constraints of rigidbody
         item_rigidbody.constraints = RigidbodyConstraints.None;
-        item_rigidbody.MovePosition(finalDropLocation);
+        item_rigidbody.MovePosition(location);
         //Reapply constraints on the next frame
         state = pickup_state.constraining_object;
-        was_pickup_pressed = false;
+        distance = distanceMax;
     }
-    public void refresh_text()
+    public void RefreshText()
     {
         prompt.FadeInText(targeted_item_interaction.get_prompt());
     }

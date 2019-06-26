@@ -13,7 +13,7 @@ public class BoxInteraction : Interaction
         else
         {
 
-            pickup.pickup_object(gameObject);
+            pickup.PickupObject(gameObject);
         }
     }
 }

@@ -266,7 +266,9 @@ MonoBehaviour:
   Character: {fileID: 114260012453695698}
   gunController: {fileID: 114214915382269138}
   state: 0
-  distance: 4
+  distance: 5
+  distanceMin: 2
+  distanceMax: 5
   targeted_item: {fileID: 0}
   carried_item: {fileID: 0}
   placement_grid: {fileID: 0}
