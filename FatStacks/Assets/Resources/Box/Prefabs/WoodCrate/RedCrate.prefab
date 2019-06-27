@@ -11,6 +11,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCrate
       objectReference: {fileID: 0}
+    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: groupId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: resourcePath
+      value: Box/Prefabs/WoodCrate/YellowCrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 23588244874325878, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d93a0205678c6024097c0c341ccc21bf, type: 2}
     - target: {fileID: 4360463401495616, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5999994
@@ -54,16 +69,6 @@ PrefabInstance:
     - target: {fileID: 4360463401495616, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23588244874325878, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d93a0205678c6024097c0c341ccc21bf, type: 2}
-    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
-        type: 3}
-      propertyPath: groupId
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}

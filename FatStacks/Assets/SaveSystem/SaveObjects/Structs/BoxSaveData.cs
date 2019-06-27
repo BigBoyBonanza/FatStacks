@@ -30,10 +30,9 @@ public class BoxSaveData : SaveData {
 
     public override void Read()
     {
-        Box box = UnityEngine.GameObject.Instantiate(Resources.Load<GameObject>(resourcePath), GameObject.Find(room).transform).GetComponent<Box>();
+        Box box = Object.Instantiate(Resources.Load<GameObject>(resourcePath), GameObject.Find(room).transform).GetComponent<Box>();
         box.name = name;
         box.transform.position = position;
         box.groupId = (Box.GroupIdNames)group;
-        box.ApplyColor();
     }
 }

@@ -93,16 +93,15 @@ public class Pickup : MonoBehaviour
                     {
                         //Carry object
                         targeted_item_interaction.interact(this);
-                        /*
-                        state = pickup_state.carrying_object;
-                        carried_item = targeted_item;
-                        carried_item_mesh = carried_item.GetComponent<MeshFilter>().mesh;
-                        carried_item_material = carried_item.GetComponent<MeshRenderer>().material;
-                        item_rigidbody = carried_item.GetComponent<Rigidbody>();
-                        Debug.Log("Object carried: " + carried_item.name);
-                        
-                        carried_item.SetActive(false);
-                        */
+                    }
+                    if (Input.GetButtonDown("Drop On Stack"))
+                    {
+                        //Check if target object is a box
+                        Box box = targeted_item_interaction.GetComponent<Box>();
+                        if(box != null)
+                        {
+                            box.GetBoxOnTopOfMyStack().GetComponent<Interaction>().interact(this);
+                        }
                     }
                 }
                 break;
@@ -225,7 +224,8 @@ public class Pickup : MonoBehaviour
         item_rigidbody = carried_item.GetComponent<Rigidbody>();
         // Debug.Log("Object carried: " + carried_item.name);
         carried_item.SetActive(false);
-        distance = Vector3.Distance(transform.position,obj.transform.position);
+        distance = distanceMax;
+        //distance = Vector3.Distance(transform.position,obj.transform.position);
 
     }
     private void DropObject(Vector3 location)

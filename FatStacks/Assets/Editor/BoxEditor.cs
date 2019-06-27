@@ -14,7 +14,7 @@ public class BoxEditor : Editor
         {
             Box script = (Box)target;
             script.groupId = value;
-            script.ApplyColor();
+            ApplyColor(script);
         }
     }
 
@@ -39,13 +39,42 @@ public class BoxEditor : Editor
         
     }
 
+    public void ApplyColor(Box box)
+    {
+        //Get object
+        GameObject varient = (GameObject)Resources.Load(box.boxData.colorPrefabs[(int)groupId]);
+        if (varient != null)
+        {
+            Box boxVarient = varient.GetComponent<Box>();
+
+            //Check if group is overridden property
+            PropertyModification[] propertyModifications = PrefabUtility.GetPropertyModifications(boxVarient);
+
+            //Instantiate object
+            GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(varient);
+
+            //Copy transform
+            instance.transform.position = boxVarient.transform.position;
+            instance.transform.parent = boxVarient.transform.parent;
+
+            Selection.activeGameObject = instance;
+
+            //Destroy old object
+            DestroyImmediate(boxVarient.gameObject);
+        }
+        else
+        {
+            Debug.Log("'" + box.boxData.colorPrefabs[(int)groupId] + "' could not be found.");
+        }
+    }
+
     private void ApplyColorToEveryTarget(Box.GroupIdNames groupId)
     {
         for (int i = 0; i < targets.Length; ++i)
         {
             Box script = (Box)targets[i];
             script.groupId = groupId;
-            script.ApplyColor();
+            ApplyColor(script);
         }
     }
 

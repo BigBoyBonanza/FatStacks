@@ -256,44 +256,5 @@ public class Box : MonoBehaviour
         transform.position = _grid.CellToWorld(_grid.WorldToCell(transform.position));
     }
 
-    [ContextMenu("Apply Color")]
-    public virtual void ApplyColor()
-    {
-        Debug.Log("Fired");
-        //Get object
-        GameObject obj = (GameObject)Resources.Load(boxData.colorPrefabs[(int)groupId]);
-        if (obj != null)
-        {
-            
-            Box box = obj.GetComponent<Box>();
-
-            //Check if group is overridden property
-            PropertyModification[] propertyModifications = PrefabUtility.GetPropertyModifications(box);
-            //Debug.Log(propertyModifications[propertyModifications.Length-1].propertyPath);
-            //if (propertyModifications[propertyModifications.Length-1].propertyPath)
-            //{
-                //Instantiate object
-                GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(obj);
-
-                //Copy transform
-                instance.transform.position = transform.position;
-                instance.transform.parent = transform.parent;
-
-            Selection.activeGameObject = instance;
-
-                //Destroy old object
-                DestroyImmediate(gameObject);
-            //}
-            //else
-            //{
-            //    Debug.Log("ApplyColor not necessary.");
-            //}
-
-        }
-        else
-        {
-            Debug.Log("'" + boxData.colorPrefabs[(int)groupId] + "' could not be found.");
-        }
-        
-    }
+    
 }
