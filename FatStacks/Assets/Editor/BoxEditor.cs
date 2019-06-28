@@ -42,7 +42,7 @@ public class BoxEditor : Editor
     public void ApplyColor(Box box)
     {
         //Get object
-        GameObject varient = (GameObject)Resources.Load(box.boxData.colorPrefabs[(int)groupId]);
+        GameObject varient = (GameObject)Resources.Load(box.boxData.colorPrefabs[(int)box.groupId]);
         if (varient != null)
         {
             Box boxVarient = varient.GetComponent<Box>();
@@ -54,13 +54,13 @@ public class BoxEditor : Editor
             GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(varient);
 
             //Copy transform
-            instance.transform.position = boxVarient.transform.position;
-            instance.transform.parent = boxVarient.transform.parent;
+            instance.transform.position = box.transform.position;
+            instance.transform.parent = box.transform.parent;
 
             Selection.activeGameObject = instance;
 
             //Destroy old object
-            DestroyImmediate(boxVarient.gameObject);
+            DestroyImmediate(box.gameObject,true);
         }
         else
         {

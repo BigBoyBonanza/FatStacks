@@ -9,7 +9,7 @@ public class FreezeGun : Gun
         //RoomResetterInteraction.canReset = true;
         RaycastHit hit_info;
         bool object_found = Physics.Raycast(ray, out hit_info, float.MaxValue, LayerMask.GetMask("Default", "InteractSolid"));
-        Box box = hit_info.transform.GetComponent<Box>();
+        Box box = hit_info.transform?.GetComponent<Box>();
         if (object_found && box != null)
         {
             box.Frozen = !box.Frozen;

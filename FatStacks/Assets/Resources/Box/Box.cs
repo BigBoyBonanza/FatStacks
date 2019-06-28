@@ -50,6 +50,7 @@ public class Box : MonoBehaviour
         Yellow
     }
 
+    [SerializeField]
     private bool _frozen;
     public bool Frozen
     {
@@ -84,6 +85,7 @@ public class Box : MonoBehaviour
             _BoxCoordDictionary.Add(coord[i], gameObject);
         }
         coord.CopyTo(prev_coord, 0);
+        Frozen = _frozen;
     }
     public virtual void FixedUpdate()
     {

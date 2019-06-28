@@ -9,15 +9,23 @@ public class LauncherGun : Gun
         //RoomResetterInteraction.canReset = true;
         RaycastHit hit_info;
         bool object_found = Physics.Raycast(ray, out hit_info, float.MaxValue, LayerMask.GetMask("Default", "InteractSolid"));
-        Box box = hit_info.transform.GetComponent<Box>();
+        Box box = hit_info.transform?.GetComponent<Box>();
         if (object_found && box != null)
         {
-            while(box != null)
+            while(true)
             {
                 Rigidbody rigidbody = box.GetComponent<Rigidbody>();
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.AddForce(Vector3.up * 10f, ForceMode.VelocityChange);
-                box = box.GetBoxOnTopOfMe();
+                Box nextBox = box.GetBoxOnTopOfMe();
+                if(box != nextBox && nextBox != null)
+                {
+                    box = nextBox;
+                }
+                else
+                {
+                    break;
+                }
             }
             
         }
