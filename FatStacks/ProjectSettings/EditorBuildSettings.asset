@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Sprint#2.unity
+    guid: 49588a4d21bccfe438e716be3811163c
+  - enabled: 1
     path: Assets/Scenes/MatchGunTest.unity
     guid: de2212dbbee6c9349af48232f3a1e020
   m_configObjects: {}
