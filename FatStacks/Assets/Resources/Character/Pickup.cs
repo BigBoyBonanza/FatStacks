@@ -207,7 +207,7 @@ public class Pickup : MonoBehaviour
                     m3_object.transform.SetParent(placement_grid.transform);
                 }
                 item_rigidbody = carried_item.GetComponent<Rigidbody>();
-                item_rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                m3_object.Frozen = false;
                 state = pickup_state.no_object_targeted;
                 carried_item = null;
                 break;
@@ -222,6 +222,7 @@ public class Pickup : MonoBehaviour
         carried_item_mesh = carried_item.GetComponent<MeshFilter>().mesh;
         carried_item_material = carried_item.GetComponent<MeshRenderer>().sharedMaterials[0];
         item_rigidbody = carried_item.GetComponent<Rigidbody>();
+        item_rigidbody.velocity = Vector3.zero;
         // Debug.Log("Object carried: " + carried_item.name);
         carried_item.SetActive(false);
         distance = distanceMax;

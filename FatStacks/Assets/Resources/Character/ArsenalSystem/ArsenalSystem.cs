@@ -29,12 +29,12 @@ public class ArsenalSystem : MonoBehaviour
 
     public ArsenalItem[] arsenal = new ArsenalItem[2];
     [SerializeField]
-    private GunType starting_gun;
+    private GunType startingGun;
     [HideInInspector]
     public int equipped_gun_index;
     [HideInInspector]
-    public int arsenal_size;
-    public bool can_fire = true;
+    public int arsenalSize;
+    public bool canFire = true;
     public Image ui_gun_icon;
     private void Awake()
     {
@@ -42,16 +42,16 @@ public class ArsenalSystem : MonoBehaviour
     }
     void Start()
     {
-        arsenal_size = evaluateArsenalSize();
+        arsenalSize = evaluateArsenalSize();
         if (Player.firstSpawnInScene)
-            equip_gun(starting_gun);
+            equip_gun(startingGun);
     }
 
     // Update is called once per frame
     void Update()
     {
-        can_fire = (pickup.state != Pickup.pickup_state.carrying_object && equipped_gun_index != (int)GunType.none && equipped_gun.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
-        if (can_fire)
+        canFire = (pickup.state != Pickup.pickup_state.carrying_object && equipped_gun_index != (int)GunType.none && equipped_gun.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
+        if (canFire)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -66,51 +66,60 @@ public class ArsenalSystem : MonoBehaviour
             ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equipped_gun.getAmmoFill(), 0.1f);
             ammo.text = equipped_gun.ammo.ToString();
         }
-        //Only allow weapon scrolling/ number selecting if arsenal is greater than 1 and currently not carrying an object
-        if (arsenal_size > 0 && pickup.state != Pickup.pickup_state.carrying_object)
+        //Only allow weapon scrolling if arsenal is greater than 1 and currently not carrying an object
+        if (arsenalSize > 0)
         {
-            float scroll_delta = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll_delta != 0)
+            if(pickup.state != Pickup.pickup_state.carrying_object)
             {
-                int old_gun_index = equipped_gun_index;
-                while (true)
+                float scroll_delta = Input.GetAxis("Mouse ScrollWheel");
+                if (scroll_delta != 0)
                 {
-                    do
+                    int old_gun_index = equipped_gun_index;
+                    while (true)
                     {
-                        //Find a gun that is in the arsenal
-                        equipped_gun_index = (int)(equipped_gun_index + Mathf.Sign(scroll_delta));
-                        if (equipped_gun_index < 0)
+                        do
                         {
-                            equipped_gun_index = arsenal.Length - 1;
+                            //Find a gun that is in the arsenal
+                            equipped_gun_index = (int)(equipped_gun_index + Mathf.Sign(scroll_delta));
+                            if (equipped_gun_index < 0)
+                            {
+                                equipped_gun_index = arsenal.Length - 1;
+                            }
+                            else if (equipped_gun_index == arsenal.Length)
+                            {
+                                equipped_gun_index = 0;
+                            }
+                            if (equipped_gun_index == old_gun_index)
+                            {
+                                break;
+                            }
                         }
-                        else if (equipped_gun_index == arsenal.Length)
-                        {
-                            equipped_gun_index = 0;
-                        }
+                        while (arsenal[equipped_gun_index].isInArsenal == false);
+                        //Equip the gun
                         if (equipped_gun_index == old_gun_index)
                         {
                             break;
                         }
-                    }
-                    while (arsenal[equipped_gun_index].isInArsenal == false);
-                    //Equip the gun
-                    if (equipped_gun_index == old_gun_index)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        equip_gun((GunType)equipped_gun_index);
-                        if (equipped_gun.canFire())
+                        else
                         {
-                            break;
+                            equip_gun((GunType)equipped_gun_index);
+                            if (equipped_gun.canFire())
+                            {
+                                break;
+                            }
                         }
                     }
                 }
-
-
                 //Debug.Log(equipped_gun.gun_info.name);
 
+            }
+            //Check keys 1-9
+            for(int key = 0; key < arsenal.Length; ++key)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + key))
+                {
+                    equip_gun((GunType)key);
+                }
             }
         }
     }
@@ -119,7 +128,7 @@ public class ArsenalSystem : MonoBehaviour
         if (arsenal[(int)gun].isInArsenal == false)
         {
             arsenal[(int)gun].isInArsenal = true;
-            arsenal_size += 1;
+            arsenalSize += 1;
         }
     }
     public void equip_gun(GunType gun)

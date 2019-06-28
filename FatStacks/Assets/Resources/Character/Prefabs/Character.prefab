@@ -266,7 +266,7 @@ MonoBehaviour:
   Character: {fileID: 114260012453695698}
   gunController: {fileID: 114214915382269138}
   state: 0
-  distance: 5
+  distance: 10
   distanceMin: 2
   distanceMax: 5
   targeted_item: {fileID: 0}
@@ -575,6 +575,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3426114581928334067}
+  - {fileID: 3111848921100441250}
+  - {fileID: 433659071544075585}
   - {fileID: 4715329763927954}
   m_Father: {fileID: 4081619571539980}
   m_RootOrder: 0
@@ -598,12 +600,16 @@ MonoBehaviour:
   arsenal:
   - _gun: {fileID: 9168215477928513778}
     isInArsenal: 1
+  - _gun: {fileID: 8158505118366795673}
+    isInArsenal: 1
+  - _gun: {fileID: 3225353785093471297}
+    isInArsenal: 1
   - _gun: {fileID: 114778055586302144}
     isInArsenal: 1
-  starting_gun: 0
+  startingGun: 0
   equipped_gun_index: 0
-  arsenal_size: 0
-  can_fire: 1
+  arsenalSize: 0
+  canFire: 1
   ui_gun_icon: {fileID: 114334441494941482}
 --- !u!82 &82875180274327874
 AudioSource:
@@ -1070,7 +1076,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4715937694933692}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114778055586302144
 MonoBehaviour:
@@ -1250,6 +1256,96 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!1 &3129599111995899028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3111848921100441250}
+  - component: {fileID: 8158505118366795673}
+  m_Layer: 0
+  m_Name: FreezeGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3111848921100441250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129599111995899028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4715937694933692}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8158505118366795673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129599111995899028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4209ff7cc28e37e4d827f66013670841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunData: {fileID: 11400000, guid: a86b68da670fa414e9d6cc9a45bb4557, type: 2}
+  ammo: 30
+--- !u!1 &4118297020342202756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433659071544075585}
+  - component: {fileID: 3225353785093471297}
+  m_Layer: 0
+  m_Name: LauncherGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433659071544075585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118297020342202756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4715937694933692}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3225353785093471297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118297020342202756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619c795847d16ad4a95a527b25a4c4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunData: {fileID: 11400000, guid: 265cfcf46ed52d14682dce86f922c3a1, type: 2}
+  ammo: 30
 --- !u!1 &5861368510555839032
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,13 +41,31 @@ public class Box : MonoBehaviour
     public Vector3Int[] prev_coord;
 
     public GroupIdNames groupId;
-    
+
     public enum GroupIdNames
     {
         Blue,
         Red,
         Green,
         Yellow
+    }
+
+    private bool _frozen;
+    public bool Frozen
+    {
+        get { return _frozen; }
+        set
+        {
+            if (value)
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+            }
+            else
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+            }
+            _frozen = value;
+        }
     }
 
     void Awake()
@@ -207,16 +225,21 @@ public class Box : MonoBehaviour
 
     }
 
+    public Box GetBoxOnTopOfMe()
+    {
+        return _BoxCoordDictionary.Get(coord[0] + Vector3Int.up)?[0].GetComponent<Box>();
+    }
+
     public Box GetBoxOnTopOfMyStack()
     {
-        GameObject[] neighbors = _BoxCoordDictionary.Get(coord[0] + Vector3Int.up);
-        if (neighbors == null)
+        Box neighbor = GetBoxOnTopOfMe();
+        if (neighbor == null)
         {
             return this;
         }
         else
         {
-            return neighbors[0].GetComponent<Box>().GetBoxOnTopOfMyStack();
+            return neighbor.GetBoxOnTopOfMyStack();
         }
         
     }
