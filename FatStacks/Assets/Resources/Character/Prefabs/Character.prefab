@@ -179,14 +179,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431737529773668}
-  m_LocalRotation: {x: 0.13944185, y: -0, z: -0.000000007450581, w: 0.9902303}
+  m_LocalRotation: {x: -0.012451411, y: -0.00056246197, z: -0.003994224, w: 0.99991435}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4715937694933692}
   m_Father: {fileID: 4089147652553004}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 16.031, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.427, y: -0.059000004, z: -0.45700002}
 --- !u!20 &20520460240586000
 Camera:
   m_ObjectHideFlags: 0
@@ -1266,6 +1266,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3111848921100441250}
   - component: {fileID: 8158505118366795673}
+  - component: {fileID: 8908779645930555677}
+  - component: {fileID: 7939325791418112488}
   m_Layer: 0
   m_Name: FreezeGun
   m_TagString: Untagged
@@ -1280,13 +1282,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129599111995899028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.000000007450581, y: -0.79335344, z: 9.313226e-10, w: 0.6087613}
+  m_LocalPosition: {x: 0.55, y: -0.36, z: 0.829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4715937694933692}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -105.00001, z: 0}
 --- !u!114 &8158505118366795673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,6 +1303,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: a86b68da670fa414e9d6cc9a45bb4557, type: 2}
   ammo: 30
+--- !u!33 &8908779645930555677
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129599111995899028}
+  m_Mesh: {fileID: -4882780386776197746, guid: 5218fa7866e8473448f5dfc9c446361f, type: 3}
+--- !u!23 &7939325791418112488
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129599111995899028}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &4118297020342202756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1403,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3426114581928334067}
   - component: {fileID: 9168215477928513778}
+  - component: {fileID: 1001131985}
+  - component: {fileID: 1001131984}
   m_Layer: 0
   m_Name: MatchGun
   m_TagString: Untagged
@@ -1370,13 +1419,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5861368510555839032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.000000007450581, y: -0.79335344, z: 9.313226e-10, w: 0.6087613}
+  m_LocalPosition: {x: 0.55, y: -0.36, z: 0.829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4715937694933692}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -105.00001, z: 0}
 --- !u!114 &9168215477928513778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,3 +1440,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 789545eac21bd4f449d62060a54acd75, type: 2}
   ammo: 45
+--- !u!33 &1001131985
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861368510555839032}
+  m_Mesh: {fileID: -4882780386776197746, guid: 5218fa7866e8473448f5dfc9c446361f, type: 3}
+--- !u!23 &1001131984
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861368510555839032}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
