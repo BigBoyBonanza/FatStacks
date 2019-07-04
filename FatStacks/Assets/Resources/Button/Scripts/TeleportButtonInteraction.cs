@@ -13,7 +13,7 @@ public class TeleportButtonInteraction : Interaction {
     }
     public override void interact(Pickup pickup)
     {
-        pickup.Character.transform.position = destinationCoordinates.position;
-        pickup.Character.transform.localRotation = destinationCoordinates.localRotation;
+        pickup.character.transform.position = destinationCoordinates.position;
+        pickup.character.transform.localRotation = destinationCoordinates.localRotation;
     }
 }

@@ -43,12 +43,12 @@ public class Fade : MonoBehaviour
                 state = prompt_state.fading_out;
         }
     }
-    public void FadeInText(string message)
+    public void fadeInText(string message)
     {
         state = prompt_state.fading_in;
         uiText.text = message;
     }
-    public void fade_out_text()
+    public void fadeOutText()
     {
         state = prompt_state.fading_out;
         t = -1f;

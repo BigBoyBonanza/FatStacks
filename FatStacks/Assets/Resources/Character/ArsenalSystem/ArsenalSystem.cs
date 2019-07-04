@@ -50,7 +50,7 @@ public class ArsenalSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canFire = (pickup.state != Pickup.pickup_state.carrying_object && equipped_gun_index != (int)GunType.none && equipped_gun.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
+        canFire = (equipped_gun_index != (int)GunType.none && equipped_gun.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
         if (canFire)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -69,52 +69,50 @@ public class ArsenalSystem : MonoBehaviour
         //Only allow weapon scrolling if arsenal is greater than 1 and currently not carrying an object
         if (arsenalSize > 0)
         {
-            if(pickup.state != Pickup.pickup_state.carrying_object)
+            float scroll_delta = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll_delta != 0)
             {
-                float scroll_delta = Input.GetAxis("Mouse ScrollWheel");
-                if (scroll_delta != 0)
+                int old_gun_index = equipped_gun_index;
+                while (true)
                 {
-                    int old_gun_index = equipped_gun_index;
-                    while (true)
+                    do
                     {
-                        do
+                        //Find a gun that is in the arsenal
+                        equipped_gun_index = (int)(equipped_gun_index + Mathf.Sign(scroll_delta));
+                        if (equipped_gun_index < 0)
                         {
-                            //Find a gun that is in the arsenal
-                            equipped_gun_index = (int)(equipped_gun_index + Mathf.Sign(scroll_delta));
-                            if (equipped_gun_index < 0)
-                            {
-                                equipped_gun_index = arsenal.Length - 1;
-                            }
-                            else if (equipped_gun_index == arsenal.Length)
-                            {
-                                equipped_gun_index = 0;
-                            }
-                            if (equipped_gun_index == old_gun_index)
-                            {
-                                break;
-                            }
+                            equipped_gun_index = arsenal.Length - 1;
                         }
-                        while (arsenal[equipped_gun_index].isInArsenal == false);
-                        //Equip the gun
+                        else if (equipped_gun_index == arsenal.Length)
+                        {
+                            equipped_gun_index = 0;
+                        }
                         if (equipped_gun_index == old_gun_index)
                         {
                             break;
                         }
-                        else
+                    }
+                    while (arsenal[equipped_gun_index].isInArsenal == false);
+                    //Equip the gun
+                    if (equipped_gun_index == old_gun_index)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        equip_gun((GunType)equipped_gun_index);
+                        if (equipped_gun.canFire())
                         {
-                            equip_gun((GunType)equipped_gun_index);
-                            if (equipped_gun.canFire())
-                            {
-                                break;
-                            }
+                            break;
                         }
                     }
                 }
-                //Debug.Log(equipped_gun.gun_info.name);
-
             }
+            //Debug.Log(equipped_gun.gun_info.name);
+
+
             //Check keys 1-9
-            for(int key = 0; key < arsenal.Length; ++key)
+            for (int key = 0; key < arsenal.Length; ++key)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + key))
                 {

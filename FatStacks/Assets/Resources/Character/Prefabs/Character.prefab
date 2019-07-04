@@ -263,15 +263,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ce351192e9bf345877bd48da9cffa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 114260012453695698}
+  character: {fileID: 0}
   gunController: {fileID: 114214915382269138}
-  state: 0
+  currentPickupState: 0
   distance: 10
   distanceMin: 2
-  distanceMax: 5
-  targeted_item: {fileID: 0}
-  carried_item: {fileID: 0}
-  placement_grid: {fileID: 0}
+  distanceMax: 10
+  targetedObject: {fileID: 0}
+  carriedItem: {fileID: 0}
+  placementGrid: {fileID: 0}
   prompt: {fileID: 114406620270876054}
   exception: {fileID: 114590420259419424}
 --- !u!1 &1469182342213296

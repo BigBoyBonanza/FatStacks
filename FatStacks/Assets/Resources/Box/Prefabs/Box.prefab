@@ -13,12 +13,11 @@ GameObject:
   - component: {fileID: 23588244874325878}
   - component: {fileID: 65612792460349580}
   - component: {fileID: 54551821956715982}
-  - component: {fileID: 114935551755283296}
   - component: {fileID: 114846787503128036}
   - component: {fileID: 114997809581238284}
   m_Layer: 10
   m_Name: Box
-  m_TagString: Interactable
+  m_TagString: Liftable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,23 +109,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114935551755283296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307730620212214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473bb6a8fc52f884b81ccc774b207033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  current_prompt: 0
-  _PromptData: {fileID: 11400000, guid: c0e6db8b87cdfa847bb62a51c2d3944c, type: 2}
-  isBusy: 0
 --- !u!114 &114846787503128036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,12 +129,20 @@ MonoBehaviour:
   i_am: Crate
   resourcePath: Box/Prefabs/Box
   weight: 0
+  distanceCheck: 2
   match3_coord_evaluator_local_transforms:
-  - {x: 0.5, y: 0.3, z: 0.5}
-  - {x: 0.5, y: 0.7, z: 0.5}
+  - {x: 0.1, y: 0.1, z: 0.1}
+  - {x: 0.1, y: 0.1, z: 0.9}
+  - {x: 0.1, y: 0.9, z: 0.1}
+  - {x: 0.1, y: 0.9, z: 0.9}
+  - {x: 0.9, y: 0.1, z: 0.1}
+  - {x: 0.9, y: 0.1, z: 0.9}
+  - {x: 0.9, y: 0.9, z: 0.1}
+  - {x: 0.9, y: 0.9, z: 0.9}
   coord: []
   prev_coord: []
   groupId: 0
+  _frozen: 0
 --- !u!114 &114997809581238284
 MonoBehaviour:
   m_ObjectHideFlags: 0

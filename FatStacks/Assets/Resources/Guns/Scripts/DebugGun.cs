@@ -9,7 +9,7 @@ public class DebugGun : Gun
     {
         RaycastHit hit_info;
         bool object_found = Physics.Raycast(ray, out hit_info, float.MaxValue, LayerMask.GetMask("Default", "InteractSolid"));
-        if (object_found && hit_info.transform.tag == "Interactable")
+        if (object_found && hit_info.transform.tag == "Liftable")
         {
             Box box = hit_info.transform.gameObject.GetComponent<Box>();
             string message = "Coords: \n";

@@ -11,7 +11,7 @@ public class Interaction : MonoBehaviour {
     {
         return;
     }
-    public virtual string get_prompt(int index = -1)
+    public virtual string getPrompt(int index = -1)
     {
         if (index == -1)
         {

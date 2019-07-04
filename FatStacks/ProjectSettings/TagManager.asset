@@ -7,6 +7,7 @@ TagManager:
   - SaveSystem
   - Interactable
   - BoxGrid
+  - Liftable
   layers:
   - Default
   - TransparentFX

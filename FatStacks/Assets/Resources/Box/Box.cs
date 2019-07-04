@@ -19,6 +19,7 @@ public class Box : MonoBehaviour
 
     private bool is_being_checked = false;
     protected bool[] was_neighbor_checked = new bool[6];
+    public float distanceCheck = 1.5f;
     private static Vector3 center_local_transform = new Vector3(0.5f, 0.5f, 0.5f);
     [SerializeField]
     private Vector3[] match3_coord_evaluator_local_transforms = new Vector3[]
@@ -59,11 +60,13 @@ public class Box : MonoBehaviour
         {
             if (value)
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+                Rigidbody rigidbody = GetComponent<Rigidbody>();
+                rigidbody.velocity = Vector3.zero;
+                rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
             }
             else
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
             _frozen = value;
         }
@@ -148,7 +151,8 @@ public class Box : MonoBehaviour
                         {
                             //Neighbor is of the same group
                             //Check if neighbor is close enough
-                            if (Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform) < 1.3f)
+                            Debug.Log(Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform));
+                            if (Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform) < distanceCheck)
                             {
                                 neighbor.was_neighbor_checked[neighbor_local_coords.Length - (j + 1)] = true;
                                 was_neighbor_checked[j] = true;
@@ -196,7 +200,7 @@ public class Box : MonoBehaviour
                         {
                             //Neighbor is of the same group
                             //Check if neighbor is close enough
-                            if (Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform) < 1.3f)
+                            if (Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform) < distanceCheck)
                             {
                                 neighbor.was_neighbor_checked[neighbor_local_coords.Length - (j + 1)] = true;
                                 was_neighbor_checked[j] = true;
@@ -213,7 +217,6 @@ public class Box : MonoBehaviour
 
     public int GetStackWeight()
     {
-        //Box neighbor = _BoxCoordDictionary?.Get(coord[0] + Vector3Int.up)?[0]?.GetComponent<Box>(); up-to-date C#
         GameObject[] neighborGameObjects = _BoxCoordDictionary.Get(coord[0] + Vector3Int.up);
         Box neighbor = neighborGameObjects?[0].GetComponent<Box>();
         if (neighbor != null)
@@ -229,7 +232,24 @@ public class Box : MonoBehaviour
 
     public Box GetBoxOnTopOfMe()
     {
-        return _BoxCoordDictionary.Get(coord[0] + Vector3Int.up)?[0].GetComponent<Box>();
+        GameObject[] neighbors = _BoxCoordDictionary.Get(coord[0] + Vector3Int.up);
+        if (neighbors != null)
+        {
+            foreach (GameObject neighbor in neighbors)
+            {
+                if (gameObject != neighbor.gameObject)
+                {
+                    return neighbor.GetComponent<Box>();
+                }
+            }
+            return null;
+        }
+        else
+        {
+            return null;
+        }
+        
+        
     }
 
     public Box GetBoxOnTopOfMyStack()
@@ -241,7 +261,7 @@ public class Box : MonoBehaviour
         }
         else
         {
-            return neighbor.GetBoxOnTopOfMyStack();
+            return neighbor.GetBoxOnTopOfMyStack(); //TODO Fix Stack overflow
         }
         
     }

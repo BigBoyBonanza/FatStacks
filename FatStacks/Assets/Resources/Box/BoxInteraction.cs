@@ -13,7 +13,7 @@ public class BoxInteraction : Interaction
         else
         {
             GetComponent<Box>().Frozen = false;
-            pickup.PickupObject(gameObject);
+            //pickup.PickupObject(gameObject);
         }
     }
 }
