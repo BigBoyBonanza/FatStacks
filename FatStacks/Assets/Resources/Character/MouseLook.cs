@@ -21,8 +21,8 @@ public class MouseLook : MonoBehaviour
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             Vector2 mouse_delta = Vector2.one;
-            mouse_delta.x *= Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
-            mouse_delta.y *= Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
+            mouse_delta.x *= Input.GetAxis("Mouse X") * /*Time.deltaTime*/ sensitivity;
+            mouse_delta.y *= Input.GetAxis("Mouse Y") * /*Time.deltaTime*/ sensitivity;
 
             mouse_look += mouse_delta;
             //Clamp y between 90 and -90 degrees

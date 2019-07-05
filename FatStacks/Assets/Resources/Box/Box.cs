@@ -151,7 +151,6 @@ public class Box : MonoBehaviour
                         {
                             //Neighbor is of the same group
                             //Check if neighbor is close enough
-                            Debug.Log(Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform));
                             if (Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform) < distanceCheck)
                             {
                                 neighbor.was_neighbor_checked[neighbor_local_coords.Length - (j + 1)] = true;
