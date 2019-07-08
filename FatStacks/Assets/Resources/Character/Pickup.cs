@@ -29,6 +29,7 @@ public class Pickup : MonoBehaviour
     [HideInInspector]
     public GameObject carriedItem = null;
     public Stack<Box> carriedObjects = new Stack<Box>();
+    public BoxInventoryDisplay boxInventoryDisplay;
     private bool wasPickupPressed;
     private bool wasDropOnStackPressed;
     private Rigidbody itemRigidbody;
@@ -152,7 +153,7 @@ public class Pickup : MonoBehaviour
                 Box box = hitInfo.transform.gameObject.GetComponent<Box>();
                 if (box != null)
                 {
-                    dropCoords[1] = box.GetBoxOnTopOfMyStack().coord[0] + Vector3Int.up;
+                    dropCoords[1] = box.GetBoxOnTopOfMyStack().coords[0] + Vector3Int.up;
                     canDropAtCoords[1] = Vector3.Distance(transform.position, placementGrid.CellToWorld(dropCoords[1])) < distanceMax;
                 }
             }
@@ -244,6 +245,7 @@ public class Pickup : MonoBehaviour
     {
         //carriedItem = obj;
         carriedObjects.Push(lift);
+        boxInventoryDisplay.AddBox(lift.groupId);
         SetCarriedItemMeshMaterialAndRigidbody(lift);
         itemRigidbody.velocity = Vector3.zero;
         // Debug.Log("Object carried: " + carried_item.name);
@@ -257,6 +259,7 @@ public class Pickup : MonoBehaviour
     private void DropObject(Vector3 location)
     {
         Box droppedItem = carriedObjects.Pop();
+        boxInventoryDisplay.RemoveBox();
         if(carriedObjects.Count > 0)
             SetCarriedItemMeshMaterialAndRigidbody(carriedObjects.Peek());
         //Transfering object to another grid.

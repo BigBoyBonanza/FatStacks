@@ -19,7 +19,7 @@ public class ArsenalSystem : MonoBehaviour
         none
     }
     [HideInInspector]
-    public Gun equipped_gun;
+    public Gun equippedGun;
     [System.Serializable]
     public class ArsenalItem
     {
@@ -31,97 +31,96 @@ public class ArsenalSystem : MonoBehaviour
     [SerializeField]
     private GunType startingGun;
     [HideInInspector]
-    public int equipped_gun_index;
+    public int equippedGunIndex;
+    public int prevEquippedGunIndex;
     [HideInInspector]
     public int arsenalSize;
     public bool canFire = true;
-    public Image ui_gun_icon;
+    public Image uiGunIcon;
     private void Awake()
     {
         pickup = GetComponentInParent<Pickup>();
     }
     void Start()
     {
-        arsenalSize = evaluateArsenalSize();
+        arsenalSize = EvaluateArsenalSize();
         if (Player.firstSpawnInScene)
-            equip_gun(startingGun);
+            EquipGun(startingGun);
     }
 
     // Update is called once per frame
     void Update()
     {
-        canFire = (equipped_gun_index != (int)GunType.none && equipped_gun.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
+        canFire = (equippedGunIndex != (int)GunType.none && equippedGun?.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
         if (canFire)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 Ray ray = new Ray(transform.parent.position, transform.parent.rotation * Vector3.forward);
-                equipped_gun.fire1(ray);
+                equippedGun.fire1(ray);
             }
             if (Input.GetButtonDown("Fire2"))
             {
                 Ray ray = new Ray(transform.parent.position, transform.parent.rotation * Vector3.forward);
-                equipped_gun.fire2(ray);
+                equippedGun.fire2(ray);
             }
-            ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equipped_gun.getAmmoFill(), 0.1f);
-            ammo.text = equipped_gun.ammo.ToString();
+            ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equippedGun.getAmmoFill(), 0.1f);
+            ammo.text = equippedGun.ammo.ToString();
         }
-        //Only allow weapon scrolling if arsenal is greater than 1 and currently not carrying an object
+        //Only allow weapon scrolling if arsenal is greater than 1
         if (arsenalSize > 0)
         {
-            float scroll_delta = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll_delta != 0)
+            float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+            if (scrollDelta != 0)
             {
-                int old_gun_index = equipped_gun_index;
+                int newGunIndex; 
+                int oldGunIndex = newGunIndex = equippedGunIndex;
                 while (true)
                 {
                     do
                     {
                         //Find a gun that is in the arsenal
-                        equipped_gun_index = (int)(equipped_gun_index + Mathf.Sign(scroll_delta));
-                        if (equipped_gun_index < 0)
+                        newGunIndex = (int)(newGunIndex + Mathf.Sign(scrollDelta));
+                        if (newGunIndex < 0)
                         {
-                            equipped_gun_index = arsenal.Length - 1;
+                            newGunIndex = arsenal.Length - 1;
                         }
-                        else if (equipped_gun_index == arsenal.Length)
+                        else if (newGunIndex == arsenal.Length)
                         {
-                            equipped_gun_index = 0;
+                            newGunIndex = 0;
                         }
-                        if (equipped_gun_index == old_gun_index)
+                        if (newGunIndex == oldGunIndex)
                         {
                             break;
                         }
                     }
-                    while (arsenal[equipped_gun_index].isInArsenal == false);
+                    while (arsenal[newGunIndex].isInArsenal == false);
                     //Equip the gun
-                    if (equipped_gun_index == old_gun_index)
+                    EquipGun((GunType)newGunIndex);
+                    if (equippedGun.canFire())
                     {
                         break;
                     }
-                    else
-                    {
-                        equip_gun((GunType)equipped_gun_index);
-                        if (equipped_gun.canFire())
-                        {
-                            break;
-                        }
-                    }
+                    
                 }
             }
             //Debug.Log(equipped_gun.gun_info.name);
-
-
+            //Check for previous weapon
+            if (Input.GetButtonDown("EquipPreviousWeapon"))
+            {
+                EquipGun((GunType)prevEquippedGunIndex);
+            }
             //Check keys 1-9
             for (int key = 0; key < arsenal.Length; ++key)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + key))
                 {
-                    equip_gun((GunType)key);
+                    EquipGun((GunType)key);
                 }
             }
         }
     }
-    public void add_gun_to_arsenal(GunType gun)
+    public void AddGunToArsenal(GunType gun)
     {
         if (arsenal[(int)gun].isInArsenal == false)
         {
@@ -129,43 +128,43 @@ public class ArsenalSystem : MonoBehaviour
             arsenalSize += 1;
         }
     }
-    public void equip_gun(GunType gun)
+    public void EquipGun(GunType gun)
     {
-
-        equipped_gun_index = (int)gun;
+        prevEquippedGunIndex = equippedGunIndex;
+        equippedGunIndex = (int)gun;
         if (gun != GunType.none)
         {
-            showAmmoInfo();
+            ShowAmmoInfo();
             ArsenalItem new_item = arsenal[(int)gun];
             if (new_item.isInArsenal)
             {
-                Gun old_gun = equipped_gun;
-                equipped_gun = new_item._gun;
+                Gun old_gun = equippedGun;
+                equippedGun = new_item._gun;
                 //Swap which game objects are active
                 if (old_gun != null)
                 {
                     old_gun.gameObject.SetActive(false);
                 }
-                equipped_gun.gameObject.SetActive(true);
-                ui_gun_icon.sprite = equipped_gun.gunData.gun_sprite;
+                equippedGun.gameObject.SetActive(true);
+                uiGunIcon.sprite = equippedGun.gunData.gun_sprite;
             }
             else
             {
                 Debug.Log(gun.ToString() + " was not in arsenal.");
-                equip_gun(GunType.none);
+                EquipGun(GunType.none);
             }
         }
         else
         {
-            if (equipped_gun != null)
+            if (equippedGun != null)
             {
-                equipped_gun.gameObject.SetActive(false);
+                equippedGun.gameObject.SetActive(false);
             }
-            hideAmmoInfo();
+            HideAmmoInfo();
         }
 
     }
-    private int evaluateArsenalSize()
+    private int EvaluateArsenalSize()
     {
         int size = 0;
         foreach (ArsenalItem gun in arsenal)
@@ -174,25 +173,25 @@ public class ArsenalSystem : MonoBehaviour
         }
         return size;
     }
-    public void addGunToArsenalAndEquip(GunType gun)
+    public void AddGunToArsenalAndEquip(GunType gun)
     {
-        add_gun_to_arsenal(gun);
-        equip_gun(gun);
+        AddGunToArsenal(gun);
+        EquipGun(gun);
     }
-    public int addAmmoToGun(GunType gun, int amount)
+    public int AddAmmoToGun(GunType gun, int amount)
     {
         return arsenal[(int)gun]._gun.addAmmo(amount);
     }
-    private void hideAmmoInfo()
+    private void HideAmmoInfo()
     {
         ammo.canvasRenderer.SetAlpha(0);
         ammoBar.canvasRenderer.SetAlpha(0);
-        ui_gun_icon.canvasRenderer.SetAlpha(0);
+        uiGunIcon.canvasRenderer.SetAlpha(0);
     }
-    private void showAmmoInfo()
+    private void ShowAmmoInfo()
     {
         ammo.canvasRenderer.SetAlpha(1);
         ammoBar.canvasRenderer.SetAlpha(1);
-        ui_gun_icon.canvasRenderer.SetAlpha(1);
+        uiGunIcon.canvasRenderer.SetAlpha(1);
     }
 }

@@ -45,6 +45,20 @@ public class MatchGun : Gun
             playErrorSound(0);
         }
     }
+    public override void fire2(Ray ray)
+    {
+        RaycastHit hit_info;
+        bool object_found = Physics.Raycast(ray, out hit_info, float.MaxValue, LayerMask.GetMask("Default", "InteractSolid"));
+        if (object_found && hit_info.transform.GetComponent<Box>() != null)
+        {
+            List<Box> boxs = hit_info.transform.gameObject.GetComponent<Box>().GetMatchingNeighbors();
+            Debug.Log(boxs.Count);
+            foreach (Box box in boxs)
+            {
+                Debug.Log(box.name);
+            }
+        }
+    }
     public override bool canFire()
     {
         return ammo > 0;

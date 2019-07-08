@@ -28,7 +28,7 @@ public class PlayerSaveData : SaveData
         ArsenalSystem gunController = player.GetComponentInChildren<ArsenalSystem>();
         ammo = new int[gunController.arsenal.Length];
         inArse = new bool[gunController.arsenal.Length];
-        equip = gunController.equipped_gun_index;
+        equip = gunController.equippedGunIndex;
         for (int i = 0; i < ammo.Length; ++i)
         {
             ammo[i] = gunController.arsenal[i]._gun.ammo;
@@ -64,7 +64,7 @@ public class PlayerSaveData : SaveData
             gunController.arsenal[i]._gun.ammo = ammo[i];
             gunController.arsenal[i].isInArsenal = inArse[i];
         }
-        gunController.equip_gun((ArsenalSystem.GunType)equip);
+        gunController.EquipGun((ArsenalSystem.GunType)equip);
     }
 }
 

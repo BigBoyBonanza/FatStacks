@@ -20,9 +20,9 @@ public class Box : MonoBehaviour
     private bool is_being_checked = false;
     protected bool[] was_neighbor_checked = new bool[6];
     public float distanceCheck = 1.5f;
-    private static Vector3 center_local_transform = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 center_local_transform = new Vector3(0.5f, 0.5f, 0.5f);
     [SerializeField]
-    private Vector3[] match3_coord_evaluator_local_transforms = new Vector3[]
+    public Vector3[] match3_coord_evaluator_local_transforms = new Vector3[]
     {
         new Vector3(0.5f,0.3f,0.5f),
         new Vector3(0.5f,0.7f,0.5f)
@@ -37,7 +37,7 @@ public class Box : MonoBehaviour
     };
 
     [HideInInspector]
-    public Vector3Int[] coord;
+    public Vector3Int[] coords;
     [HideInInspector]
     public Vector3Int[] prev_coord;
 
@@ -79,15 +79,15 @@ public class Box : MonoBehaviour
     }
     void Start()
     {
-        coord = new Vector3Int[match3_coord_evaluator_local_transforms.Length];
+        coords = new Vector3Int[match3_coord_evaluator_local_transforms.Length];
         prev_coord = new Vector3Int[match3_coord_evaluator_local_transforms.Length];
         //Initialize coord
         for (int i = 0; i < match3_coord_evaluator_local_transforms.Length; ++i)
         {
-            coord[i] = _Grid.WorldToCell(transform.position + match3_coord_evaluator_local_transforms[i]);
-            _BoxCoordDictionary.Add(coord[i], gameObject);
+            coords[i] = _Grid.WorldToCell(transform.position + transform.rotation * match3_coord_evaluator_local_transforms[i]);
+            _BoxCoordDictionary.Add(coords[i], gameObject);
         }
-        coord.CopyTo(prev_coord, 0);
+        coords.CopyTo(prev_coord, 0);
         Frozen = _frozen;
     }
     public virtual void FixedUpdate()
@@ -105,9 +105,9 @@ public class Box : MonoBehaviour
         for (int j = 0; j < prev_coord.Length; ++j)
         {
             bool found = false;
-            for (int k = 0; k < coord.Length; ++k)
+            for (int k = 0; k < coords.Length; ++k)
             {
-                if (prev_coord[j] == coord[k])
+                if (prev_coord[j] == coords[k])
                 {
                     found = true;
                 }
@@ -119,7 +119,7 @@ public class Box : MonoBehaviour
                 _BoxCoordDictionary.Remove(prev_coord[j], transform.gameObject);
             }
         }
-        coord.CopyTo(prev_coord, 0);
+        coords.CopyTo(prev_coord, 0);
 
     }
 
@@ -128,7 +128,7 @@ public class Box : MonoBehaviour
     {
         List<Box> matching_neigbors = new List<Box>();
         is_being_checked = true;
-        for (int i = 0; i < coord.Length; ++i)
+        for (int i = 0; i < coords.Length; ++i)
         {
             for (int j = 0; j < neighbor_local_coords.Length; ++j)
             {
@@ -139,7 +139,7 @@ public class Box : MonoBehaviour
                     continue;
                 }
                 //Get neighbor from match3_grid
-                GameObject[] neighbor_game_objects = _BoxCoordDictionary.Get(coord[i] + neighbor_local_coords[j]);
+                GameObject[] neighbor_game_objects = _BoxCoordDictionary.Get(coords[i] + neighbor_local_coords[j]);
 
                 if (neighbor_game_objects != null)
                 {
@@ -151,7 +151,7 @@ public class Box : MonoBehaviour
                         {
                             //Neighbor is of the same group
                             //Check if neighbor is close enough
-                            if (Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform) < distanceCheck)
+                            if (GetDistanceToNeighbor(neighbor) < distanceCheck)
                             {
                                 neighbor.was_neighbor_checked[neighbor_local_coords.Length - (j + 1)] = true;
                                 was_neighbor_checked[j] = true;
@@ -176,7 +176,7 @@ public class Box : MonoBehaviour
     private void GetMatchingNeighborsHelper(List<Box> matching_neigbors)
     {
         is_being_checked = true;
-        for (int i = 0; i < coord.Length; ++i)
+        for (int i = 0; i < coords.Length; ++i)
         {
             for (int j = 0; j < neighbor_local_coords.Length; ++j)
             {
@@ -187,7 +187,7 @@ public class Box : MonoBehaviour
                     continue;
                 }
                 //Get neighbor from match3_grid
-                GameObject[] neighbor_game_objects = _BoxCoordDictionary.Get(coord[i] + neighbor_local_coords[j]);
+                GameObject[] neighbor_game_objects = _BoxCoordDictionary.Get(coords[i] + neighbor_local_coords[j]);
 
                 if (neighbor_game_objects != null)
                 {
@@ -199,7 +199,7 @@ public class Box : MonoBehaviour
                         {
                             //Neighbor is of the same group
                             //Check if neighbor is close enough
-                            if (Vector3.Distance(neighbor.transform.position + center_local_transform, transform.position + center_local_transform) < distanceCheck)
+                            if (GetDistanceToNeighbor(neighbor) < distanceCheck)
                             {
                                 neighbor.was_neighbor_checked[neighbor_local_coords.Length - (j + 1)] = true;
                                 was_neighbor_checked[j] = true;
@@ -214,9 +214,17 @@ public class Box : MonoBehaviour
         matching_neigbors.Add(this);
     }
 
+    private float GetDistanceToNeighbor(Box neighbor)
+    {
+        return Vector3.Distance(neighbor.transform.position + neighbor.transform.rotation * neighbor.center_local_transform, transform.position + transform.rotation * center_local_transform);
+    }
+
     public int GetStackWeight()
     {
-        GameObject[] neighborGameObjects = _BoxCoordDictionary.Get(coord[0] + Vector3Int.up);
+        //Get coord with highest y value
+        Vector3Int hiCoord = GetHighestCoord();
+        //Get the neighbors in the cell above me
+        GameObject[] neighborGameObjects = _BoxCoordDictionary.Get(hiCoord + Vector3Int.up);
         Box neighbor = neighborGameObjects?[0].GetComponent<Box>();
         if (neighbor != null)
         {
@@ -231,7 +239,10 @@ public class Box : MonoBehaviour
 
     public Box GetBoxOnTopOfMe()
     {
-        GameObject[] neighbors = _BoxCoordDictionary.Get(coord[0] + Vector3Int.up);
+        //Get coord with highest y value
+        Vector3Int hiCoord = GetHighestCoord();
+        //Get the neighbors in cell above me
+        GameObject[] neighbors = _BoxCoordDictionary.Get(hiCoord + Vector3Int.up);
         if (neighbors != null)
         {
             foreach (GameObject neighbor in neighbors)
@@ -260,9 +271,20 @@ public class Box : MonoBehaviour
         }
         else
         {
-            return neighbor.GetBoxOnTopOfMyStack(); //TODO Fix Stack overflow
+            return neighbor.GetBoxOnTopOfMyStack();
         }
         
+    }
+
+    public Vector3Int GetHighestCoord()
+    {
+        Vector3Int hiCoord = Vector3Int.zero;
+        foreach (Vector3Int coord in coords)
+        {
+            if (coord.y > hiCoord.y)
+                hiCoord = coord;
+        }
+        return hiCoord;
     }
     public void ResetChecked()
     {
@@ -274,9 +296,9 @@ public class Box : MonoBehaviour
     }
     public void RemoveMyself()
     {
-        for (int i = 0; i < coord.Length; ++i)
+        for (int i = 0; i < coords.Length; ++i)
         {
-            _BoxCoordDictionary.Remove(coord[i], transform.gameObject);
+            _BoxCoordDictionary.Remove(coords[i], transform.gameObject);
         }
     }
 
@@ -284,11 +306,11 @@ public class Box : MonoBehaviour
     {
         for (int i = 0; i < match3_coord_evaluator_local_transforms.Length; ++i)
         {
-            coord[i] = _Grid.WorldToCell(transform.position + match3_coord_evaluator_local_transforms[i]);
-            if (forceAdd == true || coord[i] != prev_coord[i])
+            coords[i] = _Grid.WorldToCell(transform.position + (transform.rotation * match3_coord_evaluator_local_transforms[i]));
+            if (forceAdd == true || coords[i] != prev_coord[i])
             {
                 //Debug.Log("Cell added");
-                _BoxCoordDictionary.Add(coord[i], gameObject);
+                _BoxCoordDictionary.Add(coords[i], gameObject);
             }
         }
     }
