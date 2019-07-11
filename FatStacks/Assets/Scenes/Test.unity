@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 224469747}
   - component: {fileID: 224469746}
   - component: {fileID: 224469745}
-  - component: {fileID: 224469750}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -530,33 +529,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &224469750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224469744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c7a8107d817d7a48a576e4aa9a7374e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  WalkSpeed: 5
-  SprintSpeed: 7.5
-  JumpForce: 5
-  DeadCharacter: {fileID: 0}
-  HealthText: {fileID: 0}
-  _Camera: {fileID: 0}
-  myPickup: {fileID: 0}
 --- !u!43 &333783855
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14558
+  m_Name: pb_Mesh15970
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
