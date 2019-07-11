@@ -535,7 +535,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15970
+  m_Name: pb_Mesh13354
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1053,5 +1053,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -39.999878
       objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: startingGun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510349266577905381, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -4531039458786148478, guid: 8b5b75a086163ac42bc5494b4c414629,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c620bf70a29f4b641a313ec6f0ac7af5, type: 3}
