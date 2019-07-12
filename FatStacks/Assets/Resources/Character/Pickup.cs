@@ -29,6 +29,7 @@ public class Pickup : MonoBehaviour
     [HideInInspector]
     public GameObject carriedItem = null;
     public Stack<Box> carriedObjects = new Stack<Box>();
+    public int carryObjectLimit;
     public BoxInventoryDisplay boxInventoryDisplay;
     private bool wasPickupPressed;
     private bool wasDropOnStackPressed;
@@ -119,15 +120,34 @@ public class Pickup : MonoBehaviour
                 }
                 else
                 {
+                    bool pickup = false;
+                    Box box = targetedItemBox;
                     if (Input.GetButtonDown("Interact/Pickup"))
                     {
                         //Pickup object
-                        PickupObject(targetedItemBox);
+                        pickup = true;
                     }
                     if (Input.GetButtonDown("PickupOnStack"))
                     {
                         //Pickup object on top of a stack
-                        PickupObject(targetedItemBox.GetBoxOnTopOfMyStack());
+                        pickup = true;
+                        box = targetedItemBox.GetBoxOnTopOfMyStack();
+                    }
+                    if (pickup)
+                    {
+                        if (box.isTooHeavy)
+                        {
+                            exception.FlashText("TOO HEAVY", 2f);
+                        }
+                        else if (carriedObjects.Count == carryObjectLimit)
+                        {
+                            exception.FlashText("INVENTORY FULL", 2f);
+                        }
+                        else
+                        {
+                            
+                            PickupObject(box);
+                        }
                     }
                 }
                 break;

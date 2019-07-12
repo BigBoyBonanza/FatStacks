@@ -128,9 +128,9 @@ MonoBehaviour:
   _BoxCoordDictionary: {fileID: 0}
   i_am: Crate
   resourcePath: Box/Prefabs/Box
-  weight: 0
+  weight: 1
   distanceCheck: 2
-  match3_coord_evaluator_local_transforms:
+  neighborCoordEvaluatorLocalTransforms:
   - {x: 0.1, y: 0.1, z: 0.1}
   - {x: 0.1, y: 0.1, z: 0.9}
   - {x: 0.1, y: 0.9, z: 0.1}
@@ -139,7 +139,7 @@ MonoBehaviour:
   - {x: 0.9, y: 0.1, z: 0.9}
   - {x: 0.9, y: 0.9, z: 0.1}
   - {x: 0.9, y: 0.9, z: 0.9}
-  coord: []
+  coords: []
   prev_coord: []
   groupId: 0
   _frozen: 0

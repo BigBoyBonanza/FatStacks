@@ -30,8 +30,8 @@ public class BoxInventoryDisplay : MonoBehaviour
 
     public void RemoveBox()
     {
-        GameObject obj = inventory.First.Value;
-        inventory.RemoveFirst();
+        GameObject obj = inventory.Last.Value;
+        inventory.RemoveLast();
         Destroy(obj);
         ArrangeBoxes();
     }
@@ -39,11 +39,11 @@ public class BoxInventoryDisplay : MonoBehaviour
     void ArrangeBoxes()
     {
         int i = 0;
-        float bottom = -(inventory.Count * spriteHeight) / 2;
+        float top = (inventory.Count * spriteHeight) / 2;
         foreach(GameObject obj in inventory)
         {
             RawImage img = obj.GetComponent<RawImage>();
-            img.rectTransform.localPosition = new Vector3(0, bottom + spriteHeight * i);
+            img.rectTransform.localPosition = new Vector3(0, top - spriteHeight * i);
             ++i;
         }
     }

@@ -271,6 +271,7 @@ MonoBehaviour:
   distanceMax: 10
   targetedObject: {fileID: 0}
   carriedItem: {fileID: 0}
+  carryObjectLimit: 10
   boxInventoryDisplay: {fileID: 5219800237599121088}
   placementGrid: {fileID: 0}
   prompt: {fileID: 114406620270876054}

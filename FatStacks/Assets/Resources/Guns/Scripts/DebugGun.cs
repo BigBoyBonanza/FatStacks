@@ -12,9 +12,9 @@ public class DebugGun : Gun
         if (object_found && hit_info.transform.tag == "Liftable")
         {
             Box box = hit_info.transform.gameObject.GetComponent<Box>();
-            for (int j = 0; j < box.match3_coord_evaluator_local_transforms.Length; ++j)
+            for (int j = 0; j < box.neighborCoordEvaluatorLocalTransforms.Length; ++j)
             {
-                Debug.DrawRay(box.transform.position + box.transform.rotation * box.match3_coord_evaluator_local_transforms[j], Vector3.up, Color.red, 5f);
+                Debug.DrawRay(box.transform.position + box.transform.rotation * box.neighborCoordEvaluatorLocalTransforms[j], Vector3.up, Color.red, 5f);
             }
             string message = "Coords: \n";
             for (int i = 0; i < box.coords.Length; ++i)
