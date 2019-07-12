@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Shotgun
   ammoCapacity: 10
   gun_sprite: {fileID: 21300000, guid: fafb2f1591745bc408b2f38f4f61c00b, type: 3}
-  shootSound: []
+  shootSound:
+  - {fileID: 8300000, guid: 0948c9a88d0ef5e4eaf4270f7f2c6175, type: 3}
   emptySound: []
   errorSound: []
