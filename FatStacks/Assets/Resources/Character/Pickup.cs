@@ -206,7 +206,7 @@ public class Pickup : MonoBehaviour
                     Graphics.DrawMesh(carriedItemMesh, dropLocations[i], Quaternion.identity, carriedItemMaterial, 0, GetComponent<Camera>(), 0, properties, false);
                 }
             }
-            if ((Input.GetButtonDown("Drop") && canDropAtCoords[0]) || (Input.GetButtonDown("DropOnStack") && !canDropAtCoords[1]))
+            if ((Input.GetButtonDown("Drop") || (Input.GetButtonDown("DropOnStack") && !canDropAtCoords[1])) && canDropAtCoords[0])
             {
                 DropObject(dropLocations[0]);
             }
