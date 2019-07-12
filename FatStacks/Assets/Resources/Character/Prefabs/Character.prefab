@@ -578,8 +578,8 @@ Transform:
   - {fileID: 3426114581928334067}
   - {fileID: 3111848921100441250}
   - {fileID: 433659071544075585}
-  - {fileID: 4715329763927954}
   - {fileID: 2023732887971664013}
+  - {fileID: 4715329763927954}
   m_Father: {fileID: 4081619571539980}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -605,6 +605,8 @@ MonoBehaviour:
   - _gun: {fileID: 8158505118366795673}
     isInArsenal: 1
   - _gun: {fileID: 3225353785093471297}
+    isInArsenal: 1
+  - _gun: {fileID: 5274157066353638611}
     isInArsenal: 1
   - _gun: {fileID: 114778055586302144}
     isInArsenal: 1
@@ -1079,7 +1081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4715937694933692}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114778055586302144
 MonoBehaviour:
@@ -1291,7 +1293,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4715937694933692}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &5274157066353638611
 MonoBehaviour:
@@ -1332,7 +1334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b17db9f64d645c84eb718a7ec9214407, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1478,7 +1480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -39.99994, y: 0}
+  m_AnchoredPosition: {x: -39.999878, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5219800237599121088

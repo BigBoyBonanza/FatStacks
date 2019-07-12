@@ -5582,6 +5582,31 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.data[4]._gun
+      value: 
+      objectReference: {fileID: 1784949372}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.data[4].isInArsenal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057795768173717303, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226614172633396851, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c620bf70a29f4b641a313ec6f0ac7af5, type: 3}
 --- !u!1001 &1009567321
@@ -9562,6 +9587,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}
+--- !u!114 &1784949372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114778055586302144, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1001131982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586da32a08f44c54398a7041dedd5bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1789130018
 PrefabInstance:
   m_ObjectHideFlags: 0
