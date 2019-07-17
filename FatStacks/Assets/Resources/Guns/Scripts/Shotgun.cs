@@ -11,6 +11,9 @@ public class Shotgun : Gun
     //setup barrelexit unless it just works
     List<Quaternion> pellets;
 
+    var projectile : Rigidbody;
+    public int speed = 20;
+
     /*
     private void Awake()
     {
@@ -33,6 +36,8 @@ public class Shotgun : Gun
             p.GetComponent<RigidBody>().AddForce(p.transform.right * pelletFireVelocity)
         }
         */
+        //ammo--;
+        playFireSound(0);
     }
     public override bool canFire()
     {
