@@ -229,7 +229,7 @@ public class Box : MonoBehaviour
     public int GetStackWeight()
     {
         //Get coord with highest y value
-        Vector3Int hiCoord = GetHighestCoord();
+        Vector3Int hiCoord = GetHighestCoordAlignedWithStack();
         //Get the neighbors in the cell above me
         GameObject[] neighborGameObjects = _BoxCoordDictionary.Get(hiCoord + Vector3Int.up);
         Box neighbor = neighborGameObjects?[0].GetComponent<Box>();
@@ -247,7 +247,7 @@ public class Box : MonoBehaviour
     public Box GetBoxOnTopOfMe()
     {
         //Get coord with highest y value
-        Vector3Int hiCoord = GetHighestCoord();
+        Vector3Int hiCoord = GetHighestCoordAlignedWithStack();
         //Get the neighbors in cell above me
         GameObject[] neighbors = _BoxCoordDictionary.Get(hiCoord + Vector3Int.up);
         if (neighbors != null)
@@ -283,15 +283,21 @@ public class Box : MonoBehaviour
         
     }
 
-    public Vector3Int GetHighestCoord()
+    public Vector3Int GetHighestCoordAlignedWithStack()
     {
-        Vector3Int hiCoord = Vector3Int.zero;
+        float hiY = coords[0].y;
+        float avgX = 0;
+        float avgZ = 0;
         foreach (Vector3Int coord in coords)
         {
-            if (coord.y > hiCoord.y)
-                hiCoord = coord;
+            avgX += coord.x;
+            avgZ += coord.z;
+            if (coord.y > hiY)
+                hiY = coord.y;
         }
-        return hiCoord;
+        avgX = avgX / coords.Length;
+        avgZ = avgZ / coords.Length;
+        return new Vector3Int(Mathf.RoundToInt(avgX), (int)hiY, Mathf.RoundToInt(avgZ));
     }
     public void ResetChecked()
     {

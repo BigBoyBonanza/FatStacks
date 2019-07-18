@@ -60,7 +60,7 @@ public class Pickup : MonoBehaviour
         //Check for collision with liftable objects
         RaycastHit hitInfo = new RaycastHit();
         Ray ray = new Ray(transform.position, transform.rotation * Vector3.forward);
-        bool objectFound = Physics.Raycast(ray, out hitInfo, distanceMax, layerMaskPickup);
+        bool objectFound = Physics.Raycast(ray, out hitInfo, distance, layerMaskPickup);
         switch (currentPickupState)
         {
             case PickupState.noObjectTargeted:
@@ -175,6 +175,10 @@ public class Pickup : MonoBehaviour
                 {
                     dropCoords[1] = box.GetBoxOnTopOfMyStack().coords[0] + Vector3Int.up;
                     canDropAtCoords[1] = Vector3.Distance(transform.position, placementGrid.CellToWorld(dropCoords[1])) < distanceMax;
+                }
+                else
+                {
+                    canDropAtCoords[1] = false;
                 }
             }
             else
@@ -295,6 +299,7 @@ public class Pickup : MonoBehaviour
         droppedItem.transform.rotation = Quaternion.identity;
         
         droppedItem.Frozen = false;
+        distance = distanceMax;
     }
 
     private void SetCarriedItemMeshMaterialAndRigidbody(Box carriedItem)

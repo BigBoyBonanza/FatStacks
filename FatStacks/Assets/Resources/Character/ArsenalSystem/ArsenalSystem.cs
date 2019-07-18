@@ -64,9 +64,9 @@ public class ArsenalSystem : MonoBehaviour
                 Ray ray = new Ray(transform.parent.position, transform.parent.rotation * Vector3.forward);
                 equippedGun.fire2(ray);
             }
-            ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equippedGun.getAmmoFill(), 0.1f);
-            ammo.text = equippedGun.ammo.ToString();
         }
+        ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equippedGun.getAmmoFill(), 0.1f);
+        ammo.text = equippedGun.ammo.ToString();
         //Only allow weapon scrolling if arsenal is greater than 1
         if (arsenalSize > 0)
         {

@@ -58,7 +58,7 @@ public class HelicopterAI : MonoBehaviour
         Rigidbody otherRigidbody = collision.gameObject.GetComponent<Rigidbody>();
         if (otherRigidbody != null)
         {
-            otherRigidbody.AddForce(direction * 20, ForceMode.VelocityChange);
+            otherRigidbody.AddForce(direction * 10, ForceMode.VelocityChange);
         }
         direction = direction.normalized;
         Debug.DrawRay(transform.position, direction,Color.white,5f);
