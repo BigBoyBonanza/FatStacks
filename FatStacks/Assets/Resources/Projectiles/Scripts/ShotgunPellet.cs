@@ -6,6 +6,7 @@ public class ShotgunPellet : Projectile
 {
     public override void Hit(GameObject obj)
     {
+        base.Hit(obj);
         HealthManager healthManager = obj.GetComponent<HealthManager>();
         if (healthManager != null)
         {

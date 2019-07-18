@@ -8,7 +8,12 @@ public class Projectile : MonoBehaviour
     public int damage;
     public bool bounce;
     private Vector3 previousPosition;
-    int mask = LayerMask.GetMask("Default", "InteractSolid");
+    int mask;
+
+    private void Awake()
+    {
+        mask = LayerMask.GetMask("Default", "InteractSolid");
+    }
 
     private IEnumerator Start()
     {
@@ -19,6 +24,7 @@ public class Projectile : MonoBehaviour
 
     public void FixedUpdate()
     {
+        //TODO Make projectile kinematic, but make it fall based on gravity
         RaycastHit raycastHit = new RaycastHit();
         Vector3 delta = transform.position - previousPosition;
         Physics.Raycast(transform.position, delta.normalized, out raycastHit, delta.magnitude, mask);
@@ -31,6 +37,6 @@ public class Projectile : MonoBehaviour
 
     public virtual void Hit(GameObject obj)
     {
-        Debug.Log(gameObject + " was hit");
+        Debug.Log(obj + " was hit");
     }
 }

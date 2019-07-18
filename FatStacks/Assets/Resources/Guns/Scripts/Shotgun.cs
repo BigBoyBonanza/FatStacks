@@ -9,12 +9,13 @@ public class Shotgun : Gun
     public GameObject pellet;
     public float pelletFireVelocity = 1;
     //setup barrelexit unless it just works
+    public Transform barrelExit;
     List<Quaternion> pellets;
 
-    var projectile : Rigidbody;
-    public int speed = 20;
+    //var projectile : Rigidbody;
+    //public int speed = 20;
 
-    /*
+    
     private void Awake()
     {
         pellets = new List<Quaternion>(pelletCount);
@@ -23,21 +24,21 @@ public class Shotgun : Gun
             pellets.Add(Quaternion.Euler(Vector3.zero));
         }
     }
-    */
+    
 
     public override void fire1(Ray ray)
     {
-        playFireSound(0);
-        /*
+
+        //TODO get shotgun to aim projectiles where crosshair's aiming
         for (int i = 0; i < pelletCount; i++)
         {
             pellets[i] = Random.rotation;
-            GameObject p = Instantiate(pellet, BARRELEXIT.Position, BARRELEXIT.rotation);
-            p.transform.rotation = Quaternion.RotateTowards(p.rotation, pellets[i], spreadAngle);
-            p.GetComponent<RigidBody>().AddForce(p.transform.right * pelletFireVelocity)
+            GameObject p = Instantiate(pellet, barrelExit.position, barrelExit.rotation);
+            p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, pellets[i], spreadAngle);
+            p.GetComponent<Rigidbody>().AddForce(p.transform.right * pelletFireVelocity);
         }
-        */
-        //ammo--;
+        
+        ammo--;
         playFireSound(0);
     }
     public override bool canFire()
