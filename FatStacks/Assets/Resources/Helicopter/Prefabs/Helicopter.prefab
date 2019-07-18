@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3055534699350891311}
   - component: {fileID: 3055534699350891298}
   - component: {fileID: 3055534699350891310}
+  - component: {fileID: 2342429665758383742}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -123,3 +124,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initVelocity: 1
   rigidbody: {fileID: 0}
+--- !u!114 &2342429665758383742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055534699350891297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a2e0bf1b35ae64690419a5b655c2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 0
+  clampHealthToMax: 1

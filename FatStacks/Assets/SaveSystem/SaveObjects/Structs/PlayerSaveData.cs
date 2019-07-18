@@ -22,7 +22,7 @@ public class PlayerSaveData : SaveData
         Player player = saveObject.GetComponent<Player>();
 
         //Get health
-        health = player.Health;
+        health = player.healthManager.health;
 
         //Get arsenal info
         ArsenalSystem gunController = player.GetComponentInChildren<ArsenalSystem>();
@@ -55,7 +55,7 @@ public class PlayerSaveData : SaveData
         player.SetCrouchState(crouched, true);
 
         //Set health
-        player.Health = health;
+        player.healthManager.health = health;
 
         //Set arsenal
         ArsenalSystem gunController = player.myPickup.gunController;

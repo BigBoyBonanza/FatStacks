@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [HideInInspector]
-    public int Health = 100;
+    public HealthManager healthManager;
     private float DesiredSpeed = 10.0f;
     [HideInInspector]
     public float WalkSpeed = 5f;
@@ -50,6 +49,7 @@ public class Player : MonoBehaviour
         //Get Components
         _Rigidbody = GetComponent<Rigidbody>();
         _Collider = GetComponent<CapsuleCollider>();
+        healthManager = GetComponent<HealthManager>();
 
         //Get layer mask
         SolidLayerMask = LayerMask.GetMask("Default", "InteractSolid");
@@ -102,19 +102,19 @@ public class Player : MonoBehaviour
                 //Debug.Log("Hard Landing");
                 int damage = (int)((impact - threshold[2]) / (threshold[3] - threshold[2]) * 10);
                 //Debug.Log("Damage Dealt: " + damage);
-                dealDamage(damage);
+                healthManager.DealDamage(damage);
             }
             else if (threshold[3] <= impact && impact < threshold[4])
             {
                 //Debug.Log("Really Hard Landing");
                 int damage = (int)((impact - threshold[2]) / (threshold[3] - threshold[2]) * 10);
                 //Debug.Log("Damage Dealt: " + damage);
-                dealDamage(damage);
+                healthManager.DealDamage(damage);
             }
             else if (threshold[4] <= impact)
             {
                 //Debug.Log("Fatal Landing");
-                killCharacter();
+                healthManager.Kill();
             }
             HighestY = transform.position.y;
         }
@@ -135,17 +135,17 @@ public class Player : MonoBehaviour
                 if (threshold[0] <= weight && weight < threshold[1])
                 {
                     //Debug.Log("Small Crush");
-                    dealDamage(10);
+                    healthManager.DealDamage(10);
                 }
                 else if (threshold[1] <= weight && weight < threshold[2])
                 {
                     //Debug.Log("Medium Crush");
-                    dealDamage(15);
+                    healthManager.DealDamage(15);
                 }
                 else if (threshold[2] <= weight)
                 {
                     //Debug.Log("Crushed");
-                    killCharacter();
+                    healthManager.Kill();
                 }
             }
 
@@ -270,11 +270,11 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            dealDamage(25);
+            healthManager.DealDamage(25);
         }
         //Update health bar
         //HealthBar.fillAmount = Mathf.Lerp(HealthBar.fillAmount, Health / 100f, 0.1f);
-        HealthText.text = Health.ToString();
+        HealthText.text = healthManager.health.ToString();
     }
 
     private void FixedUpdate()
@@ -333,20 +333,6 @@ public class Player : MonoBehaviour
     private bool checkGrounded()
     {
         return Physics.CheckSphere(transform.position + new Vector3(0, -1.06f, 0), 0.475f, SolidLayerMask);
-    }
-    public void dealDamage(int amount)
-    {
-        Health = Mathf.Max(0, Health - amount);
-        if (Health == 0)
-        {
-            killCharacter();
-            return;
-        }
-    }
-    public void killCharacter()
-    {
-        Destroy(gameObject);
-        Instantiate(DeadCharacter, transform.position, new Quaternion(_Camera.transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
     }
     public void SetCrouchState(bool crouched, bool instant = false)
     {

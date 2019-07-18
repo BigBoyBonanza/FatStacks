@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 136373115346890708}
   - component: {fileID: 54666618806718224}
   - component: {fileID: 114260012453695698}
+  - component: {fileID: 4438011992108695480}
   - component: {fileID: 114073965793209844}
   m_Layer: 9
   m_Name: Character
@@ -403,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7a8107d817d7a48a576e4aa9a7374e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  healthManager: {fileID: 0}
   WalkSpeed: 5
   SprintSpeed: 7.5
   JumpForce: 5
@@ -412,6 +413,21 @@ MonoBehaviour:
   HealthText: {fileID: 114698340281689162}
   _Camera: {fileID: 20520460240586000}
   myPickup: {fileID: 114501318658791774}
+--- !u!114 &4438011992108695480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469182342213296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a2ee1caf5968d64daccf0d0f29e4f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100
+  clampHealthToMax: 1
 --- !u!114 &114073965793209844
 MonoBehaviour:
   m_ObjectHideFlags: 0

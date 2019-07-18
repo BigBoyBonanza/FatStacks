@@ -8,7 +8,7 @@ public class DeadPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saveSystem = GameObject.FindGameObjectWithTag("SaveSystem").GetComponent<SaveSystem>();
+        saveSystem = GameObject.FindGameObjectWithTag("SaveSystem")?.GetComponent<SaveSystem>();
     }
 
     // Update is called once per frame

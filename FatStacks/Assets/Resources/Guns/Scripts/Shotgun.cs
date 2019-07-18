@@ -27,6 +27,7 @@ public class Shotgun : Gun
 
     public override void fire1(Ray ray)
     {
+        playFireSound(0);
         /*
         for (int i = 0; i < pelletCount; i++)
         {
