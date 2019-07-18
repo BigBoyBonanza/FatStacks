@@ -5,6 +5,7 @@ using UnityEngine;
 public class HelicopterAI : MonoBehaviour
 {
     public float initVelocity;
+    [HideInInspector]
     public Rigidbody rigidbody;
 
     private void Awake()
