@@ -27,8 +27,9 @@ public class LauncherGun : Gun
                     break;
                 }
             }
-            
+            ammo -= 1;
         }
+        
     }
     public override bool canFire()
     {

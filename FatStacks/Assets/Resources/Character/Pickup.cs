@@ -18,9 +18,11 @@ public class Pickup : MonoBehaviour
     public float distanceMin = 2;
     public float distanceMax = 5;
 
+    public bool snap;
     Vector3Int[] dropCoords = new Vector3Int[2];
     Vector3[] dropLocations = new Vector3[2];
     bool[] canDropAtCoords = new bool[] { true, true };
+    bool[] showDrop = new bool[] { true, true };
 
     [HideInInspector]
     public GameObject targetedObject = null;
@@ -60,7 +62,9 @@ public class Pickup : MonoBehaviour
         //Check for collision with liftable objects
         RaycastHit hitInfo = new RaycastHit();
         Ray ray = new Ray(transform.position, transform.rotation * Vector3.forward);
-        bool objectFound = Physics.Raycast(ray, out hitInfo, distance, layerMaskPickup);
+        bool objectFound = Physics.Raycast(ray, out hitInfo, distanceMax, layerMaskPickup);
+        if (Input.GetButtonDown("Snap"))
+            snap = !snap;
         switch (currentPickupState)
         {
             case PickupState.noObjectTargeted:
@@ -165,37 +169,45 @@ public class Pickup : MonoBehaviour
             dropCoords = new Vector3Int[] { Vector3Int.zero, Vector3Int.zero };
             dropLocations = new Vector3[] { Vector3.zero, Vector3.zero };
             canDropAtCoords = new bool[] { true, true };
+            showDrop = new bool[] { true, true };
 
 
-            if (objectFound)
+            if (objectFound && hitInfo.distance <= distance)
             {
-                dropCoords[0] = placementGrid.WorldToCell(hitInfo.point + (hitInfo.normal * 0.5f));
+                dropLocations[0] = hitInfo.point + (snap ? (hitInfo.normal * 0.5f) : Vector3.zero);
+                dropCoords[0] = placementGrid.WorldToCell(dropLocations[0]);
                 Box box = hitInfo.transform.gameObject.GetComponent<Box>();
                 if (box != null)
                 {
-                    dropCoords[1] = box.GetBoxOnTopOfMyStack().coords[0] + Vector3Int.up;
+                    dropCoords[1] = box.GetBoxOnTopOfMyStack().GetHighestCoordAlignedWithStack() + Vector3Int.up;
                     canDropAtCoords[1] = Vector3.Distance(transform.position, placementGrid.CellToWorld(dropCoords[1])) < distanceMax;
                 }
                 else
                 {
                     canDropAtCoords[1] = false;
+                    showDrop[1] = false;
                 }
             }
             else
             {
-                dropCoords[0] = placementGrid.WorldToCell(transform.position + (transform.rotation * (Vector3.forward * distance)));
+                dropLocations[0] = transform.position + (transform.rotation * (Vector3.forward * distance));
+                dropCoords[0] = placementGrid.WorldToCell(dropLocations[0]);
                 canDropAtCoords[1] = false;
+                showDrop[1] = false;
             }
 
             //Convert back to world space
             for (int i = 0; i < dropCoords.Length; ++i)
             {
-                dropLocations[i] = placementGrid.CellToWorld(dropCoords[i]);
+                if(i > 0 || snap)
+                {
+                    dropLocations[i] = placementGrid.CellToWorld(dropCoords[i]);
+                }
                 bool obstructionNotDetected = !Physics.CheckBox(dropLocations[i] + new Vector3(0.5f, 0.55f, 0.5f), new Vector3(0.51f, 0.475f, 0.51f), Quaternion.identity, layerMaskObstructed);
                 bool clippingNotDetected = !Physics.CheckBox(dropLocations[i] + new Vector3(0.5f, 0.55f, 0.5f), new Vector3(0.51f, 0.475f, 0.51f), Quaternion.identity, layerMaskHide);
                 canDropAtCoords[i] = canDropAtCoords[i] && obstructionNotDetected && clippingNotDetected;
                 MaterialPropertyBlock properties = new MaterialPropertyBlock();
-                if (clippingNotDetected)
+                if (showDrop[i])
                 {
                     if (canDropAtCoords[i])
                     {
@@ -299,7 +311,6 @@ public class Pickup : MonoBehaviour
         droppedItem.transform.rotation = Quaternion.identity;
         
         droppedItem.Frozen = false;
-        distance = distanceMax;
     }
 
     private void SetCarriedItemMeshMaterialAndRigidbody(Box carriedItem)
