@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class Bazooka : Gun
 {
-    public int pelletCount;
+    public int rocketCount;
     public float spreadAngle;
-    public GameObject pellet;
-    public float pelletFireVelocity = 1000;
+    public GameObject Rocket;
+    public float rocketFireVelocity = 1000;
     public Transform BarrelExit;
-    List<Quaternion> pellets;
+    List<Quaternion> rockets;
 
 
     private void Awake()
     {
-        pellets = new List<Quaternion>(pelletCount);
-        for (int i = 0; i < pelletCount; i++)
+        rockets = new List<Quaternion>(rocketCount);
+        for (int i = 0; i < rocketCount; i++)
         {
-            pellets.Add(Quaternion.Euler(Vector3.zero));
+            rockets.Add(Quaternion.Euler(Vector3.zero));
         }
     }
 
 
     public override void fire1(Ray ray)
     {
-        for (int i = 0; i < pelletCount; i++)
+        for (int i = 0; i < rocketCount; i++)
         {
-            pellets[i] = Random.rotation;
-            GameObject p = Instantiate(pellet, BarrelExit.position, BarrelExit.rotation);
-            p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, pellets[i], spreadAngle);
-            p.GetComponent<Rigidbody>().AddForce(p.transform.right * pelletFireVelocity);
+            rockets[i] = Random.rotation;
+            GameObject p = Instantiate(Rocket, BarrelExit.position, BarrelExit.rotation);
+            p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[i], spreadAngle);
+            p.GetComponent<Rigidbody>().AddForce(p.transform.right * rocketFireVelocity);
         }
 
         ammo--;
