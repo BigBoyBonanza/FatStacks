@@ -8,12 +8,8 @@ public class Shotgun : Gun
     public float spreadAngle;
     public GameObject pellet;
     public float pelletFireVelocity = 1;
-    //setup barrelexit unless it just works
     public Transform barrelExit;
     List<Quaternion> pellets;
-
-    //var projectile : Rigidbody;
-    //public int speed = 20;
 
     
     private void Awake()

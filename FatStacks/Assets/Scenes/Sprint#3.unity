@@ -5020,15 +5020,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9069922855181685959, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069922855181685959, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114501318658791774, guid: c620bf70a29f4b641a313ec6f0ac7af5,
         type: 3}
       propertyPath: snap
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
-        type: 3}
-      propertyPath: arsenal.Array.data[4].isInArsenal
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c620bf70a29f4b641a313ec6f0ac7af5, type: 3}

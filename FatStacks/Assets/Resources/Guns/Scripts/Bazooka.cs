@@ -24,13 +24,10 @@ public class Bazooka : Gun
 
     public override void fire1(Ray ray)
     {
-        for (int i = 0; i < rocketCount; i++)
-        {
-            rockets[i] = Random.rotation;
-            GameObject p = Instantiate(Rocket, BarrelExit.position, BarrelExit.rotation);
-            p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[i], spreadAngle);
-            p.GetComponent<Rigidbody>().AddForce(p.transform.right * rocketFireVelocity);
-        }
+        rockets[0] = Random.rotation;
+        GameObject p = Instantiate(Rocket, BarrelExit.position, BarrelExit.rotation);
+        p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[0], spreadAngle);
+        p.GetComponent<Rigidbody>().AddForce(p.transform.right * rocketFireVelocity);
 
         ammo--;
         //playFireSound(0);
