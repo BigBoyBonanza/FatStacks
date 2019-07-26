@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class Rocket : Projectile
 {
+    Rigidbody rigidbody;
+    public float rocketSpeed;
     public float blastRadius = 5.0f;
     public float blastPower = 10.0f;
 
-    private void Start()
+    public void Awake()
     {
-        Vector3 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, blastRadius);
-        foreach (Collider hit in colliders)
-        {
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
+    }
 
-            if (rb != null)
-                rb.AddExplosionForce(blastPower, explosionPos, blastRadius, 3.0F);
-        }
+    public new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        rigidbody.MovePosition(transform.position + (transform.rotation * Vector3.back/*Rocket model is backward*/ * rocketSpeed * Time.deltaTime));
     }
 
     public override void Hit(GameObject obj)
     {
         base.Hit(obj);
-        HealthManager healthManager = obj.GetComponent<HealthManager>();
-        if (healthManager != null)
+        Vector3 explosionPos = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, blastRadius);
+        foreach (Collider hit in colliders)
         {
-            healthManager.DealDamage(damage);
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            HealthManager healthManager = hit.GetComponent<HealthManager>();
+            int amount = (int)(damage * Vector3.Distance(transform.position, hit.transform.position) / blastRadius);
+            if (rb != null)
+                rb.AddExplosionForce(blastPower, explosionPos, blastRadius, 1F, ForceMode.VelocityChange);
+            if (healthManager != null)
+                healthManager.DealDamage(damage);
         }
+        Destroy(gameObject);
     }
 }

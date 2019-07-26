@@ -17,17 +17,17 @@ public class Bazooka : Gun
         rockets = new List<Quaternion>(rocketCount);
         for (int i = 0; i < rocketCount; i++)
         {
-            rockets.Add(Quaternion.Euler(Vector3.zero));
+            //rockets.Add(Quaternion.Euler(Vector3.zero));
         }
     }
 
 
     public override void fire1(Ray ray)
     {
-        rockets[0] = Random.rotation;
+        //rockets[0] = Random.rotation;
         GameObject p = Instantiate(Rocket, BarrelExit.position, BarrelExit.rotation);
-        p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[0], spreadAngle);
-        p.GetComponent<Rigidbody>().AddForce(p.transform.right * rocketFireVelocity);
+        //p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[0], spreadAngle);
+        p.GetComponent<Rocket>().rocketSpeed = rocketFireVelocity;
 
         ammo--;
         //playFireSound(0);

@@ -10,13 +10,10 @@ public class Projectile : MonoBehaviour
     private Vector3 previousPosition;
     int mask;
 
-    private void Awake()
-    {
-        mask = LayerMask.GetMask("Default", "InteractSolid");
-    }
-
     private IEnumerator Start()
     {
+        mask = LayerMask.GetMask("Default", "InteractSolid");
+        mask = LayerMask.GetMask("InteractSolid", "InteractSoft", "Default");
         previousPosition = transform.position;
         yield return new WaitForSeconds(lifespan);
         Destroy(gameObject);
@@ -27,8 +24,9 @@ public class Projectile : MonoBehaviour
         //TODO Make projectile kinematic, but make it fall based on gravity
         RaycastHit raycastHit = new RaycastHit();
         Vector3 delta = transform.position - previousPosition;
-        Physics.Raycast(transform.position, delta.normalized, out raycastHit, delta.magnitude, mask);
-        if(raycastHit.transform != null)
+        Ray ray = new Ray(transform.position, transform.rotation * Vector3.back/*Rocket model is backward*/);
+        bool objectFound = Physics.Raycast(ray, out raycastHit, delta.magnitude, mask);
+        if(objectFound)
         {
             Hit(raycastHit.transform.gameObject);
         }

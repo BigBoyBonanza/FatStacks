@@ -1331,11 +1331,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: e55fa267049fed34a873656dd0fcc785, type: 2}
-  ammo: 10
+  ammo: 40
   rocketCount: 1
   spreadAngle: 3
   Rocket: {fileID: 2537403471560445825, guid: a5bfdac78e7fcc946be1a465b8801902, type: 3}
-  rocketFireVelocity: 1000
+  rocketFireVelocity: 10
   BarrelExit: {fileID: 9069922855181685959}
 --- !u!33 &3758639968880338403
 MeshFilter:
@@ -1823,13 +1823,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4467956987040000171}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.933, y: 0.1223, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6611360397531900961}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &5095279762211296757
 GameObject:
   m_ObjectHideFlags: 0

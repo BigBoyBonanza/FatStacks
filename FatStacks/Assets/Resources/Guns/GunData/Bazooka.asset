@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bazooka
   m_EditorClassIdentifier: 
   name: Bazooka
-  ammoCapacity: 10
+  ammoCapacity: 40
   gun_sprite: {fileID: 21300000, guid: 97fa96cb9440aff4a9d4efa893a82bde, type: 3}
   shootSound: []
   emptySound: []
