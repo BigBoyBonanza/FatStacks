@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: e2157133d1616a24fa4f546a8d2a27d8
+ModelImporter:
+  serializedVersion: 25
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 4ffb908e2301e6f4e9faef8f3f014f4e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'RightUpperLeg' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: DinoArms_RiggedAndSkinned(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: arms
+      parentName: DinoArms_RiggedAndSkinned(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base
+      parentName: DinoArms_RiggedAndSkinned(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shoulder_RDA
+      parentName: Base
+      position: {x: 0.22, y: -0.0451276, z: -0.00859377}
+      rotation: {x: 0.026185548, y: -0.08823699, z: 0.6669554, w: 0.73939097}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Elbow_RDA
+      parentName: Shoulder_RDA
+      position: {x: 0.30589694, y: -0.08299527, z: -0.03455115}
+      rotation: {x: -0.0047437055, y: -0.050411172, z: -0.093565635, w: 0.99432474}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wrist_RDA
+      parentName: Elbow_RDA
+      position: {x: 0.30042258, y: 0.00000010308038, z: 0.00000078472596}
+      rotation: {x: 0.6585989, y: 0.5911242, z: -0.46245652, w: -0.05434787}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb_Knuckle_RDA
+      parentName: Wrist_RDA
+      position: {x: -0.00000007598516, y: 0.03910674, z: -0.074678235}
+      rotation: {x: 0.2968306, y: 0.7003893, z: 0.34375283, w: 0.5506182}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb_Middle_RDA
+      parentName: Thumb_Knuckle_RDA
+      position: {x: 0.04799803, y: 0.00000043132272, z: -0.0000002062016}
+      rotation: {x: 0.0038026706, y: 0.0616376, z: -0.061459407, w: 0.99619734}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb_Tip_RDA
+      parentName: Thumb_Middle_RDA
+      position: {x: 0.05462233, y: -0.00000029674217, z: 0.00000008492293}
+      rotation: {x: -0.35007057, y: -0.6143701, z: -0.35007057, w: 0.6143701}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_Knuckle_RDA
+      parentName: Wrist_RDA
+      position: {x: 0.01592753, y: 0.103301525, z: -0.054467257}
+      rotation: {x: 0.32554615, y: 0.64139825, z: 0.690518, w: 0.07624226}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_Second_RDA
+      parentName: Pointer_Knuckle_RDA
+      position: {x: 0.045569453, y: 0.00000028511974, z: 0.00000027212462}
+      rotation: {x: -0.0062837913, y: 0.025041817, z: 0.04380882, w: 0.9987063}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_First_RDA
+      parentName: Pointer_Second_RDA
+      position: {x: 0.045209598, y: -0.00000062821186, z: 0.000000043861164}
+      rotation: {x: -0.0006987317, y: -0.028840942, z: -0.024209889, w: 0.9992906}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_Tip_RDA
+      parentName: Pointer_First_RDA
+      position: {x: 0.040277485, y: 0.0000007653216, z: 0.00000047262571}
+      rotation: {x: -0.44675136, y: -0.54809964, z: -0.44675136, w: 0.54809964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_Knuckle_RDA
+      parentName: Wrist_RDA
+      position: {x: 0.009208039, y: 0.11590448, z: -0.013237685}
+      rotation: {x: 0.41530073, y: 0.13826194, z: -0.23022592, w: 0.8691404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_Second_RDA
+      parentName: Middle_Knuckle_RDA
+      position: {x: 0.04583529, y: -0.0000000050261217, z: -0.00000019516236}
+      rotation: {x: -0.0011714398, y: -0.06895868, z: -0.043199193, w: 0.9966831}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_First_RDA
+      parentName: Middle_Second_RDA
+      position: {x: 0.041785497, y: -0.0000000013644857, z: 0.00000007282287}
+      rotation: {x: 0.0002715989, y: -0.042283557, z: 0.006417397, w: 0.999085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_Tip_RDA
+      parentName: Middle_First_RDA
+      position: {x: 0.038874254, y: 0.000000008115514, z: 0.00000026944787}
+      rotation: {x: -0.49625504, y: -0.5037171, z: -0.49625504, w: 0.5037171}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_Knuckle_RDA
+      parentName: Wrist_RDA
+      position: {x: -0.000000017218252, y: 0.09770071, z: 0.035548236}
+      rotation: {x: 0.34925368, y: 0.6736454, z: -0.45991573, w: -0.46119553}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_Second_RDA
+      parentName: Pinky_Knuckle_RDA
+      position: {x: 0.034507547, y: -0.000000012330447, z: 0.00000039854385}
+      rotation: {x: 0.0005683668, y: -0.037380066, z: 0.015192693, w: 0.9991855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_First_RDA
+      parentName: Pinky_Second_RDA
+      position: {x: 0.033488177, y: 0.0000001995961, z: -0.00000030238726}
+      rotation: {x: -1.9261972e-34, y: 1.00627924e-16, z: -0.016659727, w: 0.99986124}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_Tip_RDA
+      parentName: Pinky_First_RDA
+      position: {x: 0.029564016, y: -0.00000020890471, z: 0.00000031358667}
+      rotation: {x: 0.42581654, y: 0.56451774, z: -0.42581654, w: 0.56451774}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shoulder_LDA
+      parentName: Base
+      position: {x: -0.22, y: -0.045127552, z: -0.00859377}
+      rotation: {x: 0.53310144, y: 0.46415728, z: 0.4461097, w: 0.54895085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Elbow_LDA
+      parentName: Shoulder_LDA
+      position: {x: -0.3188537, y: -9.5479175e-17, z: -1.0658141e-16}
+      rotation: {x: 0.0015790164, y: 0.014011055, z: -0.065950096, w: 0.99772334}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wrist_LDA
+      parentName: Elbow_LDA
+      position: {x: -0.30042228, y: -1.7763568e-17, z: 0}
+      rotation: {x: -0.48969644, y: -0.51300436, z: -0.42228958, w: 0.56453115}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb_Knuckle_LDA
+      parentName: Wrist_LDA
+      position: {x: -1.0658141e-16, y: -0.03910686, z: 0.07467843}
+      rotation: {x: 0.2968306, y: 0.7003893, z: 0.34375283, w: 0.5506182}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb_Middle_LDA
+      parentName: Thumb_Knuckle_LDA
+      position: {x: -0.047997646, y: 2.1316282e-16, z: 0}
+      rotation: {x: 0.0038026706, y: 0.0616376, z: -0.061459407, w: 0.99619734}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb_Tip_LDA
+      parentName: Thumb_Middle_LDA
+      position: {x: -0.054622624, y: -3.5527135e-16, z: 1.4210854e-16}
+      rotation: {x: -0.35007057, y: -0.6143701, z: -0.35007057, w: 0.6143701}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_Knuckle_LDA
+      parentName: Wrist_LDA
+      position: {x: -0.01592848, y: -0.10330132, z: 0.05446715}
+      rotation: {x: 0.3828844, y: 0.60530466, z: 0.41085544, w: 0.5640955}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_Second_LDA
+      parentName: Pointer_Knuckle_LDA
+      position: {x: -0.045569662, y: -1.7763568e-17, z: -7.105427e-17}
+      rotation: {x: -0.005665456, y: 0.050476857, z: 0.111394346, w: 0.99247736}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_First_LDA
+      parentName: Pointer_Second_LDA
+      position: {x: -0.045210037, y: 3.5527136e-17, z: 1.4210854e-16}
+      rotation: {x: -0.0006987317, y: -0.028840942, z: -0.024209889, w: 0.9992906}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pointer_Tip_LDA
+      parentName: Pointer_First_LDA
+      position: {x: -0.040276967, y: 5.7731595e-17, z: -1.4210854e-16}
+      rotation: {x: -0.44675136, y: -0.54809964, z: -0.44675136, w: 0.54809964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_Knuckle_LDA
+      parentName: Wrist_LDA
+      position: {x: -0.009208375, y: -0.11590451, z: 0.0132376645}
+      rotation: {x: 0.4481172, y: 0.5480612, z: 0.5411676, w: 0.45382544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_Second_LDA
+      parentName: Middle_Knuckle_LDA
+      position: {x: -0.045834772, y: -1.7763568e-17, z: -1.4210854e-16}
+      rotation: {x: 0.00013777528, y: 0.018232236, z: -0.007555214, w: 0.9998052}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_First_LDA
+      parentName: Middle_Second_LDA
+      position: {x: -0.04178623, y: -5.3290704e-17, z: 7.105427e-17}
+      rotation: {x: 0.0002715989, y: -0.042283557, z: 0.006417397, w: 0.999085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Middle_Tip_LDA
+      parentName: Middle_First_LDA
+      position: {x: -0.038873747, y: 1.7763568e-17, z: -1.4210854e-16}
+      rotation: {x: -0.49625504, y: -0.5037171, z: -0.49625504, w: 0.5037171}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_Knuckle_LDA
+      parentName: Wrist_LDA
+      position: {x: -1.4210854e-16, y: -0.09770105, z: -0.03554827}
+      rotation: {x: 0.34925368, y: 0.6736454, z: -0.45991573, w: -0.46119553}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_Second_LDA
+      parentName: Pinky_Knuckle_LDA
+      position: {x: -0.03450739, y: 0, z: 0}
+      rotation: {x: 0.0005683668, y: -0.037380066, z: 0.015192693, w: 0.9991855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_First_LDA
+      parentName: Pinky_Second_LDA
+      position: {x: -0.03348773, y: 7.105427e-17, z: 0}
+      rotation: {x: 0, y: -1.8346964e-31, z: -0.016659727, w: 0.99986124}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pinky_Tip_LDA
+      parentName: Pinky_First_LDA
+      position: {x: -0.029564409, y: -7.105427e-17, z: 2.1316282e-16}
+      rotation: {x: 0.42581654, y: 0.56451774, z: -0.42581654, w: 0.56451774}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: Base
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
