@@ -27,7 +27,7 @@ public class LauncherGun : Gun
                     break;
                 }
             }
-            ammo -= 1;
+            //ammo -= 1;
         }
         
     }

@@ -13,7 +13,7 @@ public class FreezeGun : Gun
         if (object_found && box != null)
         {
             box.Frozen = !box.Frozen;
-            ammo -= 1;
+            //ammo -= 1;
         }
         
     }

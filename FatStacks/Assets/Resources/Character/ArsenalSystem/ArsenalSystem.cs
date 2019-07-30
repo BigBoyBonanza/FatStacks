@@ -48,8 +48,8 @@ public class ArsenalSystem : MonoBehaviour
             EquipGun(startingGun);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate()
     {
         canFire = (equippedGunIndex != (int)GunType.none && equippedGun?.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
         if (canFire)

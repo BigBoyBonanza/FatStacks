@@ -20,7 +20,7 @@ public class MatchGun : Gun
                 if (count < 6)
                 {
                     playFireSound(0);
-                    ammo -= 1;
+                    //ammo -= 1;
                 }
                 else
                 {
