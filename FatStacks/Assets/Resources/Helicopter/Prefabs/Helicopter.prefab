@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 3055534699350891298}
   - component: {fileID: 3055534699350891310}
   - component: {fileID: 2342429665758383742}
+  - component: {fileID: 8576224287922850942}
   m_Layer: 0
   m_Name: Helicopter
-  m_TagString: Untagged
+  m_TagString: Liftable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initVelocity: 1
   rigidbody: {fileID: 0}
+  box: {fileID: 8576224287922850942}
 --- !u!114 &2342429665758383742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +141,34 @@ MonoBehaviour:
   maxHealth: 10
   health: 10
   clampHealthToMax: 1
+--- !u!114 &8576224287922850942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055534699350891297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681c1ddf21056147806c801228bfa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxData: {fileID: 11400000, guid: 7888be239b59ccf4e87c31f8e8d9e7f2, type: 2}
+  _Grid: {fileID: 0}
+  _BoxCoordDictionary: {fileID: 0}
+  i_am: Helicopter
+  resourcePath: 
+  weight: 0
+  isTooHeavy: 1
+  distanceCheck: 2
+  neighborCoordEvaluatorLocalTransforms:
+  - {x: 0.5, y: 0, z: 0}
+  - {x: -0.5, y: 0, z: 0}
+  - {x: 0, y: 0.5, z: 0}
+  - {x: 0, y: -0.5, z: 0}
+  - {x: 0, y: 0, z: 0.5}
+  - {x: 0, y: 0, z: -0.5}
+  coords: []
+  prev_coord: []
+  groupId: 0
+  _frozen: 0

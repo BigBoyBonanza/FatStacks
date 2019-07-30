@@ -7,6 +7,7 @@ public class HelicopterAI : MonoBehaviour
     public float initVelocity;
     [HideInInspector]
     public Rigidbody rigidbody;
+    public Box box;
 
     private void Awake()
     {
@@ -55,15 +56,16 @@ public class HelicopterAI : MonoBehaviour
                 direction += Vector3.forward;
             }
         }
-        Rigidbody otherRigidbody = collision.gameObject.GetComponent<Rigidbody>();
-        if (otherRigidbody != null)
+        if (!box.Frozen)
         {
-            otherRigidbody.AddForce(direction * 10, ForceMode.VelocityChange);
+            Rigidbody otherRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            if (otherRigidbody != null)
+            {
+                otherRigidbody.AddForce(direction * 10, ForceMode.VelocityChange);
+            }
+            direction = direction.normalized;
+            rigidbody.velocity = rigidbody.velocity.magnitude * direction;
         }
-        direction = direction.normalized;
-        Debug.DrawRay(transform.position, direction,Color.white,5f);
-        //rigidbody.velocity = Vector3.Reflect(rigidbody.velocity.normalized, collision.GetContact(0).normal) * rigidbody.velocity.magnitude;
-        rigidbody.velocity = rigidbody.velocity.magnitude * direction;
     }
 
     // Update is called once per frame

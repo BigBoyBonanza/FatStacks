@@ -37,6 +37,9 @@ public class ArsenalSystem : MonoBehaviour
     public int arsenalSize;
     public bool canFire = true;
     public Image uiGunIcon;
+
+    private bool fire1;
+    private bool fire2;
     private void Awake()
     {
         pickup = GetComponentInParent<Pickup>();
@@ -48,32 +51,22 @@ public class ArsenalSystem : MonoBehaviour
             EquipGun(startingGun);
     }
 
-
-    void FixedUpdate()
+    private void Update()
     {
-        canFire = (equippedGunIndex != (int)GunType.none && equippedGun?.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
-        if (canFire)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Ray ray = new Ray(transform.parent.position, transform.parent.rotation * Vector3.forward);
-                equippedGun.fire1(ray);
-            }
-            if (Input.GetButtonDown("Fire2"))
-            {
-                Ray ray = new Ray(transform.parent.position, transform.parent.rotation * Vector3.forward);
-                equippedGun.fire2(ray);
-            }
-        }
+        //Fire on fixed update
+        fire1 = fire1 || Input.GetButtonDown("Fire1");
+        fire2 = fire2 || Input.GetButtonDown("Fire2");
+
         ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equippedGun.getAmmoFill(), 0.1f);
         ammo.text = equippedGun.ammo.ToString();
+
         //Only allow weapon scrolling if arsenal is greater than 1
         if (arsenalSize > 0)
         {
             float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
             if (scrollDelta != 0)
             {
-                int newGunIndex; 
+                int newGunIndex;
                 int oldGunIndex = newGunIndex = equippedGunIndex;
                 while (true)
                 {
@@ -101,15 +94,16 @@ public class ArsenalSystem : MonoBehaviour
                     {
                         break;
                     }
-                    
+
                 }
             }
-            //Debug.Log(equipped_gun.gun_info.name);
+
             //Check for previous weapon
             if (Input.GetButtonDown("EquipPreviousWeapon"))
             {
                 EquipGun((GunType)prevEquippedGunIndex);
             }
+
             //Check keys 1-9
             for (int key = 0; key < arsenal.Length; ++key)
             {
@@ -119,6 +113,27 @@ public class ArsenalSystem : MonoBehaviour
                 }
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        canFire = (equippedGunIndex != (int)GunType.none && equippedGun?.canFire() == true && Cursor.lockState == CursorLockMode.Locked);
+        if (canFire)
+        {
+            if (fire1)
+            {
+                Ray ray = new Ray(transform.parent.position, transform.parent.rotation * Vector3.forward);
+                equippedGun.fire1(ray);
+                fire1 = false;
+            }
+            if (fire2)
+            {
+                Ray ray = new Ray(transform.parent.position, transform.parent.rotation * Vector3.forward);
+                equippedGun.fire2(ray);
+                fire2 = false;
+            }
+        }
+        
     }
     public void AddGunToArsenal(GunType gun)
     {
