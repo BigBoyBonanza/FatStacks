@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3055534699350891310}
   - component: {fileID: 2342429665758383742}
   - component: {fileID: 8576224287922850942}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Helicopter
   m_TagString: Liftable
   m_Icon: {fileID: 0}

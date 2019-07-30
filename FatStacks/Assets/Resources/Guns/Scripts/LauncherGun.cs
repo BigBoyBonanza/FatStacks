@@ -8,7 +8,7 @@ public class LauncherGun : Gun
     {
         //RoomResetterInteraction.canReset = true;
         RaycastHit hit_info;
-        bool object_found = Physics.Raycast(ray, out hit_info, float.MaxValue, LayerMask.GetMask("Default", "InteractSolid", "Helicopter"));
+        bool object_found = Physics.Raycast(ray, out hit_info, float.MaxValue, LayerMask.GetMask("Default", "InteractSolid"));
         Box box = hit_info.transform?.GetComponent<Box>();
         if (object_found && box != null)
         {

@@ -17,13 +17,13 @@ TagManager:
   - UI
   - 
   - 
-  - HitPlayerOnly
+  - 8
   - Player
   - InteractSolid
   - InteractSoft
   - BoxGrid
-  - Helicopter
-  - HelicopterInvisibleWall
+  - 13
+  - 14
   - Projectile
   - 
   - 
