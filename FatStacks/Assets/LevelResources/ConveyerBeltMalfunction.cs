@@ -16,5 +16,6 @@ public class ConveyerBeltMalfunction : MonoBehaviour
         {
             spawner.TurnSpawnerOn(true);
         }
+        Destroy(gameObject);
     }
 }

@@ -12,8 +12,7 @@ public class Projectile : MonoBehaviour
 
     private IEnumerator Start()
     {
-        mask = LayerMask.GetMask("Default", "InteractSolid");
-        mask = LayerMask.GetMask("InteractSolid", "InteractSoft", "Default");
+        mask = LayerMask.GetMask("Default", "InteractSolid", "Helicopter");
         previousPosition = transform.position;
         yield return new WaitForSeconds(lifespan);
         Destroy(gameObject);
