@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ConveyerBeltMalf.unity
-    guid: 36f9d38486a45bb41b51bc057ed47135
-  - enabled: 1
     path: Assets/Scenes/Sprint#3.unity
     guid: 1f080f5b000117c49b7e634f3c1885f8
+  - enabled: 1
+    path: Assets/Scenes/ConveyerBeltMalf.unity
+    guid: 36f9d38486a45bb41b51bc057ed47135
   - enabled: 1
     path: Assets/Scenes/Sprint#2.unity
     guid: 49588a4d21bccfe438e716be3811163c
