@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeadPlayer : MonoBehaviour
 {
@@ -17,10 +18,12 @@ public class DeadPlayer : MonoBehaviour
         //Restarting scene
         if (Input.anyKeyDown)
         {
-            if(saveSystem != null)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Destroy(gameObject);
+            if (saveSystem != null)
             {
-                saveSystem.LoadLatest();
-                Destroy(gameObject);
+                //saveSystem.LoadLatest();
+                
             }
             else
             {
