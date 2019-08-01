@@ -875,6 +875,7 @@ MonoBehaviour:
   spawners:
   - {fileID: 279662433}
   - {fileID: 260686451}
+  notTriggered: 1
 --- !u!65 &609075508
 BoxCollider:
   m_ObjectHideFlags: 0

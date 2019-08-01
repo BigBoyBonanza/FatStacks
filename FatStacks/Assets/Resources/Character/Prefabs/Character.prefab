@@ -632,7 +632,7 @@ MonoBehaviour:
   - _gun: {fileID: 7783402195203583365}
     isInArsenal: 1
   - _gun: {fileID: 114778055586302144}
-    isInArsenal: 0
+    isInArsenal: 1
   startingGun: 0
   equippedGunIndex: 0
   prevEquippedGunIndex: 0
