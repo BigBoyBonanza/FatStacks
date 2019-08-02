@@ -7,6 +7,7 @@ public class ConveyerBeltMalfunction : MonoBehaviour
     public AudioSource crash;
     public AudioSource malfunctioning;
     public BoxSpawner[] spawners;
+    public Gear[] gears;
 
     public bool notTriggered = true;
 
@@ -19,6 +20,10 @@ public class ConveyerBeltMalfunction : MonoBehaviour
             foreach (BoxSpawner spawner in spawners)
             {
                 spawner.TurnSpawnerOn(true);
+            }
+            foreach (Gear gear in gears)
+            {
+                gear.Speed *= 5;
             }
             notTriggered = false;
         }

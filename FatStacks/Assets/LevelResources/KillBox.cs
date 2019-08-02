@@ -7,6 +7,9 @@ public class KillBox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         HealthManager manager = other.gameObject.GetComponent<HealthManager>();
-        manager.Kill();
+        if(manager != null)
+        {
+            manager.Kill();
+        }
     }
 }
