@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float JumpForce = 5f;
     public GameObject DeadCharacter;
+    public GameObject WinCharacter;
     public Text HealthText;
     //public Image HealthBar;
 
@@ -383,6 +384,7 @@ public class Player : MonoBehaviour
             _Camera.transform.localPosition = target;
         }
     }
+
     public bool GetCrouched()
     {
         return IsCrouched;
