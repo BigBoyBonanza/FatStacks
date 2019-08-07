@@ -65,7 +65,9 @@ public class HelicopterAI : MonoBehaviour
             }
             direction = direction.normalized;
             rigidbody.velocity = rigidbody.velocity.magnitude * direction;
+            
         }
+        transform.rotation = Quaternion.Euler(direction); //Todo convert normals to euler angles.
     }
 
     // Update is called once per frame

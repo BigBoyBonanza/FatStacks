@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelicopterBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 3055534699350891299, guid: ca272948353265d46b029e2abfbdd7a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9abe765dc16558f44ac86bc4f49dde5e, type: 2}
     - target: {fileID: 3055534699350891309, guid: ca272948353265d46b029e2abfbdd7a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,7 +72,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3055534699350891299, guid: ca272948353265d46b029e2abfbdd7a5,
+    - target: {fileID: 3324666393188011992, guid: ca272948353265d46b029e2abfbdd7a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9abe765dc16558f44ac86bc4f49dde5e, type: 2}
+    - target: {fileID: 8859117203411114086, guid: ca272948353265d46b029e2abfbdd7a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9abe765dc16558f44ac86bc4f49dde5e, type: 2}
+    - target: {fileID: 8859117203411114086, guid: ca272948353265d46b029e2abfbdd7a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9abe765dc16558f44ac86bc4f49dde5e, type: 2}
+    - target: {fileID: 6994400172642789625, guid: ca272948353265d46b029e2abfbdd7a5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

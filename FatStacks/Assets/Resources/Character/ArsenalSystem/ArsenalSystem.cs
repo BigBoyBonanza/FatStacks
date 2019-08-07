@@ -47,7 +47,7 @@ public class ArsenalSystem : MonoBehaviour
     void Start()
     {
         arsenalSize = EvaluateArsenalSize();
-        if (Player.firstSpawnInScene)
+        //if (Player.firstSpawnInScene)
             EquipGun(startingGun);
     }
 

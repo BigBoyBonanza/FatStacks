@@ -7393,7 +7393,7 @@ PrefabInstance:
     - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
         type: 3}
       propertyPath: arsenal.Array.data[4].isInArsenal
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
         type: 3}

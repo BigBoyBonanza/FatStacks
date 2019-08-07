@@ -615,7 +615,7 @@ PrefabInstance:
     - target: {fileID: 139242484695207179, guid: 5cf2989ca2d2b5342bb0166954c7d875,
         type: 3}
       propertyPath: _frozen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cf2989ca2d2b5342bb0166954c7d875, type: 3}
@@ -1140,7 +1140,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13980
+  m_Name: pb_Mesh48242
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1436,7 +1436,7 @@ PrefabInstance:
     - target: {fileID: 5856577394943160871, guid: ceeb2dc00040b3b41895f5dbfc25f712,
         type: 3}
       propertyPath: _frozen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceeb2dc00040b3b41895f5dbfc25f712, type: 3}
@@ -1653,7 +1653,7 @@ PrefabInstance:
     - target: {fileID: 397033752730146421, guid: d6dd538635502c74e9a3ac4dbceb55da,
         type: 3}
       propertyPath: _frozen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6dd538635502c74e9a3ac4dbceb55da, type: 3}
