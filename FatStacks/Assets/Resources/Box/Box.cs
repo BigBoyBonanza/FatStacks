@@ -319,6 +319,8 @@ public class Box : MonoBehaviour
     {
         for (int i = 0; i < neighborCoordEvaluatorLocalTransforms.Length; ++i)
         {
+            if (_Grid == null)
+                Debug.Log("Halp");
             coords[i] = _Grid.WorldToCell(transform.position + (transform.rotation * neighborCoordEvaluatorLocalTransforms[i]));
             if (forceAdd == true || coords[i] != prev_coord[i])
             {

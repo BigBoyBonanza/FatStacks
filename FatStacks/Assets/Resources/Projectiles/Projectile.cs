@@ -34,6 +34,6 @@ public class Projectile : MonoBehaviour
 
     public virtual void Hit(GameObject obj)
     {
-        Debug.Log(obj + " was hit");
+        //Debug.Log(obj + " was hit");
     }
 }
