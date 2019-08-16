@@ -12,8 +12,8 @@ public class BoxSpawner : MonoBehaviour
     public bool fixedRate;
     public bool startActive;
     private bool on;
-    public int amount;
-    public bool isNotInfinite;
+    public int amount = 1;
+    public bool isFinite;
 
     private Coroutine coroutine;
 
@@ -42,7 +42,7 @@ public class BoxSpawner : MonoBehaviour
         {
             GameObject obj = Instantiate(pool[random.Next(pool.Length)].gameObject, transform.position, Quaternion.identity, boxGrid);
             obj.SetActive(true);
-            if (isNotInfinite)
+            if (isFinite)
                 amount -= 1;
             if (fixedRate)
                 yield return new WaitForSeconds(minInterval);
