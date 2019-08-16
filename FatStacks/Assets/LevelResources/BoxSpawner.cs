@@ -8,9 +8,12 @@ public class BoxSpawner : MonoBehaviour
     public Box[] pool;
     public float maxInterval;
     public float minInterval;
+    [Tooltip("If turned on, will use minInterval as rate. If off will use range between maxInterval and minInterval.")]
     public bool fixedRate;
     public bool startActive;
     private bool on;
+    public int amount;
+    public bool isNotInfinite;
 
     private Coroutine coroutine;
 
@@ -35,10 +38,12 @@ public class BoxSpawner : MonoBehaviour
     IEnumerator SpawnBox()
     {
         System.Random random = new System.Random();
-        while (on)
+        while (on && amount > 0)
         {
             GameObject obj = Instantiate(pool[random.Next(pool.Length)].gameObject, transform.position, Quaternion.identity, boxGrid);
             obj.SetActive(true);
+            if (isNotInfinite)
+                amount -= 1;
             if (fixedRate)
                 yield return new WaitForSeconds(minInterval);
             else

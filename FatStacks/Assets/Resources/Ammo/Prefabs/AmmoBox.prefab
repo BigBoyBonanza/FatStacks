@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_prompt: 0
-  _PromptData: {fileID: 0}
+  _PromptData: {fileID: 11400000, guid: dc57b975944fe324b84994a906b86558, type: 2}
   isBusy: 0
   gun: 0
   amount: 0

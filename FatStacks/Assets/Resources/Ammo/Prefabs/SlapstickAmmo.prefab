@@ -67,11 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1478596896798553955, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: db3900550e272e3498751b08677a572b, type: 2}
     - target: {fileID: 1940478380792859261, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: amount
@@ -82,5 +77,10 @@ PrefabInstance:
       propertyPath: gun
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1478596896798553955, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db3900550e272e3498751b08677a572b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32cebf4fa4528494eb249ead1dab566e, type: 3}
