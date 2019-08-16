@@ -246,7 +246,7 @@ MonoBehaviour:
   fixedRate: 1
   startActive: 0
   amount: 30
-  isNotInfinite: 0
+  isFinite: 0
 --- !u!4 &129888926
 Transform:
   m_ObjectHideFlags: 0
@@ -6716,7 +6716,7 @@ MonoBehaviour:
   fixedRate: 1
   startActive: 0
   amount: 30
-  isNotInfinite: 1
+  isFinite: 1
 --- !u!4 &2090086904
 Transform:
   m_ObjectHideFlags: 0
