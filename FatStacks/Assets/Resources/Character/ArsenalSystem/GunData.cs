@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunData : ScriptableObject {
 
     public new string name;
+    public bool finiteAmmo = true;
     public int ammoCapacity;
     public Sprite gun_sprite;
     public AudioClip[] shootSound;

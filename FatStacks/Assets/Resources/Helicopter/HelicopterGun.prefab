@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6303722174885537065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480001002819273456}
+  - component: {fileID: 5820715895842688296}
+  m_Layer: 0
+  m_Name: HelicopterGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1480001002819273456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6303722174885537065}
+  m_LocalRotation: {x: -0.07697153, y: -0, z: -0, w: 0.9970333}
+  m_LocalPosition: {x: -0.2243, y: -0.117, z: -0.1582}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5820715895842688296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6303722174885537065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8feea9236ebf054fa23e60197ae7d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunData: {fileID: 11400000, guid: b77103d48c34e8f499515c87cb1f2952, type: 2}
+  ammo: 0
+  rocketCount: 0
+  spreadAngle: 0
+  Rocket: {fileID: 2537403471560445825, guid: a5bfdac78e7fcc946be1a465b8801902, type: 3}
+  rocketFireVelocity: 10
+  BarrelExit: {fileID: 1480001002819273456}

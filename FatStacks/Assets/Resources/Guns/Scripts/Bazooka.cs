@@ -28,10 +28,11 @@ public class Bazooka : Gun
         GameObject p = Instantiate(Rocket, BarrelExit.position, BarrelExit.rotation);
         //p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[0], spreadAngle);
         p.GetComponent<Rocket>().rocketSpeed = rocketFireVelocity;
-
-        ammo--;
+        if(gunData.finiteAmmo)
+            ammo--;
         //playFireSound(0);
     }
+
     public override bool canFire()
     {
         return ammo > 0;

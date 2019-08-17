@@ -8,7 +8,10 @@ public class HelicopterBossAI : MonoBehaviour
     public int speed;
     public Transform Helicopter;
     public Transform Player;
+    public Bazooka[] bazookas;
     Coroutine TurnCoroutine;
+    public Projectile rocket;
+    public float fireRate;
     State currState = State.flyingForward;
     enum State
     {
@@ -17,10 +20,14 @@ public class HelicopterBossAI : MonoBehaviour
         turning
     };
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        StartCoroutine("FireGuns");
+    }
+
+    void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 
     // Update is called once per frame
@@ -32,12 +39,9 @@ public class HelicopterBossAI : MonoBehaviour
                 //Go forward
                 transform.Rotate((moveClockwise ? Vector3.up : Vector3.down) * speed * Time.deltaTime);
                 //Check if Player is behind helicopter.
-                Vector3 a = Helicopter.transform.forward;
-                Vector3 b = (Helicopter.transform.position - Player.transform.position).normalized;
-                float dot = Vector3.Dot(a, b);
-                if(dot < -0.7f)
+                if (IsPlayerFacingHelicopter(true, 0.7f))
                 {
-                    StartCoroutine("Turn180Degrees",1f);
+                    TurnCoroutine = StartCoroutine("Turn180Degrees",1f);
                 }
                 break;
             case State.turning:
@@ -50,14 +54,36 @@ public class HelicopterBossAI : MonoBehaviour
         currState = State.turning;
         float increment = 180 / rotTime;
         float progress = 0;
-        while(progress < 180)
+        Vector3 direction = (moveClockwise ? Vector3.up : Vector3.down);
+        while (progress < 180)
         {
-            Vector3 v = Vector3.down * increment * Time.deltaTime;
+            Vector3 v = direction * increment * Time.deltaTime;
             progress += v.magnitude;
             Helicopter.transform.Rotate(v);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         moveClockwise = !moveClockwise;
         currState = State.flyingForward;
+    }
+
+    IEnumerator FireGuns()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(fireRate);
+            yield return new WaitUntil(() => IsPlayerFacingHelicopter(false,0.7f) == true);
+            foreach(Bazooka bazooka in bazookas)
+            {
+                bazooka.fire1(new Ray());
+            }
+        }
+    }
+
+    bool IsPlayerFacingHelicopter(bool back, float threshold)
+    {
+        Vector3 a = Helicopter.transform.forward;
+        Vector3 b = (Helicopter.transform.position - Player.transform.position).normalized;
+        float dot = Vector3.Dot(a, b);
+        return (back && dot < -threshold) || (!back && dot > threshold);
     }
 }
