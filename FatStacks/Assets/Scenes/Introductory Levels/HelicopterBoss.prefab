@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveClockwise: 0
-  speed: 1
+  speed: 5
+  range: 15
   Helicopter: {fileID: 7740727637030276788}
   Player: {fileID: 0}
   bazookas:
