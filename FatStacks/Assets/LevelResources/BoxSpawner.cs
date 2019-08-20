@@ -11,11 +11,11 @@ public class BoxSpawner : MonoBehaviour
     [Tooltip("If turned on, will use minInterval as rate. If off will use range between maxInterval and minInterval.")]
     public bool fixedRate;
     public bool startActive;
-    private bool on;
+    protected bool on;
     public int amount = 1;
     public bool isFinite;
 
-    private Coroutine coroutine;
+    protected Coroutine coroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class BoxSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnBox()
+    protected virtual IEnumerator SpawnBox()
     {
         System.Random random = new System.Random();
         while (on && amount > 0)
