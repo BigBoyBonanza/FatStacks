@@ -169,17 +169,17 @@ PrefabInstance:
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.8000001
       objectReference: {fileID: 0}
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 19.7
       objectReference: {fileID: 0}
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
@@ -220,6 +220,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474166053899277939, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Name
+      value: BazookaRocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197600576345530744, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f5b1f4b1c01d204dbe48cfe875c62d3, type: 2}
+    - target: {fileID: 8978029074372636356, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: gun
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978029074372636356, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.15566993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.005864716
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.17527011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.009151198
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25258642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.036372352
       objectReference: {fileID: 0}
     - target: {fileID: 4511950089605001450, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
@@ -271,57 +321,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.38936
       objectReference: {fileID: 0}
-    - target: {fileID: 8474166053899277939, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Name
-      value: BazookaRocket
-      objectReference: {fileID: 0}
     - target: {fileID: 6360812642161415312, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2381890483179193753, guid: 7653136a313c6dc43b9bb5391b71f996,
         type: 3}
-    - target: {fileID: 8197600576345530744, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7f5b1f4b1c01d204dbe48cfe875c62d3, type: 2}
-    - target: {fileID: 8978029074372636356, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: gun
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.15566993
-      objectReference: {fileID: 0}
-    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.005864716
-      objectReference: {fileID: 0}
-    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.17527011
-      objectReference: {fileID: 0}
-    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.009151198
-      objectReference: {fileID: 0}
-    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.25258642
-      objectReference: {fileID: 0}
-    - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.036372352
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32cebf4fa4528494eb249ead1dab566e, type: 3}
 --- !u!4 &3958210942629759407 stripped

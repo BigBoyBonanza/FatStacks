@@ -13,7 +13,7 @@ public class Box : MonoBehaviour
     public BoxCoordDictionary _BoxCoordDictionary;
 
     [SerializeField]
-    protected string i_am = "m3Object";
+    public string i_am = "m3Object";
     public string resourcePath;
     public int weight;
     public bool isTooHeavy;
