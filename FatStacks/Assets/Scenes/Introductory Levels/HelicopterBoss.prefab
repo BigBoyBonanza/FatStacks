@@ -50,8 +50,8 @@ MonoBehaviour:
   Helicopter: {fileID: 7740727637030276788}
   Player: {fileID: 0}
   bazookas:
-  - {fileID: 5993126566361893010}
   - {fileID: 4386747748221606685}
+  - {fileID: 5993126566361893010}
   rocket: {fileID: 0}
   fireRate: 1
 --- !u!1001 &282753294266877370

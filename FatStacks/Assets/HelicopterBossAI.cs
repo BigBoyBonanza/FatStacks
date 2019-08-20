@@ -9,11 +9,12 @@ public class HelicopterBossAI : MonoBehaviour
     public float range;
     public Transform Helicopter;
     public Transform Player;
-    public Bazooka[] bazookas;
     Coroutine TurnCoroutine;
     bool canTurn = true;
+    public Bazooka[] bazookas;
     public Projectile rocket;
     public float fireRate;
+    private bool fireLeft;
     State currState = State.flyingForward;
     enum State
     {
@@ -98,9 +99,14 @@ public class HelicopterBossAI : MonoBehaviour
         {
             yield return new WaitForSeconds(fireRate);
             yield return new WaitUntil(() => IsPlayerFacingHelicopter(false,0.9f) == true);
-            foreach(Bazooka bazooka in bazookas)
+            fireLeft = !fireLeft;
+            if (fireLeft)
             {
-                bazooka.fire1(new Ray());
+                bazookas[0].fire1(new Ray());
+            }
+            else
+            {
+                bazookas[1].fire1(new Ray());
             }
         }
     }

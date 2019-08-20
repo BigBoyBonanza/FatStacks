@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AmmoPrompts
   m_EditorClassIdentifier: 
   prompts:
-  - TAKE
+  - 
   exceptions:
   - CAN'T CARRY MORE AMMO
