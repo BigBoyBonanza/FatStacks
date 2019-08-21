@@ -25,15 +25,19 @@ public class Rocket : Projectile
         base.Hit(obj);
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, blastRadius);
+        HashSet<HealthManager> healthManagers = new HashSet<HealthManager>();
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
-            HealthManager healthManager = hit.GetComponent<HealthManager>();
+            HealthManager healthManager = hit.GetComponentInParent<HealthManager>();
             int amount = (int)(damage * Vector3.Distance(transform.position, hit.transform.position) / blastRadius);
             if (rb != null)
                 rb.AddExplosionForce(blastPower, explosionPos, blastRadius, 1F, ForceMode.VelocityChange);
-            if (healthManager != null)
+            if (healthManager != null && healthManager != ownerHealthManager && !healthManagers.Contains(healthManager))
+            {
                 healthManager.DealDamage(damage);
+                healthManagers.Add(healthManager);
+            }
         }
         Destroy(gameObject);
     }

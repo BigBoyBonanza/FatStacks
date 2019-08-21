@@ -5,7 +5,7 @@ using UnityEngine;
 public class HelicopterBossAI : MonoBehaviour
 {
     public bool moveClockwise = false;
-    public int speed;
+    public float speed;
     public float range;
     public Transform Helicopter;
     public Transform Player;

@@ -7,7 +7,7 @@ public class HealthManager : MonoBehaviour
     public int maxHealth;
     public int health;
     public bool clampHealthToMax = true;
-
+    public bool selfDamage;
     public virtual int GiveHealth(int amount)
     {
         health += amount;

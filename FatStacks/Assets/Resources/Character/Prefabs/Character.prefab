@@ -431,6 +431,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   clampHealthToMax: 1
+  selfDamage: 1
 --- !u!114 &114073965793209844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1341,6 +1342,7 @@ MonoBehaviour:
   Rocket: {fileID: 2537403471560445825, guid: a5bfdac78e7fcc946be1a465b8801902, type: 3}
   rocketFireVelocity: 20
   BarrelExit: {fileID: 9069922855181685959}
+  ownerHealthManager: {fileID: 0}
 --- !u!33 &3758639968880338403
 MeshFilter:
   m_ObjectHideFlags: 0

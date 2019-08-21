@@ -21,8 +21,8 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
-  m_AmbientEquatorColor: {r: 0.23104306, g: 0.3414738, b: 0.41509432, a: 1}
-  m_AmbientGroundColor: {r: 0.18511926, g: 0.21166703, b: 0.24528301, a: 1}
+  m_AmbientEquatorColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+  m_AmbientGroundColor: {r: 0.3257387, g: 0.34832236, b: 0.3773585, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -247,6 +247,11 @@ PrefabInstance:
     - target: {fileID: 224679482424018698, guid: c620bf70a29f4b641a313ec6f0ac7af5,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783402195203583365, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: ammo
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7068,7 +7073,7 @@ PrefabInstance:
     - target: {fileID: 4254339321612789403, guid: 08c1324c037788942bb1420de967178f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 949574146551238009, guid: 08c1324c037788942bb1420de967178f,
         type: 3}
@@ -7134,6 +7139,46 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: rocketBoxSpawner
+      value: 
+      objectReference: {fileID: 564878952}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: boxSpawner
+      value: 
+      objectReference: {fileID: 1150187635}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: stages.Array.data[0].boxSpawRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: stages.Array.data[0].rocketBoxSpawRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: stages.Array.data[1].boxSpawRate
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: stages.Array.data[1].rocketBoxSpawRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: stages.Array.data[2].boxSpawRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682999154118711675, guid: 08c1324c037788942bb1420de967178f,
+        type: 3}
+      propertyPath: stages.Array.data[2].rocketBoxSpawRate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08c1324c037788942bb1420de967178f, type: 3}

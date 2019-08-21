@@ -10,7 +10,7 @@ public class Bazooka : Gun
     public float rocketFireVelocity = 1000;
     public Transform BarrelExit;
     List<Quaternion> rockets;
-
+    public HealthManager ownerHealthManager;
 
     private void Awake()
     {
@@ -21,13 +21,19 @@ public class Bazooka : Gun
         }
     }
 
+    private void Start()
+    {
+        ownerHealthManager = GetComponentInParent<HealthManager>();
+    }
 
     public override void fire1(Ray ray)
     {
         //rockets[0] = Random.rotation;
         GameObject p = Instantiate(Rocket, BarrelExit.position, BarrelExit.rotation);
         //p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[0], spreadAngle);
-        p.GetComponent<Rocket>().rocketSpeed = rocketFireVelocity;
+        Rocket r = p.GetComponent<Rocket>();
+        r.rocketSpeed = rocketFireVelocity;
+        r.ownerHealthManager = ownerHealthManager;
         if(gunData.finiteAmmo)
             ammo--;
         //playFireSound(0);

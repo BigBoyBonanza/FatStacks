@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MatchGunTest.unity
     guid: de2212dbbee6c9349af48232f3a1e020
+  - enabled: 1
+    path: Assets/Scenes/Finale/HelicopterBossFight.unity
+    guid: 48f3102adc495454a9be6255e5eb3b08
   m_configObjects: {}

@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public int damage;
     public bool bounce;
     private Vector3 previousPosition;
+    public HealthManager ownerHealthManager = null;
     int mask;
 
     private IEnumerator Start()
