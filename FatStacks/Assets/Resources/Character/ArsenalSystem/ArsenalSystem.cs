@@ -57,8 +57,11 @@ public class ArsenalSystem : MonoBehaviour
         fire1 = fire1 || Input.GetButtonDown("Fire1");
         fire2 = fire2 || Input.GetButtonDown("Fire2");
 
-        ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equippedGun.getAmmoFill(), 0.1f);
-        ammo.text = equippedGun.ammo.ToString();
+        if(equippedGun != null)
+        {
+            ammoBar.fillAmount = Mathf.Lerp(ammoBar.fillAmount, equippedGun.getAmmoFill(), 0.1f);
+            ammo.text = equippedGun.ammo.ToString();
+        }
 
         //Only allow weapon scrolling if arsenal is greater than 1
         if (arsenalSize > 0)
