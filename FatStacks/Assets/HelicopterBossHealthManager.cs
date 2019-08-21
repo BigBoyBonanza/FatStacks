@@ -16,6 +16,7 @@ public class HelicopterBossHealthManager : HealthManager
     public struct HelicopterBossStage
     {
         public float helicopterSpeed;
+        public float helicopterRotSpeed;
         public float helicopterFireRate;
         public float boxSpawnRate;
         public float rocketBoxSpawnRate;
@@ -34,6 +35,11 @@ public class HelicopterBossHealthManager : HealthManager
             ++stage;
             SetUpStage(stage);
         }
+        Helicopter.currState = HelicopterBossAI.State.flyingForwardAndAttacking;
+        if (Helicopter.IsPlayerFacingHelicopter(true, 0, false))
+        {
+            Helicopter.StartCoroutine("Turn180Degrees", 1f);
+        }
         return 0;
     }
 
@@ -41,6 +47,7 @@ public class HelicopterBossHealthManager : HealthManager
     {
         HelicopterBossStage stage = stages[index];
         Helicopter.fireRate = stage.helicopterFireRate;
+        Helicopter.rotSpeed = stage.helicopterRotSpeed;
         Helicopter.speed = stage.helicopterSpeed;
         boxSpawner.minInterval = stage.boxSpawnRate;
         rocketBoxSpawner.minInterval = stage.rocketBoxSpawnRate;

@@ -166,10 +166,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: BazookaAmmo
       objectReference: {fileID: 0}
+    - target: {fileID: 8978029074372636356, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: gun
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978029074372636356, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: amount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8000001
+      value: -0.6999984
       objectReference: {fileID: 0}
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
@@ -179,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.7
+      value: -19.7
       objectReference: {fileID: 0}
     - target: {fileID: 6227109806598821847, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
@@ -220,26 +230,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8474166053899277939, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Name
-      value: BazookaRocket
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197600576345530744, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7f5b1f4b1c01d204dbe48cfe875c62d3, type: 2}
-    - target: {fileID: 8978029074372636356, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: gun
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8978029074372636356, guid: 32cebf4fa4528494eb249ead1dab566e,
-        type: 3}
-      propertyPath: amount
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1840309577131000727, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
@@ -321,6 +311,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.38936
       objectReference: {fileID: 0}
+    - target: {fileID: 8474166053899277939, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Name
+      value: BazookaRocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197600576345530744, guid: 32cebf4fa4528494eb249ead1dab566e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f5b1f4b1c01d204dbe48cfe875c62d3, type: 2}
     - target: {fileID: 6360812642161415312, guid: 32cebf4fa4528494eb249ead1dab566e,
         type: 3}
       propertyPath: m_Mesh

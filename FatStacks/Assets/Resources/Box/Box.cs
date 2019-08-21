@@ -139,12 +139,12 @@ public class Box : MonoBehaviour
         {
             for (int j = 0; j < neighborLocalCoords.Length; ++j)
             {
-                //Iterate through all neighbors
-                if (wasNeighborChecked[j] == true)
-                {
-                    //Skip this neighbor (because this neighbor made the recursive call)
-                    continue;
-                }
+                ////Iterate through all neighbors
+                //if (wasNeighborChecked[j] == true)
+                //{
+                //    //Skip this neighbor (because this neighbor made the recursive call)
+                //    continue;
+                //}
                 //Get neighbor from match3_grid
                 GameObject[] neighbor_game_objects = _BoxCoordDictionary.Get(coords[i] + neighborLocalCoords[j]);
 
@@ -160,8 +160,8 @@ public class Box : MonoBehaviour
                             //Check if neighbor is close enough
                             if (GetDistanceToNeighbor(neighbor) < distanceCheck)
                             {
-                                neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
-                                wasNeighborChecked[j] = true;
+                                //neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
+                                //wasNeighborChecked[j] = true;
                                 neighbor.GetMatchingNeighborsHelper(matching_neigbors);
                             }
                         }
@@ -187,12 +187,12 @@ public class Box : MonoBehaviour
         {
             for (int j = 0; j < neighborLocalCoords.Length; ++j)
             {
-                //Iterate through all neighbors
-                if (wasNeighborChecked[j] == true)
-                {
-                    //Skip this neighbor (because this neighbor made the recursive call)
-                    continue;
-                }
+                ////Iterate through all neighbors
+                //if (wasNeighborChecked[j] == true)
+                //{
+                //    //Skip this neighbor (because this neighbor made the recursive call)
+                //    continue;
+                //}
                 //Get neighbor from match3_grid
                 GameObject[] neighbor_game_objects = _BoxCoordDictionary.Get(coords[i] + neighborLocalCoords[j]);
 
@@ -208,8 +208,8 @@ public class Box : MonoBehaviour
                             //Check if neighbor is close enough
                             if (GetDistanceToNeighbor(neighbor) < distanceCheck)
                             {
-                                neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
-                                wasNeighborChecked[j] = true;
+                                //neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
+                                //wasNeighborChecked[j] = true;
                                 neighbor.GetMatchingNeighborsHelper(matching_neigbors);
                             }
                         }
@@ -302,10 +302,10 @@ public class Box : MonoBehaviour
     public void ResetChecked()
     {
         isBeingChecked = false;
-        for (int i = 0; i < wasNeighborChecked.Length; ++i)
-        {
-            wasNeighborChecked[i] = false;
-        }
+        //for (int i = 0; i < wasNeighborChecked.Length; ++i)
+        //{
+        //    wasNeighborChecked[i] = false;
+        //}
     }
     public void RemoveMyself()
     {

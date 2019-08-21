@@ -6,17 +6,25 @@ public class HelicopterBossAI : MonoBehaviour
 {
     public bool moveClockwise = false;
     public float speed;
-    public float range;
+    public float rotSpeed;
+    public float rangeToAlertFromBehind;
+    public float rangeToAlertFromFront;
+    public float rangeToLoseHelicopter;
     public Transform Helicopter;
     public Transform Player;
     Coroutine TurnCoroutine;
     bool canTurn = true;
     public Bazooka[] bazookas;
-    public Projectile rocket;
     public float fireRate;
     private bool fireLeft;
-    State currState = State.flyingForward;
-    enum State
+    [Range(0f, 1f)]
+    public float fireCone;
+    [Range(0f, 1f)]
+    public float frontAlertCone;
+    [Range(0f, 1f)]
+    public float backAlertCone;
+    public State currState = State.flyingForward;
+    public enum State
     {
         inActive,
         flyingForward,
@@ -36,21 +44,30 @@ public class HelicopterBossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float distance = 0;
+        if (Player == null)
+        {
+            currState = State.inActive;
+        }
+        else
+        {
+            distance = Vector3.Distance(Helicopter.position, Player.position);
+        }
         switch (currState)
         {
             case State.flyingForward:
                 //Go forward
                 transform.Rotate((moveClockwise ? Vector3.up : Vector3.down) * speed * Time.deltaTime);
                 //Check if Player enters range of helicopter.
-                if (IsPlayerFacingHelicopter(true, 0.8f) && canTurn)
+                if (IsPlayerFacingHelicopter(true, backAlertCone) && canTurn && distance < rangeToAlertFromBehind)
                 {
                     TurnCoroutine = StartCoroutine("Turn180Degrees",1f);
                     currState = State.flyingForwardAndAttacking;
                 }
                 //Rotate back to normal orientation
                 Quaternion dest = (moveClockwise) ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
-                Helicopter.transform.localRotation = Quaternion.Slerp(Helicopter.localRotation, dest, 0.01f);
-                if (IsPlayerFacingHelicopter(false, 0.6f) && Vector3.Distance(Helicopter.position,Player.position) < range)
+                Helicopter.transform.localRotation = Quaternion.RotateTowards(Helicopter.localRotation, dest, rotSpeed * Time.deltaTime);
+                if (IsPlayerFacingHelicopter(false, frontAlertCone) && distance < rangeToAlertFromFront)
                 {
                     currState = State.flyingForwardAndAttacking;
                    
@@ -60,9 +77,9 @@ public class HelicopterBossAI : MonoBehaviour
                 //Go forward
                 transform.Rotate((moveClockwise ? Vector3.up : Vector3.down) * speed * Time.deltaTime);
                 //Rotate towards player
-                if (Vector3.Distance(Helicopter.position, Player.position) < range)
+                if (distance < rangeToLoseHelicopter)
                 {
-                    Helicopter.transform.rotation = Quaternion.Slerp(Helicopter.rotation, Quaternion.LookRotation(Helicopter.position - Player.position, Vector3.up), 0.01f);
+                    Helicopter.transform.rotation = Quaternion.RotateTowards(Helicopter.rotation, Quaternion.LookRotation(Helicopter.position - Player.position, Vector3.up), rotSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -98,7 +115,7 @@ public class HelicopterBossAI : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(fireRate);
-            yield return new WaitUntil(() => IsPlayerFacingHelicopter(false,0.9f) == true);
+            yield return new WaitUntil(() => IsPlayerFacingHelicopter(false,fireCone) == true);
             fireLeft = !fireLeft;
             if (fireLeft)
             {
@@ -111,8 +128,18 @@ public class HelicopterBossAI : MonoBehaviour
         }
     }
 
-    bool IsPlayerFacingHelicopter(bool back, float threshold)
+    public bool IsPlayerFacingHelicopter(bool back, float threshold, bool checkForWall = true)
     {
+        if (Player == null)
+            return false;
+        if (checkForWall)
+        {
+            bool wall = Physics.Linecast(Helicopter.position, Player.position, LayerMask.GetMask("Default", "InteractionSolid"));
+            if (wall)
+            {
+                return false;
+            }
+        }
         Vector3 a = Helicopter.transform.forward;
         Vector3 b = (Helicopter.transform.position - Player.transform.position).normalized;
         float dot = Vector3.Dot(a, b);
