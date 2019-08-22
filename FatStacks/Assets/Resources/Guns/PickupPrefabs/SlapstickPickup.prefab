@@ -72,16 +72,16 @@ PrefabInstance:
       propertyPath: gun
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6827837494664095584, guid: 4365ec882d349b5469a5cd550437bff0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee674cf2bed8d20458321a22e5a4557b, type: 2}
     - target: {fileID: 8594210771444912776, guid: 4365ec882d349b5469a5cd550437bff0,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 3814378201483603881, guid: 8b5b75a086163ac42bc5494b4c414629,
         type: 3}
-    - target: {fileID: 6827837494664095584, guid: 4365ec882d349b5469a5cd550437bff0,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f91b5fb64636a1e449ee780d26b68dcc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4365ec882d349b5469a5cd550437bff0, type: 3}

@@ -1610,65 +1610,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
---- !u!1 &632478576280516653
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9054997840376233457}
-  - component: {fileID: 2591560798288248935}
-  - component: {fileID: 1989448676549334205}
-  m_Layer: 0
-  m_Name: RocketCrateUnpacker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9054997840376233457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632478576280516653}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1446839049019457050}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2591560798288248935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632478576280516653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3140f33c33575594b83acce7fb0f6f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rocketSpawnLocation: {fileID: 8054569885152307830}
-  rocketAmmoResourcePath: Ammo/Prefabs/BazookaAmmo
---- !u!65 &1989448676549334205
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632478576280516653}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3036766, y: 0.17648077, z: 2.2453136}
-  m_Center: {x: 4.368024, y: -3.123965, z: 4.558873}
 --- !u!1 &5632788343022426513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,3 +1640,83 @@ Transform:
   m_Father: {fileID: 1446839049019457050}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2633024974671645263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1446839049019457050}
+    m_Modifications:
+    - target: {fileID: 3192315092024144482, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_Name
+      value: RocketCrateUnpacker
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70709336
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071202
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539711307684088360, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+        type: 3}
+      propertyPath: rocketSpawnLocation
+      value: 
+      objectReference: {fileID: 8054569885152307830}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b687ff95102e4ee4c94ff33cf45c9f3d, type: 3}
+--- !u!4 &9054997840376233457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6423174086721337278, guid: b687ff95102e4ee4c94ff33cf45c9f3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2633024974671645263}
+  m_PrefabAsset: {fileID: 0}
