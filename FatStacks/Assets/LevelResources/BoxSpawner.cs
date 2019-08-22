@@ -23,7 +23,7 @@ public class BoxSpawner : MonoBehaviour
         TurnSpawnerOn(startActive);
     }
 
-    public void TurnSpawnerOn(bool _on)
+    public void TurnSpawnerOn(bool _on = true)
     {
         if(on != _on)
         {

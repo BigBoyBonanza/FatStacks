@@ -136,6 +136,10 @@ public class ArsenalSystem : MonoBehaviour
                 fire2 = false;
             }
         }
+        else
+        {
+            fire1 = fire2 = false;
+        }
         
     }
     public void AddGunToArsenal(GunType gun)

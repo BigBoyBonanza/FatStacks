@@ -30,13 +30,18 @@ public class Rocket : Projectile
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             HealthManager healthManager = hit.GetComponentInParent<HealthManager>();
+            DestructibleWall destructibleWall = hit.GetComponent<DestructibleWall>();
             int amount = (int)(damage * Vector3.Distance(transform.position, hit.transform.position) / blastRadius);
             if (rb != null)
                 rb.AddExplosionForce(blastPower, explosionPos, blastRadius, 1F, ForceMode.VelocityChange);
-            if (healthManager != null && healthManager != ownerHealthManager && !healthManagers.Contains(healthManager))
+            if (healthManager != null && (healthManager != ownerHealthManager || healthManager.selfDamage) && !healthManagers.Contains(healthManager))
             {
                 healthManager.DealDamage(damage);
                 healthManagers.Add(healthManager);
+            }
+            if (destructibleWall != null)
+            {
+                Destroy(destructibleWall.gameObject);
             }
         }
         Destroy(gameObject);

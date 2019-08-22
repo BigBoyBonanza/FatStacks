@@ -33,6 +33,7 @@ public class HelicopterBossAI : MonoBehaviour
 
     private void Start()
     {
+        currState = State.inActive;
         StartCoroutine("FireGuns");
     }
 
