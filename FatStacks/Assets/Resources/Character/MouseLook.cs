@@ -10,6 +10,7 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
+        sensitivity *= PlayerPrefs.GetFloat("Sensitivity");
         character = GetComponentInParent<Player>();
         if (Player.firstSpawnInScene)
             Look(new Vector3(transform.localEulerAngles.x, character.transform.localEulerAngles.y, 0));
