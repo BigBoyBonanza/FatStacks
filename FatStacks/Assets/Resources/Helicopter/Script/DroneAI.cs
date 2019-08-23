@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelicopterAI : MonoBehaviour
+public class DroneAI : MonoBehaviour
 {
     public float initVelocity;
+    public float baseSpeed;
+    public float rotSpeed;
+    private Quaternion targetDirection;
+    public DroneChatter droneChatter;
     [HideInInspector]
     public Rigidbody rigidbody;
+    public AudioSource source;
     public Box box;
+    public State currState;
+
+    public enum State
+    {
+        inActive,
+        flyingForward,
+        rotating
+    };
 
     private void Awake()
     {
@@ -22,6 +35,7 @@ public class HelicopterAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        droneChatter.PlayRandomClip(DroneChatter.ChatterCategory.bumping,source);
         Vector3 direction = Vector3.zero;
         ContactPoint[] contactPoints = new ContactPoint[1];
         collision.GetContacts(contactPoints);
@@ -67,12 +81,29 @@ public class HelicopterAI : MonoBehaviour
             rigidbody.velocity = rigidbody.velocity.magnitude * direction;
             
         }
-        transform.rotation = Quaternion.Euler(direction); //Todo convert normals to euler angles.
+        targetDirection = Quaternion.LookRotation(direction);
+        currState = State.rotating;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rigidbody.MovePosition(transform.position + rigidbody.velocity * Time.deltaTime);
+        switch (currState)
+        {
+            case State.flyingForward:
+                //Move forward
+                rigidbody.MovePosition(transform.position + (baseSpeed * transform.forward) * Time.fixedDeltaTime);
+                Debug.DrawRay(transform.position, transform.forward);
+                break;
+            case State.rotating:
+                //Rotate
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetDirection, rotSpeed * Time.deltaTime);
+                if(transform.rotation == targetDirection)
+                {
+                    currState = State.flyingForward;
+                }
+                break;
+        }
+        
     }
 }

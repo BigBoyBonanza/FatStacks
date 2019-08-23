@@ -10,6 +10,10 @@ public class SettingsMenuActions : MonoBehaviour
 
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("Sensitivity"))
+        {
+            PlayerPrefs.SetFloat("Sensitivity", 1f);
+        }
         slider.value = PlayerPrefs.GetFloat("Sensitivity");
     }
 

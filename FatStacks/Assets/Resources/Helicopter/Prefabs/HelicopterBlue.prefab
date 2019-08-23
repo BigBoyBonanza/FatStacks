@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelicopterBlue
       objectReference: {fileID: 0}
-    - target: {fileID: 3055534699350891299, guid: ca272948353265d46b029e2abfbdd7a5,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9abe765dc16558f44ac86bc4f49dde5e, type: 2}
     - target: {fileID: 3055534699350891309, guid: ca272948353265d46b029e2abfbdd7a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,8 +81,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9abe765dc16558f44ac86bc4f49dde5e, type: 2}
+      objectReference: {fileID: 2100000, guid: be9018f75c24a264c801c08daa3ef606, type: 2}
     - target: {fileID: 6994400172642789625, guid: ca272948353265d46b029e2abfbdd7a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9abe765dc16558f44ac86bc4f49dde5e, type: 2}
+    - target: {fileID: 3055534699350891299, guid: ca272948353265d46b029e2abfbdd7a5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

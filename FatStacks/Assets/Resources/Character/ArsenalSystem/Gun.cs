@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
     public int ammo;
     protected AudioSource gunAudioSource;
 
-    private void Start()
+    public void Start()
     {
         gunAudioSource = GetComponentInParent<AudioSource>();
         ammo = Mathf.Clamp(ammo, 0, gunData.ammoCapacity);
@@ -44,19 +44,19 @@ public class Gun : MonoBehaviour
 
     protected void playFireSound(int index)
     {
-        gunAudioSource.clip = gunData.shootSound[index];
+        gunAudioSource.clip = gunData.shootSound[index % gunData.shootSound.Length];
         gunAudioSource.Play();
     }
 
     protected void playEmptySound(int index)
     {
-        gunAudioSource.clip = gunData.emptySound[index];
+        gunAudioSource.clip = gunData.emptySound[index % gunData.shootSound.Length];
         gunAudioSource.Play();
     }
 
     protected void playErrorSound(int index)
     {
-        gunAudioSource.clip = gunData.errorSound[index];
+        gunAudioSource.clip = gunData.errorSound[index % gunData.shootSound.Length];
         gunAudioSource.Play();
     }
 }

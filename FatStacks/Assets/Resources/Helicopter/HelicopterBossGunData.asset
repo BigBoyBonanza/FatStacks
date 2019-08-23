@@ -16,6 +16,8 @@ MonoBehaviour:
   finiteAmmo: 0
   ammoCapacity: 0
   gun_sprite: {fileID: 0}
-  shootSound: []
+  shootSound:
+  - {fileID: 8300000, guid: 57caf838081517d41a7d0f776798156c, type: 3}
+  - {fileID: 8300000, guid: ce562c34a21939243a6092842bfe7df5, type: 3}
   emptySound: []
   errorSound: []

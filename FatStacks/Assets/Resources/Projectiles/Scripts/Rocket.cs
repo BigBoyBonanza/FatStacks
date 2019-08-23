@@ -5,6 +5,9 @@ using UnityEngine;
 public class Rocket : Projectile
 {
     Rigidbody rigidbody;
+    //public AudioSource source;
+    //public AudioClip clip;
+    public GameObject ExplosionPrefab;
     public float rocketSpeed;
     public float blastRadius = 5.0f;
     public float blastPower = 10.0f;
@@ -23,6 +26,8 @@ public class Rocket : Projectile
     public override void Hit(GameObject obj)
     {
         base.Hit(obj);
+        //source.PlayOneShot(clip);
+        Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, blastRadius);
         HashSet<HealthManager> healthManagers = new HashSet<HealthManager>();
