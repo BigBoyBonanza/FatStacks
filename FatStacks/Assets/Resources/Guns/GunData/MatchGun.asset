@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MatchGun
   m_EditorClassIdentifier: 
   name: Match Gun
+  finiteAmmo: 1
   ammoCapacity: 45
-  gun_sprite: {fileID: 21300000, guid: 6e2e91d0a45f0034f8b8cd9e0a5f087d, type: 3}
+  gun_sprite: {fileID: 21300000, guid: 5df71be3c73ce52478476438281e2e5c, type: 3}
   shootSound:
   - {fileID: 8300000, guid: a1319ece7dd61b54caa72f11f57b0407, type: 3}
   - {fileID: 8300000, guid: 1d13807e528501d4fb1e33ab26c8932f, type: 3}
