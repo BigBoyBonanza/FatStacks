@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: FreezeGun
   m_EditorClassIdentifier: 
   name: Freeze Ray
+  finiteAmmo: 1
   ammoCapacity: 30
-  gun_sprite: {fileID: 21300000, guid: 7deef665e7e37904da45228ad4cc1fe0, type: 3}
+  gun_sprite: {fileID: 21300000, guid: 0990f1ea8886c444f85d625649ac12bb, type: 3}
   shootSound: []
   emptySound: []
   errorSound: []

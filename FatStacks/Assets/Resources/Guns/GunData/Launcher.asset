@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Launcher
   m_EditorClassIdentifier: 
   name: Launcher
+  finiteAmmo: 1
   ammoCapacity: 30
-  gun_sprite: {fileID: 21300000, guid: 7121e56f275ed354b8cc7d59ec4b3d63, type: 3}
+  gun_sprite: {fileID: 21300000, guid: f25984f3d40c33447b7c7a575bdf1df7, type: 3}
   shootSound: []
   emptySound: []
   errorSound: []

@@ -12,6 +12,8 @@ public class Bazooka : Gun
     List<Quaternion> rockets;
     public HealthManager ownerHealthManager;
 
+    private int tic;
+
     private void Awake()
     {
         rockets = new List<Quaternion>(rocketCount);
@@ -21,13 +23,15 @@ public class Bazooka : Gun
         }
     }
 
-    private void Start()
+    public void Start()
     {
+        base.Start();
         ownerHealthManager = GetComponentInParent<HealthManager>();
     }
 
     public override void fire1(Ray ray)
     {
+        playFireSound(++tic);
         //rockets[0] = Random.rotation;
         GameObject p = Instantiate(Rocket, BarrelExit.position, BarrelExit.rotation);
         //p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, rockets[0], spreadAngle);

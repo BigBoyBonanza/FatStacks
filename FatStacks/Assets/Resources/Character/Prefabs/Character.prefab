@@ -650,7 +650,8 @@ AudioSource:
   m_GameObject: {fileID: 1627184583863790}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1704715347936487546, guid: 3cf0a0a59f891e44b979fc25809f8134,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.75
@@ -1547,7 +1548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: db698dd9cc65cc04fb50075b133cc5ac, type: 2}
   ammo: 100
-  pelletCount: 16
+  pelletCount: 10
   spreadAngle: 10
   pellet: {fileID: 1242228287058475743, guid: d457c55642e91194f9e88ee7c8ebdc4f, type: 3}
   pelletFireVelocity: 1000

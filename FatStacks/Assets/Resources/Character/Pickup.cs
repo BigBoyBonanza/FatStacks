@@ -71,20 +71,21 @@ public class Pickup : MonoBehaviour
                 if (objectFound)
                 {
                     targetedObject = hitInfo.transform.gameObject;
-                    bool isBusy = true;
+                    bool busy = true;
                     PickupState nextState = PickupState.noObjectTargeted;
                     switch (hitInfo.transform.tag)
                     {
                         case "Interactable":
                             nextState = PickupState.interactObjectTargeted;
                             targetedItemInteraction = targetedObject.GetComponent<Interaction>();
-                            isBusy = targetedItemInteraction.isBusy;
-                            RefreshText();
+                            busy = targetedItemInteraction.IsBusy();
+                            if(!busy)
+                                RefreshText();
                             break;
                         case "Liftable":
                             nextState = PickupState.pickupObjectTargeted;
                             targetedItemBox = targetedObject.GetComponent<Box>();
-                            isBusy = false;
+                            busy = false;
                             prompt.fadeInText("LIFT");
                             
                             break;
@@ -92,7 +93,7 @@ public class Pickup : MonoBehaviour
                             break;
                     }
                     //Check the availability of the targeted object
-                    if (isBusy == false)
+                    if (busy == false)
                     {
                         currentPickupState = nextState;
                         //Debug.Log("Target found.");
@@ -113,7 +114,7 @@ public class Pickup : MonoBehaviour
                     if (Input.GetButtonDown("Interact/Pickup"))
                     {
                         //Interact with object
-                        targetedItemInteraction.interact(this);
+                        targetedItemInteraction.Interact(this);
                     }
                 }
                 break;
@@ -156,7 +157,7 @@ public class Pickup : MonoBehaviour
                 }
                 break;
         }
-        if(carriedObjects.Count > 0)
+        if(carriedObjects.Count > 0 && currentPickupState != PickupState.interactObjectTargeted)
         { 
             //Check distance mod
             float scrollDelta = Input.GetAxis("DistanceModification");
@@ -224,11 +225,11 @@ public class Pickup : MonoBehaviour
             }
             if ((Input.GetButtonDown("Drop") || (Input.GetButtonDown("DropOnStack") && !canDropAtCoords[1])) && canDropAtCoords[0])
             {
-                DropObject(dropLocations[0]);
+                DropObject(dropLocations[0], Quaternion.identity);
             }
             if (Input.GetButtonDown("DropOnStack") && canDropAtCoords[1])
             {
-                DropObject(dropLocations[1]);
+                DropObject(dropLocations[1], Quaternion.identity);
             }
         }
         
@@ -292,7 +293,7 @@ public class Pickup : MonoBehaviour
 
     }
 
-    private void DropObject(Vector3 location)
+    public void DropObject(Vector3 location, Quaternion rotation)
     {
         Box droppedItem = carriedObjects.Pop();
         boxInventoryDisplay.RemoveBox();
@@ -308,7 +309,7 @@ public class Pickup : MonoBehaviour
         droppedItem.gameObject.SetActive(true);
         //Remove constraints of rigidbody
         droppedItem.transform.position = location;
-        droppedItem.transform.rotation = Quaternion.identity;
+        droppedItem.transform.rotation = rotation;
         
         droppedItem.Frozen = false;
     }
@@ -322,12 +323,12 @@ public class Pickup : MonoBehaviour
 
     public void RefreshText()
     {
-        prompt.fadeInText(targetedItemInteraction.getPrompt());
+        prompt.fadeInText(targetedItemInteraction.GetPrompt());
     }
 
     private bool InteractTargetLost(bool objectFound,RaycastHit hit)
     {
-            return !objectFound || hit.transform.gameObject != targetedObject || targetedItemInteraction.isBusy == true;
+            return !objectFound || (hit.transform.gameObject != targetedObject) || targetedItemInteraction.IsBusy() == true;
     }
 
     private bool PickupTargetLost(bool objectFound,RaycastHit hit)

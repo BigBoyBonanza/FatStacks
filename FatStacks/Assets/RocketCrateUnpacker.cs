@@ -2,16 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketCrateUnpacker : MonoBehaviour
+public class RocketCrateUnpacker : Interaction
 {
+    public Transform player;
+    public float range;
     public Transform itemSpawnLocation;
+    public Transform boxDropLocation;
     public GameObject rocketAmmo;
     public GameObject healthPack;
+    public Animator animator;
+    bool closeEnough;
+
+    private void Awake()
+    {
+        closeEnough = Vector3.Distance(player.position, transform.position) < range;
+        isBusy = !closeEnough;
+    }
+
+    private void Update()
+    {
+        bool inRange = Vector3.Distance(player.position, transform.position) < range;
+        if (inRange != closeEnough)
+        {
+            closeEnough = inRange;
+            animator.SetBool("PlayerCloseEnough", closeEnough);
+            isBusy = !closeEnough;
+        }
+    }
+
+    public override void Interact(Pickup pickup)
+    {
+        if(pickup.carriedObjects.Count > 0)
+        {
+            pickup.DropObject(boxDropLocation.position, boxDropLocation.rotation);
+        }
+        else
+        {
+            pickup.exception.FlashText(GetException(0), 3f);
+        }
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        Box box = other.gameObject.GetComponent<Box>();
-        if(box != null)
+        Box box = other.GetComponent<Box>();
+        if (box != null)
         {
             switch (box.i_am)
             {
@@ -21,14 +56,16 @@ public class RocketCrateUnpacker : MonoBehaviour
                     break;
                 case "Health":
                     SpawnHealth();
+                    Destroy(box.gameObject);
                     break;
                 default:
-                    Destroy(gameObject);
+                    Destroy(box.gameObject);
                     break;
             }
         }
-        
     }
+            
+
     private void SpawnRocketAmmo()
     {
         GameObject ammo = Instantiate(rocketAmmo);

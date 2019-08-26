@@ -152,19 +152,27 @@ public class Box : MonoBehaviour
                 {
                     for (int k = 0; k < neighbor_game_objects.Length; ++k)
                     {
-                        //Neighbor exists
-                        Box neighbor = neighbor_game_objects[k].GetComponent<Box>();
-                        if (!neighbor.isBeingChecked && neighbor.groupId == groupId)
+                        //Neighbors exist
+                        if (neighbor_game_objects[k] != null)
                         {
-                            //Neighbor is of the same group
-                            //Check if neighbor is close enough
-                            if (GetDistanceToNeighbor(neighbor) < distanceCheck)
+                            Box neighbor = neighbor_game_objects[k].GetComponent<Box>();
+                            if (!neighbor.isBeingChecked && neighbor.groupId == groupId)
                             {
-                                //neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
-                                //wasNeighborChecked[j] = true;
-                                neighbor.GetMatchingNeighborsHelper(matching_neigbors);
+                                //Neighbor is of the same group
+                                //Check if neighbor is close enough
+                                if (GetDistanceToNeighbor(neighbor) < distanceCheck)
+                                {
+                                    //neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
+                                    //wasNeighborChecked[j] = true;
+                                    neighbor.GetMatchingNeighborsHelper(matching_neigbors);
+                                }
                             }
                         }
+                        else
+                        {
+                            _BoxCoordDictionary.Remove(coords[i] + neighborLocalCoords[j], neighbor_game_objects[k]);
+                        }
+                        
                     }
                 }
 
@@ -200,22 +208,31 @@ public class Box : MonoBehaviour
                 {
                     for (int k = 0; k < neighbor_game_objects.Length; ++k)
                     {
-                        //Neighbor exists
-                        Box neighbor = neighbor_game_objects[k].GetComponent<Box>();
-                        if (!neighbor.isBeingChecked && neighbor.groupId == groupId)
+                        if (neighbor_game_objects[k] != null)
                         {
-                            //Neighbor is of the same group
-                            //Check if neighbor is close enough
-                            if (GetDistanceToNeighbor(neighbor) < distanceCheck)
+
+                            //Neighbor exists
+                            Box neighbor = neighbor_game_objects[k].GetComponent<Box>();
+                            if (!neighbor.isBeingChecked && neighbor.groupId == groupId)
                             {
-                                //neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
-                                //wasNeighborChecked[j] = true;
-                                neighbor.GetMatchingNeighborsHelper(matching_neigbors);
+                                //Neighbor is of the same group
+                                //Check if neighbor is close enough
+                                if (GetDistanceToNeighbor(neighbor) < distanceCheck)
+                                {
+                                    //neighbor.wasNeighborChecked[neighborLocalCoords.Length - (j + 1)] = true;
+                                    //wasNeighborChecked[j] = true;
+                                    neighbor.GetMatchingNeighborsHelper(matching_neigbors);
+                                }
                             }
+
+                        }
+                        else
+                        {
+                            _BoxCoordDictionary.Remove(coords[i] + neighborLocalCoords[j], neighbor_game_objects[k]);
+
                         }
                     }
                 }
-
             }
         }
         matching_neigbors.Add(this);
@@ -312,6 +329,7 @@ public class Box : MonoBehaviour
         for (int i = 0; i < coords.Length; ++i)
         {
             _BoxCoordDictionary.Remove(coords[i], transform.gameObject);
+            _BoxCoordDictionary.Remove(prev_coord[i], transform.gameObject);
         }
     }
 
@@ -319,8 +337,6 @@ public class Box : MonoBehaviour
     {
         for (int i = 0; i < neighborCoordEvaluatorLocalTransforms.Length; ++i)
         {
-            if (_Grid == null)
-                Debug.Log("Halp");
             coords[i] = _Grid.WorldToCell(transform.position + (transform.rotation * neighborCoordEvaluatorLocalTransforms[i]));
             if (forceAdd == true || coords[i] != prev_coord[i])
             {

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   name: Shotgun
+  finiteAmmo: 1
   ammoCapacity: 45
   gun_sprite: {fileID: 21300000, guid: fafb2f1591745bc408b2f38f4f61c00b, type: 3}
   shootSound:
-  - {fileID: 8300000, guid: 0948c9a88d0ef5e4eaf4270f7f2c6175, type: 3}
+  - {fileID: 8300000, guid: 09a02f6eab60e2e4386c8663bd5838d7, type: 3}
   emptySound: []
   errorSound: []

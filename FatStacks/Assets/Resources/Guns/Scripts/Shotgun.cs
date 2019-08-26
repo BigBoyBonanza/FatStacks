@@ -32,6 +32,7 @@ public class Shotgun : Gun
             GameObject p = Instantiate(pellet, barrelExit.position, barrelExit.rotation);
             p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, pellets[i], spreadAngle);
             p.GetComponent<Rigidbody>().AddForce(p.transform.right * pelletFireVelocity);
+            p.GetComponent<Projectile>().ownerHealthManager = GetComponentInParent<HealthManager>();
         }
         
         ammo--;

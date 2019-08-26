@@ -6,12 +6,14 @@ public class Interaction : MonoBehaviour {
 
     public int current_prompt = 0;
     public PromptData _PromptData;
-    public bool isBusy = false;
-    public virtual void interact(Pickup pickup)
+    protected bool isBusy = false;
+
+    public virtual void Interact(Pickup pickup)
     {
         return;
     }
-    public virtual string getPrompt(int index = -1)
+
+    public virtual string GetPrompt(int index = -1)
     {
         if (index == -1)
         {
@@ -22,8 +24,13 @@ public class Interaction : MonoBehaviour {
             return _PromptData.prompts[index];
         }
     }
-    public virtual string get_exception(int index)
+
+    public virtual string GetException(int index)
     {
         return _PromptData.exceptions[index];
+    }
+    public virtual bool IsBusy()
+    {
+        return isBusy;
     }
 }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111d82f3abc8ac54fbeec9307edf19f6, type: 3}
+  m_Name: DavidDroneChatter
+  m_EditorClassIdentifier: 
+  Idle: []
+  Bumping:
+  - {fileID: 8300000, guid: ed3358e4f06d42a43971ca044857e812, type: 3}
+  - {fileID: 8300000, guid: 97bcd6ac0d3533941b424390c8acb22d, type: 3}
+  - {fileID: 8300000, guid: 2e32e58bba6ad8d4f8aad071c1426097, type: 3}
+  - {fileID: 8300000, guid: 6deb2fdbbbde51a44a54224603e71f62, type: 3}
+  - {fileID: 8300000, guid: a1047a5a6796d3b45ae121d06023abd5, type: 3}
+  - {fileID: 8300000, guid: b676159a1582f5242b1a4dcd6b2d985d, type: 3}
+  - {fileID: 8300000, guid: d5cf5010a887c5f458d4b2b2d9930e41, type: 3}
+  - {fileID: 8300000, guid: 3afa407eb27c9e84abd935cc124ddbcf, type: 3}
+  - {fileID: 8300000, guid: 074b289d61c262e4f991ad4e3dbdc700, type: 3}
+  Death: []
+  Pushing: []
