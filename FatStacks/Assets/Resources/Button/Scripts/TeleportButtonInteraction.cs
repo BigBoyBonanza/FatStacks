@@ -11,7 +11,7 @@ public class TeleportButtonInteraction : Interaction {
     {
         _PromptData.prompts[0] = "TELEPORT " + destinationName;
     }
-    public override void interact(Pickup pickup)
+    public override void Interact(Pickup pickup)
     {
         pickup.character.transform.position = destinationCoordinates.position;
         pickup.character.transform.localRotation = destinationCoordinates.localRotation;

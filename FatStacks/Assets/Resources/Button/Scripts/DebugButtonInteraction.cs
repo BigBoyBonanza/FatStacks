@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DebugButtonInteraction : Interaction {
 
-    public override void interact(Pickup pickup)
+    public override void Interact(Pickup pickup)
     {
         Debug.Log("Button Pressed");
-        pickup.exception.FlashText(get_exception(0), 5f);
+        pickup.exception.FlashText(GetException(0), 5f);
     }
 }

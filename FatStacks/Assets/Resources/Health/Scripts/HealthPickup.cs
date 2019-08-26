@@ -6,7 +6,7 @@ public class HealthPickup : Interaction
 {
     public int amount;
 
-    public override void interact(Pickup pickup)
+    public override void Interact(Pickup pickup)
     {
         //do nothing
     }
@@ -19,7 +19,7 @@ public class HealthPickup : Interaction
             HealthManager healthManager = other.gameObject.GetComponentInChildren<HealthManager>();
             if (healthManager.health == healthManager.maxHealth)
             {
-                pickup.exception.FlashText(get_exception(0), 3);
+                pickup.exception.FlashText(GetException(0), 3);
             }
             else
             {

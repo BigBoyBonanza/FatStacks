@@ -7,7 +7,7 @@ public class WeaponPickup : Interaction
     public ArsenalSystem.GunType gun;
     public int ammo;
 
-    public override void interact(Pickup pickup)
+    public override void Interact(Pickup pickup)
     {
         //do nothing
     }

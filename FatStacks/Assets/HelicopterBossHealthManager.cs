@@ -27,12 +27,12 @@ public class HelicopterBossHealthManager : HealthManager
         SetUpStage(0);
     }
 
-    public override int DealDamage(int amount)
+    public override int DealDamage(int amount, HealthManager attacker = null)
     {
-        base.DealDamage(amount);
+        base.DealDamage(amount,attacker);
         if (health < healthStage[stage])
         {
-            ++stage;
+            stage = Mathf.Min(stage + 1, healthStage.Length);
             SetUpStage(stage);
         }
         Helicopter.currState = HelicopterBossAI.State.flyingForwardAndAttacking;

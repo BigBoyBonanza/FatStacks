@@ -20,13 +20,16 @@ public class HealthManager : MonoBehaviour
         return 0;   
     }
     
-    public virtual int DealDamage(int amount)
+    public virtual int DealDamage(int amount, HealthManager attacker = null)
     {
-        health -= amount;
-        if (health < 0)
+        if (this != attacker || selfDamage)
         {
-            Kill();
-            return -health;
+            health -= amount;
+            if (health < 0)
+            {
+                Kill();
+                return -health;
+            }
         }
         return 0;
     }
@@ -38,7 +41,7 @@ public class HealthManager : MonoBehaviour
 
     public virtual void Kill()
     {
-        Debug.Log(gameObject + " killed.");
+        //Debug.Log(gameObject + " killed.");
         return;
     }
 }

@@ -557,10 +557,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelicopterBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 6669020014561860180, guid: 5cf2989ca2d2b5342bb0166954c7d875,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6669020014561860184, guid: 5cf2989ca2d2b5342bb0166954c7d875,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.15
+      value: 7.2
       objectReference: {fileID: 0}
     - target: {fileID: 6669020014561860184, guid: 5cf2989ca2d2b5342bb0166954c7d875,
         type: 3}
@@ -570,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 6669020014561860184, guid: 5cf2989ca2d2b5342bb0166954c7d875,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.85
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 6669020014561860184, guid: 5cf2989ca2d2b5342bb0166954c7d875,
         type: 3}
@@ -1456,7 +1461,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh265516
+  m_Name: pb_Mesh31306
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1694,10 +1699,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelicopterRed
       objectReference: {fileID: 0}
+    - target: {fileID: 875123362075239800, guid: ceeb2dc00040b3b41895f5dbfc25f712,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 875123362075239796, guid: ceeb2dc00040b3b41895f5dbfc25f712,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.75
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 875123362075239796, guid: ceeb2dc00040b3b41895f5dbfc25f712,
         type: 3}
@@ -1707,7 +1717,7 @@ PrefabInstance:
     - target: {fileID: 875123362075239796, guid: ceeb2dc00040b3b41895f5dbfc25f712,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.85
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 875123362075239796, guid: ceeb2dc00040b3b41895f5dbfc25f712,
         type: 3}
@@ -1895,8 +1905,24 @@ PrefabInstance:
     - target: {fileID: 4379522538880506447, guid: 363b4a6208132004988b8718df4357e2,
         type: 3}
       propertyPath: _frozen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3934283330295388313, guid: 363b4a6208132004988b8718df4357e2,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934283330295388313, guid: 363b4a6208132004988b8718df4357e2,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934283330295388313, guid: 363b4a6208132004988b8718df4357e2,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 1022016000767562990, guid: 3cf0a0a59f891e44b979fc25809f8134,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 363b4a6208132004988b8718df4357e2, type: 3}
 --- !u!43 &1946537066
@@ -1905,7 +1931,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh265530
+  m_Name: pb_Mesh31320
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2080,10 +2106,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelicopterGreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6404437579518345514, guid: d6dd538635502c74e9a3ac4dbceb55da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6404437579518345510, guid: d6dd538635502c74e9a3ac4dbceb55da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.15
+      value: 7.2
       objectReference: {fileID: 0}
     - target: {fileID: 6404437579518345510, guid: d6dd538635502c74e9a3ac4dbceb55da,
         type: 3}
@@ -2093,7 +2124,7 @@ PrefabInstance:
     - target: {fileID: 6404437579518345510, guid: d6dd538635502c74e9a3ac4dbceb55da,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.05
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6404437579518345510, guid: d6dd538635502c74e9a3ac4dbceb55da,
         type: 3}

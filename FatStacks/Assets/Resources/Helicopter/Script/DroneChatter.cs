@@ -9,7 +9,8 @@ public class DroneChatter : ScriptableObject
     public AudioClip[] Bumping;
     public AudioClip[] Death;
     public AudioClip[] Pushing;
-
+    private static int seed;
+    System.Random random = new System.Random(++seed);
     public enum ChatterCategory
     {
         idle,
@@ -20,8 +21,8 @@ public class DroneChatter : ScriptableObject
     public void PlayRandomClip(ChatterCategory category, AudioSource source)
     {
         AudioClip[] clips = GetAudioClips(category);
-        System.Random random = new System.Random();
-        source.PlayOneShot(clips[random.Next() % clips.Length]);
+        source.clip = clips[random.Next() % clips.Length];
+        source.Play();
 
     }
     public void PlayClip(ChatterCategory category, AudioSource source, int index)

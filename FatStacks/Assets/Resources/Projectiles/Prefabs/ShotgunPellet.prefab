@@ -122,5 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 5
-  damage: 2
+  damage: 1
   bounce: 0
+  ownerHealthManager: {fileID: 0}

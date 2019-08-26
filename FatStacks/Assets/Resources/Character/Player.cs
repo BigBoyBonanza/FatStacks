@@ -122,7 +122,8 @@ public class Player : MonoBehaviour
         else if (point > (transform.position.y + 0.8f))
         {
             Box obj = collision.gameObject.GetComponent<Box>();
-            if (obj != null)
+            Debug.Log(Vector3.Dot(collision.rigidbody.velocity.normalized, Vector3.down));
+            if (obj != null && obj.Frozen == false && Vector3.Dot(collision.rigidbody.velocity.normalized,Vector3.down) > 0.1f)
             {
                 //Possibly Crushed
                 int weight = obj.GetStackWeight();
