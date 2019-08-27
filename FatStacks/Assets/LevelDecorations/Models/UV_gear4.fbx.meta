@@ -5,6 +5,11 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn2
+    second: {fileID: 2100000, guid: 6bc0a1fc276a8694a91b82617128faf3, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Gear1
