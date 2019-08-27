@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool doReadFromDataTracker = true;
     public HealthManager healthManager;
     private float DesiredSpeed = 10.0f;
     [HideInInspector]
@@ -62,6 +63,12 @@ public class Player : MonoBehaviour
         if (firstSpawnInScene)
             LatestScene = SceneManager.GetActiveScene();
         firstSpawnInScene = LatestScene != SceneManager.GetActiveScene();
+        if (doReadFromDataTracker && FindObjectOfType<PlayerDataTracker>() != null)
+        {
+            Player me = this;
+            PlayerDataTracker.i.ReadTo(ref me);
+        }
+            
     }
     private void OnCollisionEnter(Collision collision)
     {

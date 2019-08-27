@@ -2251,6 +2251,41 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.data[0].isInArsenal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.data[1].isInArsenal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.data[2].isInArsenal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.data[3].isInArsenal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: arsenal.Array.data[4].isInArsenal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214915382269138, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: startingGun
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114260012453695698, guid: c620bf70a29f4b641a313ec6f0ac7af5,
+        type: 3}
+      propertyPath: doReadFromDataTracker
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c620bf70a29f4b641a313ec6f0ac7af5, type: 3}
 --- !u!1001 &1094476293

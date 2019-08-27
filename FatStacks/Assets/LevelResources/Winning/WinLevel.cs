@@ -15,6 +15,10 @@ public class WinLevel : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Player player = other.gameObject.GetComponent<Player>();
+        if (FindObjectOfType<PlayerDataTracker>() != null)
+        {
+            PlayerDataTracker.i.WriteFrom(player);
+        }
         GameObject winPlayer = Instantiate(player.WinCharacter, player.transform.position, new Quaternion(player._Camera.transform.rotation.x, player.transform.rotation.y, player.transform.rotation.z, player.transform.rotation.w));
         winPlayer.GetComponentInChildren<WinScreenScripts>().scene = nextLevel;
         Cursor.lockState = CursorLockMode.None;
