@@ -21,6 +21,12 @@ PrefabInstance:
       propertyPath: resourcePath
       value: Box/Prefabs/WoodCrate/YellowCrate
       objectReference: {fileID: 0}
+    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: inventoryIcon
+      value: 
+      objectReference: {fileID: 2545969996188720734, guid: e969c50685523a14982cd92686403f2e,
+        type: 3}
     - target: {fileID: 23588244874325878, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

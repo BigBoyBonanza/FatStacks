@@ -16,6 +16,12 @@ PrefabInstance:
       propertyPath: resourcePath
       value: Box/Prefabs/WoodCrate/BlueCrate
       objectReference: {fileID: 0}
+    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: inventoryIcon
+      value: 
+      objectReference: {fileID: 4844848367154843538, guid: 27dd6347dcab08c47a9e597a02e2671b,
+        type: 3}
     - target: {fileID: 4360463401495616, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

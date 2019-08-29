@@ -282,7 +282,7 @@ public class Pickup : MonoBehaviour
     {
         //carriedItem = obj;
         carriedObjects.Push(lift);
-        boxInventoryDisplay.AddBox(lift.groupId);
+        boxInventoryDisplay.AddBox(lift.inventoryIcon);
         SetCarriedItemMeshMaterialAndRigidbody(lift);
         itemRigidbody.velocity = Vector3.zero;
         // Debug.Log("Object carried: " + carried_item.name);

@@ -6,6 +6,7 @@ using UnityEditor;
 public class Box : MonoBehaviour
 {
     public BoxData boxData;
+    public GameObject inventoryIcon;
 
     [HideInInspector]
     public Grid _Grid;

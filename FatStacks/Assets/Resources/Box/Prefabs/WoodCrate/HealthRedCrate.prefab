@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxData: {fileID: 11400000, guid: 00176301d7b179d4f96b21fa6f470e1b, type: 2}
+  inventoryIcon: {fileID: 6073315353852522698, guid: f6d2416269ec2f544be6fe0dc251897e,
+    type: 3}
   _Grid: {fileID: 0}
   _BoxCoordDictionary: {fileID: 0}
   i_am: Health

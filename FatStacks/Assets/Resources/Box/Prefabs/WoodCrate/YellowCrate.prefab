@@ -11,6 +11,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowCrate
       objectReference: {fileID: 0}
+    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: groupId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: inventoryIcon
+      value: 
+      objectReference: {fileID: 2937075839641930921, guid: a86ae98f72f0cf84fa2ea1e1c5712865,
+        type: 3}
+    - target: {fileID: 23588244874325878, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bc47b971dfacfc408017ffbe07e4e1e, type: 2}
     - target: {fileID: 4360463401495616, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54,16 +70,6 @@ PrefabInstance:
     - target: {fileID: 4360463401495616, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23588244874325878, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2bc47b971dfacfc408017ffbe07e4e1e, type: 2}
-    - target: {fileID: 114846787503128036, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78,
-        type: 3}
-      propertyPath: groupId
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb9b5a0230aaba4cbc0f53901cf6d78, type: 3}

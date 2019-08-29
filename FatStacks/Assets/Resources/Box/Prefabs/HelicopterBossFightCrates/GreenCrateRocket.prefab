@@ -17,6 +17,12 @@ PrefabInstance:
       propertyPath: i_am
       value: RocketAmmo
       objectReference: {fileID: 0}
+    - target: {fileID: 5783620208725268655, guid: b019c286037ab9b47bf8520ffb7ada26,
+        type: 3}
+      propertyPath: inventoryIcon
+      value: 
+      objectReference: {fileID: 6190568225191210225, guid: 50f3bb578f8723a44b22b84bd072edc2,
+        type: 3}
     - target: {fileID: 5875018309874420285, guid: b019c286037ab9b47bf8520ffb7ada26,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCrateRocket
       objectReference: {fileID: 0}
-    - target: {fileID: 7559748147978230218, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
-        type: 3}
-      propertyPath: i_am
-      value: RocketAmmo
-      objectReference: {fileID: 0}
     - target: {fileID: 7601768006343264366, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,6 +67,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7559748147978230218, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
+        type: 3}
+      propertyPath: i_am
+      value: RocketAmmo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559748147978230218, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
+        type: 3}
+      propertyPath: inventoryIcon
+      value: 
+      objectReference: {fileID: 431047518221711579, guid: 0597d3d59cdae6c4eb64b1e6fab28477,
+        type: 3}
     - target: {fileID: 7575713225522858840, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

@@ -8,22 +8,14 @@ public class BoxInventoryDisplay : MonoBehaviour
     public Player player;
     public float spriteHeight;
     public LinkedList<GameObject> inventory = new LinkedList<GameObject>();
-    private static readonly string[] resourcePaths = new string[4]
-        {
-        "Character/ArsenalSystem/BoxInventory/Prefabs/BlueBoxIcon",
-        "Character/ArsenalSystem/BoxInventory/Prefabs/RedBoxIcon",
-        "Character/ArsenalSystem/BoxInventory/Prefabs/GreenBoxIcon",
-        "Character/ArsenalSystem/BoxInventory/Prefabs/YellowBoxIcon",
-        };
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public void AddBox(Box.GroupIdNames type)
+    public void AddBox(GameObject obj)
     {
-        GameObject obj = (GameObject)Resources.Load(resourcePaths[(int)type]);
         inventory.AddLast(Instantiate(obj, transform));
         ArrangeBoxes();
     }
