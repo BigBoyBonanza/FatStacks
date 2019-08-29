@@ -30,12 +30,13 @@ public class HelicopterBossHealthManager : HealthManager
     public override int DealDamage(int amount, HealthManager attacker = null)
     {
         base.DealDamage(amount,attacker);
-        if (health < healthStage[stage])
+        if (health < healthStage[stage] && stage + 1 < stages.Length)
         {
             stage = Mathf.Min(stage + 1, healthStage.Length);
             SetUpStage(stage);
         }
-        Helicopter.currState = HelicopterBossAI.State.flyingForwardAndAttacking;
+        if(Helicopter.currState != HelicopterBossAI.State.dying)
+            Helicopter.currState = HelicopterBossAI.State.flyingForwardAndAttacking;
         if (Helicopter.IsPlayerFacingHelicopter(true, 0, false))
         {
             Helicopter.StartCoroutine("Turn180Degrees", 1f);
@@ -55,6 +56,8 @@ public class HelicopterBossHealthManager : HealthManager
 
     public override void Kill()
     {
-        Destroy(gameObject);
+        Helicopter.currState = HelicopterBossAI.State.dying;
+        Helicopter.Sparks.SetActive(true);
+        Helicopter.animator.SetBool("Death", true);
     }
 }

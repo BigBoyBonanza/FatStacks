@@ -21,12 +21,15 @@ public class RocketCrateUnpacker : Interaction
 
     private void Update()
     {
-        bool inRange = Vector3.Distance(player.position, transform.position) < range;
-        if (inRange != closeEnough)
+        if(player != null)
         {
-            closeEnough = inRange;
-            animator.SetBool("PlayerCloseEnough", closeEnough);
-            isBusy = !closeEnough;
+            bool inRange = Vector3.Distance(player.position, transform.position) < range;
+            if (inRange != closeEnough)
+            {
+                closeEnough = inRange;
+                animator.SetBool("PlayerCloseEnough", closeEnough);
+                isBusy = !closeEnough;
+            }
         }
     }
 

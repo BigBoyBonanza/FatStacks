@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HelicopterBossAI : MonoBehaviour
 {
@@ -10,8 +11,13 @@ public class HelicopterBossAI : MonoBehaviour
     public float rangeToAlertFromBehind;
     public float rangeToAlertFromFront;
     public float rangeToLoseHelicopter;
+    public float deathFallSpeed;
+    public float deathSlowDownRate;
     public Transform Helicopter;
     public Transform Player;
+    public GameObject Sparks;
+    public GameObject Explosion;
+    public Animator animator;
     Coroutine TurnCoroutine;
     bool canTurn = true;
     public Bazooka[] bazookas;
@@ -29,6 +35,7 @@ public class HelicopterBossAI : MonoBehaviour
         inActive,
         flyingForward,
         flyingForwardAndAttacking,
+        dying,
     };
 
     private void Start()
@@ -86,6 +93,11 @@ public class HelicopterBossAI : MonoBehaviour
                 {
                     currState = State.flyingForward;
                 }
+                break;
+            case State.dying:
+                transform.Rotate((moveClockwise ? Vector3.up : Vector3.down) * speed * Time.deltaTime);
+                rotSpeed = Mathf.Max(0, Mathf.Abs(rotSpeed - (deathSlowDownRate * Time.deltaTime))) * Mathf.Sign(rotSpeed);
+                transform.Translate(Vector3.down * (deathFallSpeed * Time.deltaTime));
                 break;
         }
     }
@@ -145,5 +157,25 @@ public class HelicopterBossAI : MonoBehaviour
         Vector3 b = (Helicopter.transform.position - Player.transform.position).normalized;
         float dot = Vector3.Dot(a, b);
         return (back && dot < -threshold) || (!back && dot > threshold);
+    }
+
+    public void BlowUp()
+    {
+        Instantiate(Explosion, Helicopter.position, Helicopter.rotation);
+        foreach (MeshRenderer meshRenderer in Helicopter.GetComponentsInChildren<MeshRenderer>()) {
+            meshRenderer.enabled = false;
+        } ;
+        foreach (Collider collider in Helicopter.GetComponentsInChildren<Collider>())
+        {
+            collider.enabled = false;
+        };
+        StopAllCoroutines();
+        StartCoroutine("WinGame");
+    }
+
+    public IEnumerator WinGame()
+    {
+        yield return new WaitForSeconds(8f);
+        SceneManager.LoadScene("Credits");
     }
 }

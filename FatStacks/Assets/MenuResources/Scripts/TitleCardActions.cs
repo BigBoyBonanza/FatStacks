@@ -6,8 +6,8 @@ using UnityEngine;
 public class TitleCardActions : MonoBehaviour
 {
     public GameObject MainMenu;
-    public Text InMemory;
-    public Text DinoDecaf;
+    public Image InMemory;
+    public Image DinoDecaf;
     public Image Logo;
 
     private IEnumerator Start()
