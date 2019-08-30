@@ -16,7 +16,7 @@ public class ConveyerBeltMalfunction : MonoBehaviour
         if (notTriggered)
         {
             crash.Play();
-            malfunctioning.Play();
+            //malfunctioning.Play();
             foreach (BoxSpawner spawner in spawners)
             {
                 spawner.TurnSpawnerOn(true);

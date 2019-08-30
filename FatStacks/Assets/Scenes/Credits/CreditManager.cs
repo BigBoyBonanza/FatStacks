@@ -32,5 +32,7 @@ public class CreditManager : MonoBehaviour
             rectTransform.localPosition += Vector3.up * speed * Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        yield return new WaitForSeconds(5f);
+        Application.Quit();
     }
 }

@@ -43,6 +43,7 @@ public class MusicManager : MonoBehaviour
             {
                 source.clip = nextTrack.cut;
                 looped = false;
+                currTrack = nextTrack;
                 nextTrack = null;
             }
             else

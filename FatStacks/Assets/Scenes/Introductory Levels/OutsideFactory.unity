@@ -5893,51 +5893,6 @@ PrefabInstance:
       propertyPath: initSpeed
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8196797709954204785, guid: 48cf24d50e910f9469e60610a9823555,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -6001,6 +5956,51 @@ PrefabInstance:
     - target: {fileID: 8196797709954204785, guid: 48cf24d50e910f9469e60610a9823555,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686745807889905287, guid: 48cf24d50e910f9469e60610a9823555,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 908573366108126791, guid: 48cf24d50e910f9469e60610a9823555,

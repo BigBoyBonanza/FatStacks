@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6bb402a1d6d1a4bbb19a469d1b76cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLevel: HelicopterBossFight
+  startLevel: OutsideFactory
   settingsMenu: {fileID: 921187948}
   theme: {fileID: 11400000, guid: 6cb05d4ad247c254b9829274f7d418de, type: 2}
 --- !u!1 &680367408
