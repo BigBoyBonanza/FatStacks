@@ -66,6 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 553098543900394720}
+  - component: {fileID: 385422603680302597}
   m_Layer: 0
   m_Name: HelicopterWrapper
   m_TagString: Untagged
@@ -88,30 +89,30 @@ Transform:
   m_Father: {fileID: 949574146551238009}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2512808842401065071
+--- !u!82 &385422603680302597
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3050598808251701288}
+  m_GameObject: {fileID: 1631339897348178060}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b035a5e8643fd534990686d0f6ef50db, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 33.86505
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -144,7 +145,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.8
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -245,11 +246,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveClockwise: 0
-  speed: 5
-  rotSpeed: 0
-  rangeToAlertFromBehind: 0
-  rangeToAlertFromFront: 0
-  rangeToLoseHelicopter: 0
+  speed: 10
+  rotSpeed: 15
+  rangeToAlertFromBehind: 10
+  rangeToAlertFromFront: 15
+  rangeToLoseHelicopter: 18
   deathFallSpeed: 1
   deathSlowDownRate: 5
   Helicopter: {fileID: 553098543900394720}
@@ -262,9 +263,9 @@ MonoBehaviour:
   - {fileID: 4386747748221606685}
   - {fileID: 5993126566361893010}
   fireRate: 1
-  fireCone: 0
-  frontAlertCone: 0
-  backAlertCone: 0
+  fireCone: 0.915
+  frontAlertCone: 0.6
+  backAlertCone: 0.8
   currState: 1
 --- !u!114 &2682999154118711675
 MonoBehaviour:
@@ -282,23 +283,26 @@ MonoBehaviour:
   health: 100
   clampHealthToMax: 1
   selfDamage: 0
-  healthStage: 4b0000003200000019000000
+  healthStage: 4b000000320000000a000000
   stages:
   - helicopterSpeed: 10
-    helicopterRotSpeed: 0
+    helicopterRotSpeed: 20
     helicopterFireRate: 1
     boxSpawnRate: 0.5
     rocketBoxSpawnRate: 2
+    maxRocketBox: 3
+  - helicopterSpeed: 15
+    helicopterRotSpeed: 25
+    helicopterFireRate: 0.9
+    boxSpawnRate: 0.45
+    rocketBoxSpawnRate: 3
+    maxRocketBox: 5
   - helicopterSpeed: 20
-    helicopterRotSpeed: 0
-    helicopterFireRate: 0.5
+    helicopterRotSpeed: 25
+    helicopterFireRate: 0.8
     boxSpawnRate: 0.4
-    rocketBoxSpawnRate: 2
-  - helicopterSpeed: 30
-    helicopterRotSpeed: 0
-    helicopterFireRate: 0.4
-    boxSpawnRate: 0.3
-    rocketBoxSpawnRate: 2
+    rocketBoxSpawnRate: 4
+    maxRocketBox: 7
   Helicopter: {fileID: 6156045939163995938}
   boxSpawner: {fileID: 0}
   rocketBoxSpawner: {fileID: 0}
@@ -537,6 +541,56 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778159356554682222, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outWeight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e573c70ffcdf44f8f5376d91195fc0, type: 3}
