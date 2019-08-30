@@ -11,7 +11,7 @@ public class HelicopterBossHealthManager : HealthManager
     public HelicopterBossStage[] stages = new HelicopterBossStage[3];
     public HelicopterBossAI Helicopter;
     public BoxSpawner boxSpawner;
-    public BoxSpawner rocketBoxSpawner;
+    public RocketBoxSpawner rocketBoxSpawner;
     [System.Serializable]
     public struct HelicopterBossStage
     {
@@ -20,6 +20,7 @@ public class HelicopterBossHealthManager : HealthManager
         public float helicopterFireRate;
         public float boxSpawnRate;
         public float rocketBoxSpawnRate;
+        public int maxRocketBox;
     };
 
     private void Start()
@@ -52,6 +53,7 @@ public class HelicopterBossHealthManager : HealthManager
         Helicopter.speed = stage.helicopterSpeed;
         boxSpawner.minInterval = stage.boxSpawnRate;
         rocketBoxSpawner.minInterval = stage.rocketBoxSpawnRate;
+        rocketBoxSpawner.maxRocketCrates = stage.maxRocketBox;
     }
 
     public override void Kill()

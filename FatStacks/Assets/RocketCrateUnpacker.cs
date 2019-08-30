@@ -66,6 +66,10 @@ public class RocketCrateUnpacker : Interaction
                     break;
             }
         }
+        if (other.GetComponent<Player>() != null)
+        {
+            other.GetComponent<HealthManager>().Kill();
+        }
     }
             
 
