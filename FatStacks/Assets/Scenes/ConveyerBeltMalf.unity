@@ -1199,6 +1199,11 @@ PrefabInstance:
       propertyPath: isTooHeavy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783620208725268655, guid: b019c286037ab9b47bf8520ffb7ada26,
+        type: 3}
+      propertyPath: _frozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5875018309874420285, guid: b019c286037ab9b47bf8520ffb7ada26,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -1677,6 +1682,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 554604594}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &223383510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f02f59c4b5fcf2d4198c18c0fcbb7e70,
+    type: 3}
+  m_PrefabInstance: {fileID: 483030272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &223383511
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223383510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -7348864981835258854, guid: 292bf4b9342224b4e91a3a165bab818c, type: 3}
 --- !u!1001 &234808995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3563,6 +3588,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cf2989ca2d2b5342bb0166954c7d875, type: 3}
+--- !u!1 &565025393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f02f59c4b5fcf2d4198c18c0fcbb7e70,
+    type: 3}
+  m_PrefabInstance: {fileID: 554604594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &565025394
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565025393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -7348864981835258854, guid: 292bf4b9342224b4e91a3a165bab818c, type: 3}
 --- !u!1001 &565811785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4877,6 +4922,11 @@ PrefabInstance:
       propertyPath: isTooHeavy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783620208725268655, guid: b019c286037ab9b47bf8520ffb7ada26,
+        type: 3}
+      propertyPath: _frozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5875018309874420285, guid: b019c286037ab9b47bf8520ffb7ada26,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -5780,6 +5830,11 @@ PrefabInstance:
     - target: {fileID: 7559748147978230218, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
         type: 3}
       propertyPath: isTooHeavy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559748147978230218, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
+        type: 3}
+      propertyPath: _frozen
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7575713225522858840, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
@@ -6766,6 +6821,11 @@ PrefabInstance:
       propertyPath: isTooHeavy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 649769048124268493, guid: 9db34598a9bc8f24e9d24f031948f577,
+        type: 3}
+      propertyPath: _frozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 634928833515064671, guid: 9db34598a9bc8f24e9d24f031948f577,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -7464,6 +7524,11 @@ PrefabInstance:
       propertyPath: isTooHeavy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7559748147978230218, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
+        type: 3}
+      propertyPath: _frozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7575713225522858840, guid: f2d3e006b1afaf74d871dd6f5ccb000c,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -7726,6 +7791,11 @@ PrefabInstance:
     - target: {fileID: 649769048124268493, guid: 9db34598a9bc8f24e9d24f031948f577,
         type: 3}
       propertyPath: isTooHeavy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 649769048124268493, guid: 9db34598a9bc8f24e9d24f031948f577,
+        type: 3}
+      propertyPath: _frozen
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 634928833515064671, guid: 9db34598a9bc8f24e9d24f031948f577,
