@@ -12,14 +12,12 @@ public class MusicManager : MonoBehaviour
     MusicTrack nextTrack = null;
 
     private AudioSource source;
-    private AudioSource tranSource;
 
     // Start is called before the first frame update
     void Start()
     {
         AudioSource[] sources = GetComponents<AudioSource>();
         source = sources[0];
-        tranSource = sources[1];
         if (!i)
         {
             i = this;
@@ -69,44 +67,14 @@ public class MusicManager : MonoBehaviour
     {
         if (immediate)
         {
-            tranSource.clip = source.clip;
-            tranSource.volume = source.volume;
-            tranSource.time = source.time;
-            source.clip = track.cut;
-            source.time = tranSource.time;
-            source.volume = 0;
-            StartCoroutine(FadeOut(tranSource, 0.1f));
-            StartCoroutine(FadeIn(source, 0.1f,tranSource.volume));
+            float startTime = source.time;
+            currTrack = track;
+            source.clip = track.overlap;
+            source.time = startTime;
         }
         else
         {
             nextTrack = track;
         }
-    }
-
-    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime, float volume)
-    {
-        float startVolume = 0.01f;
-        while (audioSource.volume < volume)
-        {
-            audioSource.volume += startVolume * Time.deltaTime / FadeTime;
-
-            yield return null;
-        }
-    }
-
-    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
-    {
-        float startVolume = audioSource.volume;
-
-        while (audioSource.volume > 0)
-        {
-            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
-
-            yield return null;
-        }
-
-        audioSource.Stop();
-        audioSource.volume = startVolume;
     }
 }
