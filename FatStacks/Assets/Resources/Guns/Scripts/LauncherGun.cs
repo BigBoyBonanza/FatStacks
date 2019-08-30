@@ -12,6 +12,7 @@ public class LauncherGun : Gun
         Box box = hit_info.transform?.GetComponent<Box>();
         if (object_found && box != null)
         {
+            int tally = 1;
             while(true)
             {
                 Rigidbody rigidbody = box.GetComponent<Rigidbody>();
@@ -20,12 +21,21 @@ public class LauncherGun : Gun
                 Box nextBox = box.GetBoxOnTopOfMe();
                 if(box != nextBox && nextBox != null)
                 {
+                    tally += 1;
                     box = nextBox;
                 }
                 else
                 {
                     break;
                 }
+            }
+            if(tally == 1)
+            {
+                playFireSound(0);
+            }
+            else
+            {
+                playFireSound(1);
             }
             //ammo -= 1;
         }

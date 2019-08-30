@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxData: {fileID: 11400000, guid: 7888be239b59ccf4e87c31f8e8d9e7f2, type: 2}
+  inventoryIcon: {fileID: 0}
   _Grid: {fileID: 0}
   _BoxCoordDictionary: {fileID: 0}
   i_am: Helicopter
@@ -153,10 +154,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0
+  MinDistance: 1
   MaxDistance: 12.352417
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -189,7 +190,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.8
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

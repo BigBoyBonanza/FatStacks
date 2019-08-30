@@ -12,6 +12,7 @@ public class FreezeGun : Gun
         Box box = hit_info.transform?.GetComponent<Box>();
         if (object_found && box != null)
         {
+            playFireSound(0);
             box.Frozen = !box.Frozen;
             //ammo -= 1;
         }
