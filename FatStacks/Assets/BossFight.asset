@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa309c9e009c4184d8016ee2f2fba608, type: 3}
+  m_Name: BossFight
+  m_EditorClassIdentifier: 
+  cut: {fileID: 8300000, guid: af5f34df889b273418d286ae8f8db620, type: 3}
+  overlap: {fileID: 8300000, guid: a96d69c576966f844a29d4d81699430d, type: 3}
+  tail: {fileID: 8300000, guid: 0d05cfd53c778ec41bf981e10cae343f, type: 3}

@@ -8,6 +8,7 @@ public class StartBossFightTrigger : MonoBehaviour
     public BoxSpawner boxSpawner;
     public BoxSpawner rocketBoxSpawner;
     public GameObject Wall;
+    public MusicTrack bossFightMusic;
 
     public bool notTriggered = true;
 
@@ -20,6 +21,7 @@ public class StartBossFightTrigger : MonoBehaviour
             rocketBoxSpawner.TurnSpawnerOn();
             Wall.SetActive(true);
             notTriggered = false;
+            MusicManager.i.SwitchTrack(bossFightMusic, true);
         }
 
         //Destroy(gameObject);

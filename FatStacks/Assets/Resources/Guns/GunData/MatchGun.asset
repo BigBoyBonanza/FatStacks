@@ -17,8 +17,7 @@ MonoBehaviour:
   ammoCapacity: 45
   gun_sprite: {fileID: 21300000, guid: 5df71be3c73ce52478476438281e2e5c, type: 3}
   shootSound:
-  - {fileID: 8300000, guid: a1319ece7dd61b54caa72f11f57b0407, type: 3}
-  - {fileID: 8300000, guid: 1d13807e528501d4fb1e33ab26c8932f, type: 3}
+  - {fileID: 8300000, guid: d56453eeb4b16324ba98b19577fd0cd0, type: 3}
   emptySound:
   - {fileID: 8300000, guid: 69448b22e17e8b44eb0b2271ac0be7bb, type: 3}
   errorSound:

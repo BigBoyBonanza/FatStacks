@@ -1269,8 +1269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6bb402a1d6d1a4bbb19a469d1b76cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLevel: OutsideFactory
+  startLevel: HelicopterBossFight
   settingsMenu: {fileID: 921187948}
+  theme: {fileID: 11400000, guid: 6cb05d4ad247c254b9829274f7d418de, type: 2}
 --- !u!1 &680367408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2495,7 @@ MonoBehaviour:
   InMemory: {fileID: 860411447}
   DinoDecaf: {fileID: 1147049092}
   Logo: {fileID: 165829939}
+  drum: {fileID: 11400000, guid: 527b42a363fe107469f6451c6d8c655a, type: 2}
 --- !u!114 &1234445005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3364,3 +3366,72 @@ RectTransform:
   m_AnchoredPosition: {x: -5.5, y: 0}
   m_SizeDelta: {x: -21, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &7272608280039722177
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7584767487365455561, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867438704241859878, guid: 718f79bb7b1ab9a4996db03ad02d162e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 718f79bb7b1ab9a4996db03ad02d162e, type: 3}

@@ -9,6 +9,7 @@ public class TitleCardActions : MonoBehaviour
     public Image InMemory;
     public Image DinoDecaf;
     public Image Logo;
+    public MusicTrack drum;
 
     private IEnumerator Start()
     {
@@ -24,6 +25,7 @@ public class TitleCardActions : MonoBehaviour
         yield return new WaitForSeconds(3f);
         yield return Fade(new CanvasRenderer[] { Logo.canvasRenderer, DinoDecaf.canvasRenderer }, 1f, false);
 
+        MusicManager.i.PlayTrack(drum);
         MainMenu.SetActive(true);
         gameObject.SetActive(false);
     }

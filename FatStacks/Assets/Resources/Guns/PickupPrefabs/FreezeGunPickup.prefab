@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FreezeGunPickup
       objectReference: {fileID: 0}
+    - target: {fileID: 6378777854899151401, guid: 4365ec882d349b5469a5cd550437bff0,
+        type: 3}
+      propertyPath: gun
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8748738346529558991, guid: 4365ec882d349b5469a5cd550437bff0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,16 +72,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6378777854899151401, guid: 4365ec882d349b5469a5cd550437bff0,
+    - target: {fileID: 1269816080111875826, guid: 4365ec882d349b5469a5cd550437bff0,
         type: 3}
-      propertyPath: gun
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1269816080111875826, guid: 4365ec882d349b5469a5cd550437bff0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269816080111875826, guid: 4365ec882d349b5469a5cd550437bff0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6827837494664095584, guid: 4365ec882d349b5469a5cd550437bff0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f9249563a81ddeb4887b5b1f14cd0e92, type: 2}
     - target: {fileID: 8594210771444912776, guid: 4365ec882d349b5469a5cd550437bff0,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -4882780386776197746, guid: 5218fa7866e8473448f5dfc9c446361f,
+      objectReference: {fileID: -4882780386776197746, guid: 4ea55a1b973a9a943a3d853783e956cd,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4365ec882d349b5469a5cd550437bff0, type: 3}

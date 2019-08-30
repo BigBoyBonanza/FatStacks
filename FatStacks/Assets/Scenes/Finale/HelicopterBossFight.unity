@@ -8322,6 +8322,7 @@ MonoBehaviour:
   boxSpawner: {fileID: 1150187635}
   rocketBoxSpawner: {fileID: 564878952}
   Wall: {fileID: 468959238}
+  bossFightMusic: {fileID: 11400000, guid: be0af2c8cbdc00341b324e0e98f023d6, type: 2}
   notTriggered: 1
 --- !u!1 &251204684 stripped
 GameObject:
@@ -20321,6 +20322,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2617112918445728814, guid: e2e573c70ffcdf44f8f5376d91195fc0,
+        type: 3}
+      propertyPath: m_Name
+      value: HelicopterDeath
+      objectReference: {fileID: 0}
     - target: {fileID: 2061293850629698461, guid: e2e573c70ffcdf44f8f5376d91195fc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20375,11 +20381,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2617112918445728814, guid: e2e573c70ffcdf44f8f5376d91195fc0,
-        type: 3}
-      propertyPath: m_Name
-      value: HelicopterDeath
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e573c70ffcdf44f8f5376d91195fc0, type: 3}
