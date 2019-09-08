@@ -185,19 +185,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &7679708068975082031
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3050598808251701288}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.26, y: 0.38, z: 1.1359195}
-  m_Center: {x: -0.00000023841858, y: 0, z: 0}
 --- !u!82 &1671719000463180345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -294,6 +281,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &7679708068975082031
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3050598808251701288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26, y: 0.38, z: 1.1359195}
+  m_Center: {x: -0.00000023841858, y: 0, z: 0}
 --- !u!1 &4254339321612789403
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,13 +386,13 @@ MonoBehaviour:
     helicopterFireRate: 1
     boxSpawnRate: 0.5
     rocketBoxSpawnRate: 2
-    maxRocketBox: 3
+    maxRocketBox: 2
   - helicopterSpeed: 15
     helicopterRotSpeed: 25
     helicopterFireRate: 0.9
     boxSpawnRate: 0.45
     rocketBoxSpawnRate: 3
-    maxRocketBox: 5
+    maxRocketBox: 4
   - helicopterSpeed: 20
     helicopterRotSpeed: 25
     helicopterFireRate: 0.8

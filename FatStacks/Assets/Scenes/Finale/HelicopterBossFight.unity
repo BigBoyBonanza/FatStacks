@@ -17044,6 +17044,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2102788718}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: MaxDistance
+      value: 33.779938
+      objectReference: {fileID: 0}
     - target: {fileID: 4254339321612789403, guid: 08c1324c037788942bb1420de967178f,
         type: 3}
       propertyPath: m_Name
@@ -17208,10 +17212,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: MaxDistance
-      value: 33.779938
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08c1324c037788942bb1420de967178f, type: 3}
